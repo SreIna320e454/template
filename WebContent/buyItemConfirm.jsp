@@ -18,48 +18,10 @@
 	<title>BuyItemConfirm画面</title>
 	<style type="text/css">
 	/* ========TAG LAYOUT======== */
-		body {
-		   margin:0;
-		   padding:0;
-		   line-height:1.6;
-		   letter-spacing:1px;
-		   font-family:Verdana, Helvetica, sans-serif;
-		   font-size:12px;
-		   color:#333;
-		   background:#fff;
-		}
-
-		table {
-			text-align:center;
-			margin:0 auto;
-		}
-
-	/* ========ID LAYOUT======== */
-		#top {
-		   width:780px;
-		   margin:30px auto;
-		   border:1px solid #333;
-		}
-
-		#header {
-		   width: 100%;
-		   height: 80px;
-		   background-color: black;
-		}
-
-		#main {
-		   width: 100%;
-		   height: 500px;
-		   text-align: center;
-		}
-
-		#footer {
-			width: 100%;
-			height: 80px;
-			background-color: black;
-			clear:both;
-		}
 	</style>
+	<link rel="stylesheet" type="text/css" href="./css/header.css">
+	<link rel="stylesheet" type="text/css" href="./css/buyItemConfirm.css">
+	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
 	<script type="text/javascript">
 		function submitAction(url) {
 			$('form').attr('action', url);
@@ -69,9 +31,14 @@
 </head>
 <body>
 	<div id="header">
-	 	<div id="pr">
-		</div>
+		<p><a id="header_logo" href="home.jsp">Antique</a></p>
+		<ul>
+			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>ログイン</a></s:if></li>
+			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>ログアウト</a></s:if></li>
+			<li class="header_position"><a class="header_icon" href='<s:url action="#" />'>カート</a></li>
+		</ul>
 	</div>
+
 	<div id="main">
 		<div id="top">
 			<p>BuyItemConfirm</p>

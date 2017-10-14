@@ -20,7 +20,7 @@ a{
 }
 #top {
 	width:780px;
-	margin:30px auto;
+	margin:15px auto;
 	border:1px solid #333;
 	text-align:center;
 }
@@ -30,13 +30,16 @@ a{
 	height: 500px;
 	text-align: center;
 }
+.textClick:active{
+	color:#333;
+}
 #text-center{
 	position: relative;
 	overflow: hidden;
 }
 #text-center ul{
   position: relative;
-  left: 46%;
+  left: 48%;
   float: left;
 }
 #text-center ul li{
@@ -55,28 +58,28 @@ a{
 	clear:left;
 }
 .sample1 {
-	width: 200px;
-	height:	200px;
+	width: 190px;
+	height:	190px;
 	overflow:hidden;
 	position:relative;
 }
 .sample1 .caption {
 	font-size:20px;
 	text-align:center;
-	padding-top:90px;
+	padding-top:80px;
 	color:#fff;
 }
 .sample1 .mask {
 	width:100%;
 	height:100%;
-	position:absolute;	/* 絶対位置指定 */
+	position:absolute;
 	top:0;
 	left:0;
-	opacity:0;	/* マスクを表示しない */
-	background-color:rgba(0,0,0,0.4);	/* マスクは半透明 */
+	opacity:0;
+	background-color:rgba(0,0,0,0.4);
 	-webkit-transition:all 0.3s ease;
 	transition:all 0.4s ease;
 }
 .sample1:hover .mask {
-	opacity:1;	/* マスクを表示する */
+	opacity:1;
 }

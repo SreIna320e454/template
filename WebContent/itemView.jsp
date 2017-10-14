@@ -19,7 +19,7 @@
 </head>
 <body vlink="#FFFFFF">
 	<div id="header">
-		<p id="header_logo">Antique</p>
+		<p><a id="header_logo" href="home.jsp">Antique</a></p>
 		<ul>
 			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>ログイン</a></s:if></li>
 			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>ログアウト</a></s:if></li>
@@ -36,9 +36,9 @@
 				<li>
 					<s:form action="HomeAction">
 						<div class="sample1">
-							<img src="./images/goods_icon1.jpg" width="200px">
-							<div class="mask">
-							<div class="caption"><a href='<s:url action="HomeAction" />'>雑貨</a></div>
+							<img src="./images/goods_icon1.jpg" width="190px">
+							<div class="mask caption">
+								<a class="textClick" href='<s:url action="HomeAction" />'>雑貨</a>
 							</div>
 						</div>
 					</s:form></li>
@@ -46,19 +46,85 @@
 				<li>
 					<s:form action="HomeAction">
 						<div class="sample1">
-							<img src="./images/goods_icon2.jpg" width="200px">
+							<img src="./images/goods_icon2.jpg" width="190px">
 							<div class="mask caption">
-								<a href='<s:url action="HomeAction" />'>時計</a>
+								<a class="textClick" href='<s:url action="HomeAction" />'>時計</a>
 							</div>
 						</div>
 					</s:form></li>
 				<li>
 				<li>
-					<s:form action="HomeAction">
+					<s:form action="#">
 						<div class="sample1">
-							<img src="./images/goods_icon3.jpg" width="200px">
+							<img src="./images/goods_icon3.jpg" width="190px">
 							<div class="mask caption">
-								<a href='<s:url action="HomeAction" />'>家具</a>
+								<a class="textClick" href='<s:url action="HomeAction" />'>家具(未実装)</a>
+							</div>
+						</div>
+					</s:form></li>
+			</ul>
+			</div>
+			<div id="text-center">
+			<ul>
+				<li>
+					<s:form action="#">
+						<div class="sample1">
+							<img src="./images/goods_icon4.jpg" width="190px">
+							<div class="mask caption">
+								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
+							</div>
+						</div>
+					</s:form></li>
+				<li>
+				<li>
+					<s:form action="#">
+						<div class="sample1">
+							<img src="./images/goods_icon5.jpg" width="190px">
+							<div class="mask caption">
+								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
+							</div>
+						</div>
+					</s:form></li>
+				<li>
+				<li>
+					<s:form action="#">
+						<div class="sample1">
+							<img src="./images/goods_icon6.jpg" width="190px">
+							<div class="mask caption">
+								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
+							</div>
+						</div>
+					</s:form></li>
+			</ul>
+			</div>
+			<div id="text-center">
+			<ul>
+				<li>
+					<s:form action="#">
+						<div class="sample1">
+							<img src="./images/goods_icon7.jpg" width="190px">
+							<div class="mask caption">
+								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
+							</div>
+						</div>
+					</s:form></li>
+				<li>
+				<li>
+					<s:form action="#">
+						<div class="sample1">
+							<img src="./images/goods_icon8.jpg" width="190px">
+							<div class="mask caption">
+								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
+							</div>
+						</div>
+					</s:form></li>
+				<li>
+				<li>
+					<s:form action="#">
+						<div class="sample1">
+							<img src="./images/goods_icon9.jpg" width="190px">
+							<div class="mask caption">
+								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
 							</div>
 						</div>
 					</s:form></li>

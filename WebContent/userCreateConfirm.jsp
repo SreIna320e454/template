@@ -15,60 +15,20 @@
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
 	<title>UserCreateConfirm画面</title>
-	<style type="text/css">
-		/* ========TAG LAYOUT======== */
-		body {
-		   margin:0;
-		   padding:0;
-		   line-height:1.6;
-		   letter-spacing:1px;
-		   font-family:Verdana, Helvetica, sans-serif;
-		   font-size:12px;
-		   color:#333;
-		   background:#fff;
-		}
 
-		table {
-			text-align:center;
-			margin:0 auto;
-		}
-
-		/* ========ID LAYOUT======== */
-		#top {
-		   width:780px;
-		   margin:30px auto;
-		   border:1px solid #333;
-		}
-
-		#header {
-		   width: 100%;
-		   height: 80px;
-		   background-color: black;
-		}
-
-		#main {
-		   width: 100%;
-		   height: 500px;
-		   text-align: center;
-		}
-
-		#box {
-			border: 1px solid #000000;
-		}
-
-		#footer {
-			width: 100%;
-			height: 80px;
-			background-color: black;
-			clear:both;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="./css/header.css">
+	<link rel="stylesheet" type="text/css" href="./css/userCreateConfirm.css">
+	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
 </head>
-<body>
 	<div id="header">
-	 	<div id="pr">
-		</div>
+		<p><a id="header_logo" href="home.jsp">Antique</a></p>
+		<ul>
+			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>ログイン</a></s:if></li>
+			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>ログアウト</a></s:if></li>
+			<li class="header_position"><a class="header_icon" href='<s:url action="#" />'>カート</a></li>
+		</ul>
 	</div>
+
 	<div id="main">
 		<div id="top">
 			<p>UserCreateConfirm</p>
@@ -110,9 +70,11 @@
 			</table>
 		</div>
 	</div>
+
 	<div id="footer">
-	 	<div id="pr">
-		</div>
+		<ul>
+			<li class="hooter_position"><a class="footer_icon" href='<s:url action="#" />'>利用規約</a></li>
+		</ul>
 	</div>
 </body>
 </html>

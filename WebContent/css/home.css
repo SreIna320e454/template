@@ -28,3 +28,6 @@ body {
 	font-size:40px;
 	text-decoration:none;
 }
+#btn_enter:active{
+	color:#FFFFFF;
+}

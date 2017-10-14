@@ -23,16 +23,18 @@
 		<ul>
 			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>ログイン</a></s:if></li>
 			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>ログアウト</a></s:if></li>
-			<li class="header_position"><a class="header_icon" href='<s:url action="#" />'>カート</a></li>
+			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="#" />'>カート</a></s:if></li>
 		</ul>
 	</div>
 	<div id="main">
-
-		<div id="text-center">
+			<!--
 			<s:form action="HomeAction">
 				<input id="border" type="image" src="./images/home_icon.png" name="id" alt="商品一覧へ">
 			</s:form>
-				<p><a id="btn_enter" href='<s:url action="HomeAction" />'>ENTER</a></p>
+			-->
+		<div id="text-center">
+			<a href="itemView.jsp"><img src="./images/home_icon.png" alt="商品一覧へ"></a>
+			<p><a id="btn_enter" href='itemView.jsp'>ENTER</a></p>
 		</div>
 	</div>
 

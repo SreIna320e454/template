@@ -20,8 +20,12 @@
 </head>
 <body>
 	<div id="header">
-	 	<div id="pr">
-		</div>
+		<p><a id="header_logo" href="home.jsp">Antique</a></p>
+		<ul>
+			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>ログイン</a></s:if></li>
+			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>ログアウト</a></s:if></li>
+			<li class="header_position"><a class="header_icon" href='<s:url action="#" />'>カート</a></li>
+		</ul>
 	</div>
 	<div id="main">
 		<div id="top">
