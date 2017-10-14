@@ -13,7 +13,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
-	<title>UserCreate画面</title>
+	<title>UserCreate</title>
 	<style type="text/css">
 		/* ========TAG LAYOUT======== */
 		body {

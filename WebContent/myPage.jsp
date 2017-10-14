@@ -13,7 +13,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
-	<title>MyPage画面</title>
+	<title>MyPage</title>
 	<link rel="stylesheet" type="text/css" href="./css/header.css">
 	<link rel="stylesheet" type="text/css" href="./css/myPage.css">
 	<link rel="stylesheet" type="text/css" href="./css/hooter.css">

@@ -2,11 +2,13 @@ package com.internousdev.template.dto;
 
 public class BuyItemDTO {
 
-	public int id;
+	private int id;
 
-	public String itemName;
+	private String itemName;
 
-	public String itemPrice;
+	private String itemImage;
+
+	private String itemPrice;
 
 	public String getItemName() {
 		return itemName;
@@ -14,6 +16,14 @@ public class BuyItemDTO {
 
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
+	}
+
+	public String getItemImage() {
+		return itemImage;
+	}
+
+	public void setItemImage(String itemImage) {
+		this.itemImage = itemImage;
 	}
 
 	public String getItemPrice() {

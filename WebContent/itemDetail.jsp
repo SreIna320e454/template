@@ -13,7 +13,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
-	<title>BuyItem画面</title>
+	<title>BuyItem</title>
 	<link rel="stylesheet" type="text/css" href="./css/header.css">
 	<link rel="stylesheet" type="text/css" href="./css/itemDetail.css">
 	<link rel="stylesheet" type="text/css" href="./css/hooter.css">

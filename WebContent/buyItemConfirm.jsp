@@ -15,7 +15,7 @@
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<title>BuyItemConfirm画面</title>
+	<title>BuyItemConfirm</title>
 	<style type="text/css">
 	/* ========TAG LAYOUT======== */
 	</style>

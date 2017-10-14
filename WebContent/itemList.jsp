@@ -12,7 +12,7 @@
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	<title>itemView画面</title>
+	<title>ItemList</title>
 	<link rel="stylesheet" type="text/css" href="./css/header.css">
 	<link rel="stylesheet" type="text/css" href="./css/itemView.css">
 	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
@@ -28,7 +28,7 @@
 	</div>
 		<div id="main">
 			<div id="top">
-				<p>itemView</p>
+				<p>ItemList</p>
 			</div>
 
 			<div id="text-center">

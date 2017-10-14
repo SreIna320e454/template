@@ -14,7 +14,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
-	<title>UserCreateConfirm画面</title>
+	<title>UserCreateConfirm</title>
 
 	<link rel="stylesheet" type="text/css" href="./css/header.css">
 	<link rel="stylesheet" type="text/css" href="./css/userCreateConfirm.css">
