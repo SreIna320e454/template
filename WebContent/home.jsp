@@ -17,27 +17,29 @@
 	<link rel="stylesheet" type="text/css" href="./css/home.css">
 	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
 </head>
-<body>
+<body vlink="#FFFFFF">
 	<div id="header">
+		<p><a id="header_logo" href="home.jsp">Antique</a></p>
+		<ul>
+			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>ログイン</a></s:if></li>
+			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>ログアウト</a></s:if></li>
+			<li class="header_position"><a class="header_icon" href='<s:url action="#" />'>カート</a></li>
+		</ul>
 	</div>
 	<div id="main">
 
-		<div id="top">
-			<p>Home</p>
-		</div>
-
 		<div id="text-center">
 			<s:form action="HomeAction">
-				<s:submit value="商品購入"/>
+				<input id="border" type="image" src="./images/home_icon.png" name="id" alt="商品一覧へ">
 			</s:form>
-			<s:if test="#session.id != null">
-				<p>ログアウトする場合は<a href='<s:url action="LogoutAction" />'>こちら</a></p>
-			</s:if>
+				<p><a id="btn_enter" href='<s:url action="HomeAction" />'>ENTER</a></p>
 		</div>
-
 	</div>
 
 	<div id="footer">
+		<ul>
+			<li class="hooter_position"><a class="footer_icon" href='<s:url action="#" />'>利用規約</a></li>
+		</ul>
 	</div>
 </body>
 </html>
