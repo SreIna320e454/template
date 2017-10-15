@@ -13,7 +13,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
-	<title>BuyItem</title>
+	<title>ItemDetail</title>
 	<link rel="stylesheet" type="text/css" href="./css/header.css">
 	<link rel="stylesheet" type="text/css" href="./css/itemDetail.css">
 	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
@@ -29,7 +29,7 @@
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>BuyItem</p>
+			<p>ItemDetail</p>
 		</div>
 		<div>
 		<s:form action="BuyItemAction">

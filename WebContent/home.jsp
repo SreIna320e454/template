@@ -33,8 +33,8 @@
 			</s:form>
 			-->
 		<div id="text-center">
-			<a href="itemView.jsp"><img src="./images/home_icon.png" alt="商品一覧へ"></a>
-			<p><a id="btn_enter" href='itemView.jsp'>ENTER</a></p>
+			<a href="itemList.jsp"><img src="./images/home_icon.png" alt="商品一覧へ"></a>
+			<p><a id="btn_enter" href='itemList.jsp'>ENTER</a></p>
 		</div>
 	</div>
 

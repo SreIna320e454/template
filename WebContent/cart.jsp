@@ -13,7 +13,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
-	<title>cart</title>
+	<title>Cart</title>
 	<link rel="stylesheet" type="text/css" href="./css/header.css">
 	<link rel="stylesheet" type="text/css" href="./css/login.css">
 	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
@@ -30,11 +30,27 @@
 
 	<div id="main">
 		<div id="top">
-			<p>cart</p>
+			<p>Cart</p>
 		</div>
+		<table>
+			<tr>
+				<th width="100" height="30">イメージ</th>
+				<th width="250" height="30">商品</th>
+				<th width="100" height="30">値段</th>
+				<th width="100" height="30">個数</th>
+				<th width="70" height="30">変更</th>
+				<th width="70" height="30">削除</th>
+			</tr>
+				<td><img src="./goodsImages/clock/EposPocketWatch01.jpg" width="60px"></td><td align="left">2003GP 手巻き式懐中時計(スケルトン)</td><td>100000</td><td>5</td><td>変更</td><td>削除</td>
+			<tr>
+			</tr>
+				<td><img src="./goodsImages/clock/MoonPhase01.jpg" width="60px"></td><td align="left">トリプルカレンダームーンフェイズ</td><td>300000</td><td>5</td><td>変更</td><td>削除</td>
+			<tr>
+		</table>
+
+		<s:submit value="購入"/>
+
 	</div>
-
-
 
 	<div id="footer">
 		<ul>

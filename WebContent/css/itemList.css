@@ -19,8 +19,10 @@ a{
 	text-decoration:none;
 }
 #top {
-	width:780px;
-	margin:15px auto;
+	font-weight:bold;
+	font-size:25px;
+	width:900px;
+	margin:10px auto;
 	border:1px solid #333;
 	text-align:center;
 }
@@ -39,11 +41,12 @@ a{
 }
 #text-center ul{
   position: relative;
-  left: 48%;
+  left: 50%;
   float: left;
 }
 #text-center ul li{
-	padding:5px;
+	padding-right:12px;
+	padding-left:12px;
 	position: relative;
 	left: -50%;
 	float: left;

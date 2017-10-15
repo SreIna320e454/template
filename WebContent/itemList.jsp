@@ -14,7 +14,7 @@
 	<meta name="keywords" content="" />
 	<title>ItemList</title>
 	<link rel="stylesheet" type="text/css" href="./css/header.css">
-	<link rel="stylesheet" type="text/css" href="./css/itemView.css">
+	<link rel="stylesheet" type="text/css" href="./css/itemList.css">
 	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
 </head>
 <body vlink="#FFFFFF">

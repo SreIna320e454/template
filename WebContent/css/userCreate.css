@@ -16,8 +16,10 @@ table {
 	margin:0 auto;
 }
 #top {
-	width:780px;
-	margin:15px auto;
+	font-weight:bold;
+	font-size:25px;
+	width:900px;th:780px;
+	margin:10px auto;
 	border:1px solid #333;
 }
 #main {
