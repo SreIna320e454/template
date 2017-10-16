@@ -3,23 +3,17 @@ package com.internousdev.template.dto;
 public class ItemDTO {
 
 	private int id;
-	private String itemCategory;
 	private String itemName;
 	private int itemPrice;
+	private String category;
 	private String itemImage;
-	private int itemStock;
+	private int itemStock=0;
 
 	public int getId(){
 		return id;
 	}
 	public void setId(int id){
 		this.id = id;
-	}
-	public String getItemCategory(){
-		return itemCategory;
-	}
-	public void setItemCategory(String itemCategory){
-		this.itemCategory = itemCategory;
 	}
 	public String getItemName(){
 		return itemName;
@@ -32,6 +26,12 @@ public class ItemDTO {
 	}
 	public void setItemPrice(int itemPrice){
 		this.itemPrice = itemPrice;
+	}
+	public String getCategory(){
+		return category;
+	}
+	public void setCategory(String category){
+		this.category = category;
 	}
 	public String getItemImage(){
 		return itemImage;

@@ -12,12 +12,13 @@
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	<title>ItemList</title>
+	<meta charset="utf-8">
+	<title>Category：clock</title>
 	<link rel="stylesheet" type="text/css" href="./css/header.css">
-	<link rel="stylesheet" type="text/css" href="./css/itemList.css">
+	<link rel="stylesheet" type="text/css" href="./css/login.css">
 	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
 </head>
-<body vlink="#FFFFFF">
+<body>
 	<div id="header">
 		<p><a id="header_logo" href="home.jsp">Antique</a></p>
 		<ul>
@@ -26,111 +27,17 @@
 			<li class="header_position"><a class="header_icon" href='<s:url action="#" />'>カート</a></li>
 		</ul>
 	</div>
-		<div id="main">
-			<div id="top">
-				<p>ItemList</p>
-			</div>
 
-			<div id="text-center">
-			<ul>
-				<li>
-					<s:form action="HomeAction">
-						<div class="sample1">
-							<img src="./images/goods_icon1.jpg" width="190px">
-							<div class="mask caption">
-								<a class="textClick" href='<s:url action="HomeAction" />'>雑貨</a>
-							</div>
-						</div>
-					</s:form></li>
-				<li>
-				<li>
-					<s:form action="HomeAction">
-						<div class="sample1">
-							<img src="./images/goods_icon2.jpg" width="190px">
-							<div class="mask caption">
-								<a class="textClick" href='<s:url action="HomeAction" />'>時計</a>
-							</div>
-						</div>
-					</s:form></li>
-				<li>
-				<li>
-					<s:form action="#">
-						<div class="sample1">
-							<img src="./images/goods_icon3.jpg" width="190px">
-							<div class="mask caption">
-								<a class="textClick" href='<s:url action="HomeAction" />'>家具(未実装)</a>
-							</div>
-						</div>
-					</s:form></li>
-			</ul>
-			</div>
-			<div id="text-center">
-			<ul>
-				<li>
-					<s:form action="#">
-						<div class="sample1">
-							<img src="./images/goods_icon4.jpg" width="190px">
-							<div class="mask caption">
-								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
-							</div>
-						</div>
-					</s:form></li>
-				<li>
-				<li>
-					<s:form action="#">
-						<div class="sample1">
-							<img src="./images/goods_icon5.jpg" width="190px">
-							<div class="mask caption">
-								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
-							</div>
-						</div>
-					</s:form></li>
-				<li>
-				<li>
-					<s:form action="#">
-						<div class="sample1">
-							<img src="./images/goods_icon6.jpg" width="190px">
-							<div class="mask caption">
-								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
-							</div>
-						</div>
-					</s:form></li>
-			</ul>
-			</div>
-			<div id="text-center">
-			<ul>
-				<li>
-					<s:form action="#">
-						<div class="sample1">
-							<img src="./images/goods_icon7.jpg" width="190px">
-							<div class="mask caption">
-								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
-							</div>
-						</div>
-					</s:form></li>
-				<li>
-				<li>
-					<s:form action="#">
-						<div class="sample1">
-							<img src="./images/goods_icon8.jpg" width="190px">
-							<div class="mask caption">
-								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
-							</div>
-						</div>
-					</s:form></li>
-				<li>
-				<li>
-					<s:form action="#">
-						<div class="sample1">
-							<img src="./images/goods_icon9.jpg" width="190px">
-							<div class="mask caption">
-								<a class="textClick" href='<s:url action="HomeAction" />'>(未実装)</a>
-							</div>
-						</div>
-					</s:form></li>
-			</ul>
-			</div>
+	<div id="main">
+		<div id="top">
+			<p>Category：clock</p>
 		</div>
+	</div>
+
+	<s:iterator value="searchItemInfo">
+		<s:property value="itemName" />
+		<s:property value="itemImage" />
+	</s:iterator>
 
 	<div id="footer">
 		<ul>
