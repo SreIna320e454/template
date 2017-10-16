@@ -44,7 +44,7 @@
 			<result name="success">userCreateComplate.jsp</result>
 		</action>
 
-		<!-- ItemViewAction -->
+		<!-- MoveItemlistAction -->
 		<action name="MoveItemlistAction" class="com.internousdev.template.action.MoveItemlistAction" method="execute">
 			<result name="success">itemList.jsp</result>
 			<result name="error">itemView.jsp</result>
