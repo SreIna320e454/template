@@ -14,15 +14,15 @@ public class MoveItemlistAction extends ActionSupport{
 	private int itemPrice;
 	private String category;
 	private String itemImage;
-	private int itemStock;
-    public ArrayList<ItemDTO> searchItemInfo=new ArrayList<ItemDTO>();
+    public ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
 
     public String execute(){
+
         String result=ERROR;
 
-        MoveItemlistDAO dao =new MoveItemlistDAO();
+        MoveItemlistDAO dao = new MoveItemlistDAO();
 
-        searchItemInfo=dao.test(category);
+        searchItemInfo = dao.test(category);
 
         if(searchItemInfo.size()>0){
             result=SUCCESS;
@@ -59,12 +59,6 @@ public class MoveItemlistAction extends ActionSupport{
 	}
 	public void setItemImage(String itemImage){
 		this.itemImage = itemImage;
-	}
-	public int getItemStock(){
-		return itemStock;
-	}
-	public void setItemStock(int itemStock){
-		this.itemStock = itemStock;
 	}
     public ArrayList<ItemDTO> getSearchItemInfo() {
         return searchItemInfo;

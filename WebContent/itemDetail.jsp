@@ -22,63 +22,73 @@
 	<s:include value="header.jsp" />
 
 	<div id="main">
+
 		<div id="top">
 			<p>ItemDetail</p>
 		</div>
+
+		<s:iterator value="detailItemInfo">
+			<s:form action="BuyItemAction">
+			<img src="<s:property value="itemImage" />" width="300px">
+				<table>
+					<tr>
+						<td>
+							<span>商品名</span>
+						</td>
+						<td>
+							<s:property value="itemName" /><br>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>値段</span>
+						</td>
+						<td>
+							<s:property value="itemPrice" /><span>円</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>購入個数</span>
+						</td>
+						<td>
+							<select name="count">
+								<option value="1" selected="selected">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+							</select>
+						</td>
+					</tr>
+<!--				<tr>
+						<td>
+							<span>支払い方法</span>
+						</td>
+						<td>
+	  						<input type="radio" name="pay" value="1" checked="checked">現金払い
+							<input type="radio" name="pay" value="2">クレジットカード
+						</td>
+					</tr>			-->
+					<tr>
+						<td>
+							<s:submit value="カートに入れる"/>
+						</td>
+					</tr>
+				</table>
+			</s:form>
+		</s:iterator>
+
 		<div>
-		<s:form action="BuyItemAction">
-			<table>
-				<tr>
-					<td>
-						<span>商品名</span>
-					</td>
-					<td>
-						<s:property value="loginUserInfoMap.buyItem_name" /><br>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span>値段</span>
-					</td>
-					<td>
-						<s:property value="loginUserInfoMap.buyItem_price" /><span>円</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span>購入個数</span>
-					</td>
-					<td>
-						<select name="count">
-							<option value="1" selected="selected">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span>支払い方法</span>
-					</td>
-					<td>
-						<input type="radio" name="pay" value="1" checked="checked">現金払い
-						<input type="radio" name="pay" value="2">クレジットカード
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:submit value="購入"/>
-					</td>
-				</tr>
-			</table>
-		</s:form>
-			<div>
-				<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></p>
-				<p>マイぺージは<a href='<s:url action="MyPageAction" />'>こちら</a></p>
-			</div>
+<!--  		<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></p> -->
+			<p>マイぺージは<a href='<s:url action="MyPageAction" />'>こちら</a></p>
 		</div>
+
+
 	</div>
 
 	<s:include value="footer.jsp" />

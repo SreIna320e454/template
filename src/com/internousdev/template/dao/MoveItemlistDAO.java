@@ -16,19 +16,19 @@ public class MoveItemlistDAO {
 
 	public ArrayList<ItemDTO> test(String category){
 
-	String sql = "SELECT * FROM item_info_transaction where category=?";
+	String sql = "SELECT * FROM item_info_transaction WHERE category=?";
 
 	try{
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, category);
 		ResultSet rs = ps.executeQuery();
+
 		while(rs.next()){
 			ItemDTO dto = new ItemDTO();
 			dto.setId(rs.getInt("id"));
 			dto.setItemName(rs.getString("item_name"));
 			dto.setItemPrice(rs.getInt("item_price"));
 			dto.setItemImage(rs.getString("item_image"));
-			dto.setItemStock(rs.getInt("item_stock"));
 
 			searchItemInfo.add(dto);
 		}

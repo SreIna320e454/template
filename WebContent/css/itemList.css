@@ -28,3 +28,17 @@ a{
 	height: 500px;
 	text-align: center;
 }
+#container{
+	width:200px;
+	height:400px;
+	margin-top:30px;
+	margin-left:10px;
+	text-align:center;
+	float:left;
+}
+#itemName{
+	width:80%;
+	text-align:center;
+	margin-top:5px;
+	margin-bottom:20px;
+}

@@ -25,11 +25,29 @@
 		<div id="top">
 			<p>Category：clock</p>
 		</div>
-<img src="../goodsImages/clock/MoonPhase01.jpg">
+
+		<!-- ここにメニュー（左)を追加
+		カート
+		購入画面(購入確認、必要事項入力、購入完了)
+		検索フォーム
+		価格の高い順
+		商品の評価を入力
+		itemDetailはarraylistじゃなくていいのでは	-->
+
 		<s:iterator value="searchItemInfo">
-			<s:property value="itemName" />
-			<img src="<s:property value="itemImage" />">
+			<div id="container">
+				<div id="itemImage">
+					<a href="<s:url action="MoveItemdetailAction"><s:param name="id" value="%{id}" /></s:url>">
+					<img src="<s:property value="itemImage" />" width="60%"></a>
+				</div>
+				<div id="itemName">
+					<s:property value="itemName" />
+				</div>
+				<s:property value="itemPrice" /><a>円</a>
+			</div>
 		</s:iterator>
+
+		<a id="clearFloat" href='<s:url action="GoItemViewAction" />'>商品一覧に戻る</a>
 	</div>
 
 	<s:include value="footer.jsp" />

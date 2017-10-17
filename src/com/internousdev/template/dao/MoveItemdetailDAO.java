@@ -11,15 +11,11 @@ import com.internousdev.template.util.DBConnector;
 
 public class MoveItemdetailDAO {
 
-	public ArrayList<ItemDTO> selectItemInfo=new ArrayList<ItemDTO>();
+	DBConnector db = new DBConnector();
+	Connection con = db.getConnection();
+	ArrayList<ItemDTO> detailItemInfo = new ArrayList<ItemDTO>();
 
-	public ArrayList<ItemDTO> test(int id)throws SQLException{
-
-		DBConnector db = new DBConnector();
-		Connection con = db.getConnection();
-		ItemDTO dto = new ItemDTO();
-
-		ArrayList<ItemDTO> itemSelect = new ArrayList<ItemDTO>();
+	public ArrayList<ItemDTO> test(int id){
 
 		String sql = "SELECT * FROM item_info_transaction WHERE id=?";
 
@@ -29,21 +25,18 @@ public class MoveItemdetailDAO {
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
+				ItemDTO dto = new ItemDTO();
 				dto.setId(rs.getInt("id"));
 				dto.setItemName(rs.getString("item_name"));
 				dto.setItemPrice(rs.getInt("item_price"));
-				dto.setCategory(rs.getString("category"));
 				dto.setItemImage(rs.getString("item_image"));
 				dto.setItemStock(rs.getInt("item_stock"));
-				itemSelect.add(dto);
+
+				detailItemInfo.add(dto);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
-		}finally{
-			if(!(con==null)){
-				con.close();
-			}
 		}
-		return itemSelect;
+		return detailItemInfo;
 	}
 }
