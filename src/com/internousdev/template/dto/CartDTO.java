@@ -1,6 +1,7 @@
 package com.internousdev.template.dto;
 
 public class CartDTO {
+
 	private int cartId;
 	private int userId;
 	private int itemId;

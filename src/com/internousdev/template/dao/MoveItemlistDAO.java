@@ -12,9 +12,11 @@ public class MoveItemlistDAO {
 
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
-	ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
 
 	public ArrayList<ItemDTO> test(String category){
+
+	ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
+
 
 	String sql = "SELECT * FROM item_info_transaction WHERE category=?";
 

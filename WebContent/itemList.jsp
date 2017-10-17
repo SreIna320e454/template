@@ -32,6 +32,7 @@
 		検索フォーム
 		価格の高い順
 		商品の評価を入力
+		カートの商品から商品詳細画面に飛べるようにする
 		itemDetailはarraylistじゃなくていいのでは	-->
 
 		<s:iterator value="searchItemInfo">

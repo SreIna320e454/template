@@ -13,9 +13,10 @@ public class MoveItemdetailDAO {
 
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
-	ArrayList<ItemDTO> detailItemInfo = new ArrayList<ItemDTO>();
 
 	public ArrayList<ItemDTO> test(int id){
+
+		ArrayList<ItemDTO> detailItemInfo = new ArrayList<ItemDTO>();
 
 		String sql = "SELECT * FROM item_info_transaction WHERE id=?";
 

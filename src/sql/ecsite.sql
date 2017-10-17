@@ -5,7 +5,7 @@ drop database if exists ecsite;
 create database if not exists ecsite;
 use ecsite;
 
-create table categories(
+create table item_categories_transaction(
 category_id int not null primary key auto_increment,
 category_name varchar(50) not null,
 insert_date datetime,
@@ -23,7 +23,21 @@ item_stock int,
 insert_date datetime,
 update_date datetime,
 
-foreign key(category_id)references categories(category_id)
+foreign key(category_id)references item_categories_transaction(category_id)
+);
+
+create table cart_list_transaction(
+id int not null primary key auto_increment,
+item_id int,
+user_id int,
+item_quantities int,
+total_price int,
+deleted boolean default false,
+insert_date datetime,
+update_date datetime,
+
+foreign key(item_id)references item_info_transaction(id),
+foreign key(user_id)references login_user_transaction(id)
 );
 
 create table login_user_transaction(
@@ -48,7 +62,7 @@ delete_date datetime
 );
 
 /*商品分類*/
-INSERT INTO categories(category_id, category_name) values
+INSERT INTO item_categories_transaction(category_id, category_name) values
 (1,"時計"),
 (2,"雑貨");
 
