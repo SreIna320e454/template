@@ -13,37 +13,26 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<title>ItemView</title>
-	<link rel="stylesheet" type="text/css" href="./css/header.css">
-	<link rel="stylesheet" type="text/css" href="./css/itemList.css">
-	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
+	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
+	<link rel="stylesheet" type="text/css" href="./css/itemView.css">
 </head>
 <body vlink="#FFFFFF">
-	<div id="header">
-		<p><a id="header_logo" href="home.jsp">Antique</a></p>
-		<ul>
-			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>ログイン</a></s:if></li>
-			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>ログアウト</a></s:if></li>
-			<li class="header_position"><a class="header_icon" href='<s:url action="#" />'>カート</a></li>
-		</ul>
-	</div>
+
+	<s:include value="header.jsp" />
+
 		<div id="main">
 			<div id="top">
 				<p>ItemView</p>
 			</div>
 
-
-			<a class="button" href='<s:url action="MoveItemlistAction"><s:param name="category" value="%{'時計'}"/></s:url>'>
-                <strong>確認</strong>
-          </a>
-
-			<div id="text-center">
+		<div id="text-center">
 			<ul>
 				<li>
 					<s:form action="MoveItemlistAction">
 						<div class="sample1">
 							<img src="./images/goods_icon1.jpg" width="190px">
 							<div class="mask caption">
-								<a class="textClick" href='<s:url action="MoveItemlistAction" />'>雑貨</a>
+								<a class="textClick" href='<s:url action="MoveItemlistAction"><s:param name="category" value="%{'時計'}"/></s:url>'>時計</a>
 							</div>
 						</div>
 					</s:form></li>
@@ -53,7 +42,7 @@
 						<div class="sample1">
 							<img src="./images/goods_icon2.jpg" width="190px">
 							<div class="mask caption">
-								<a class="textClick" href='<s:url action="MoveItemlistAction" />'>時計</a>
+								<a class="textClick" href='<s:url action="MoveItemlistAction"><s:param name="category" value="%{'雑貨'}"/></s:url>'>雑貨</a>
 							</div>
 						</div>
 					</s:form></li>
@@ -137,10 +126,7 @@
 			</div>
 		</div>
 
-	<div id="footer">
-		<ul>
-			<li class="hooter_position"><a class="footer_icon" href='<s:url action="#" />'>利用規約</a></li>
-		</ul>
-	</div>
+	<s:include value="footer.jsp" />
+
 </body>
 </html>

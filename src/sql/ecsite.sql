@@ -54,12 +54,12 @@ INSERT INTO categories(category_id, category_name) values
 
 /*商品情報*/
 INSERT INTO item_info_transaction(id,item_name,category_id,item_price,category,item_image,item_stock) VALUES
-(1,"2003GP 手巻き式懐中時計(スケルトン)",1, 100000,"時計", "../goodsImages/clock/EposPocketWatch01.jpg",50),
-(2,"トリプルカレンダームーンフェイズ", 1,300000, "時計","../goodsImages/clock/MoonPhase01.jpg", 50),
+(1,"2003GP 手巻き式懐中時計(スケルトン)",1, 100000,"時計", "./goodsImages/clock/EposPocketWatch01.jpg",50),
+(2,"トリプルカレンダームーンフェイズ", 1,300000, "時計","./goodsImages/clock/MoonPhase01.jpg", 50),
 (3,"Welbyチークウッド・リーフ＆メタル・サンバーストクロック",1,69800,"時計", "../goodsImages/clock/SunBurstClock01.jpg", 50),
 (4,"アンティークブック",2, 3800, "雑貨","../goodsImages/zakka/antiqueBook01.jpg",50),
 (5,"アンティークブリキポット",2, 33000, "雑貨","../goodsImages/zakka/blikPod01.jpg", 50),
-(6,"アンティークボビン･サンドタイマー",2, 2300,"雑貨","../goodsImages/zakka/sundTimer01.jpg", 50);
+(6,"アンティークボビン･サンドタイマー",2, 2300,"雑貨","./goodsImages/zakka/sundTimer01.jpg", 50);
 
 /*ユーザ情報*/
 INSERT INTO login_user_transaction(login_id, login_pass, user_name) VALUES

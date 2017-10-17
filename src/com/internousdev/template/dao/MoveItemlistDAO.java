@@ -12,7 +12,6 @@ public class MoveItemlistDAO {
 
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
-
 	ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
 
 	public ArrayList<ItemDTO> test(String category){
@@ -21,7 +20,7 @@ public class MoveItemlistDAO {
 
 	try{
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(2, category);
+		ps.setString(1, category);
 		ResultSet rs = ps.executeQuery();
 		while(rs.next()){
 			ItemDTO dto = new ItemDTO();
@@ -33,7 +32,6 @@ public class MoveItemlistDAO {
 
 			searchItemInfo.add(dto);
 		}
-	con.close();
 	}catch(SQLException e){
 		e.printStackTrace();
 	}

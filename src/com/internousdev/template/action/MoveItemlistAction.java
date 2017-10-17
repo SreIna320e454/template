@@ -7,7 +7,7 @@ import com.internousdev.template.dto.ItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
-public class MoveItemlistAction extends ActionSupport {
+public class MoveItemlistAction extends ActionSupport{
 
 	private int id;
 	private String itemName;
@@ -17,11 +17,6 @@ public class MoveItemlistAction extends ActionSupport {
 	private int itemStock;
     public ArrayList<ItemDTO> searchItemInfo=new ArrayList<ItemDTO>();
 
-
-    /**
-     * 実行メソッド
-     * @return success or error
-     */
     public String execute(){
         String result=ERROR;
 
@@ -71,18 +66,10 @@ public class MoveItemlistAction extends ActionSupport {
 	public void setItemStock(int itemStock){
 		this.itemStock = itemStock;
 	}
-
     public ArrayList<ItemDTO> getSearchItemInfo() {
         return searchItemInfo;
-        }
-
-    /**
-     * サーチリストを格納するメソッド
-     * @param searchList サーチリスト
-     */
+    }
     public void setSearchItemInfo(ArrayList<ItemDTO> searchItemInfo) {
         this.searchItemInfo = searchItemInfo;
-        }
-
-
+   }
 }

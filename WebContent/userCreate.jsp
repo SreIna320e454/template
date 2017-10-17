@@ -14,45 +14,13 @@
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
 	<title>UserCreate</title>
-	<style type="text/css">
-		/* ========TAG LAYOUT======== */
-		body {
-		   margin:0;
-		   padding:0;
-		   line-height:1.6;
-		   letter-spacing:1px;
-		   font-family:Verdana, Helvetica, sans-serif;
-		   font-size:12px;
-		   color:#333;
-		   background:#fff;
-		}
-
-		table {
-			text-align:center;
-			margin:0 auto;
-		}
-
-		/* ========ID LAYOUT======== */
-		#top {
-		   width:780px;
-		   margin:30px auto;
-		   border:1px solid #333;
-		}
-		#main {
-		   width: 100%;
-		   height: 500px;
-		   text-align: center;
-		}
-	</style>
-	<link rel="stylesheet" type="text/css" href="./css/header.css">
+	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/userCreate.css">
-	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
 </head>
 <body>
-	<div id="header">
-	 	<div id="pr">
-		</div>
-	</div>
+
+	<s:include value="header.jsp" />
+
 	<div id="main">
 		<div id="top">
 			<p>UserCreate</p>
@@ -96,10 +64,7 @@
 		</div>
 	</div>
 
-	<div id="footer">
-		<ul>
-			<li class="hooter_position"><a class="footer_icon" href='<s:url action="#" />'>利用規約</a></li>
-		</ul>
-	</div>
+	<s:include value="footer.jsp" />
+
 </body>
 </html>

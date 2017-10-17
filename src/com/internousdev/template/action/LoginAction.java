@@ -7,6 +7,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.template.dao.BuyItemDAO;
 import com.internousdev.template.dao.LoginDAO;
+import com.internousdev.template.dto.ItemDTO;
 import com.internousdev.template.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -74,12 +75,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		if(((LoginDTO) loginUserInfoMap.get("loginUser")).getLoginFlg()) {
 			result = SUCCESS;
 
-/**			// アイテム情報を取得
-			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
+		// アイテム情報を取得
+			ItemDTO ItemDTO = buyItemDAO.getBuyItemInfo();
 			loginUserInfoMap.put("login_user_id",	loginDTO.getLoginId());
-			loginUserInfoMap.put("id", buyItemDTO.getId());
-			loginUserInfoMap.put("buyItem_name", buyItemDTO.getItemName());
-			loginUserInfoMap.put("buyItem_price", buyItemDTO.getItemPrice());  */
+			loginUserInfoMap.put("id", ItemDTO.getId());
+			loginUserInfoMap.put("buyItem_name", ItemDTO.getItemName());
+			loginUserInfoMap.put("buyItem_price", ItemDTO.getItemPrice());
 
 			return result;
 		}

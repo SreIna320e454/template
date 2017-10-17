@@ -15,19 +15,12 @@
 	<meta charset="utf-8">
 	<title>UserCreateComplate</title>
 
-	<link rel="stylesheet" type="text/css" href="./css/header.css">
+	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/userCreateComplate.css">
-	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
 </head>
 <body>
-	<div id="header">
-		<p><a id="header_logo" href="home.jsp">Antique</a></p>
-		<ul>
-			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>ログイン</a></s:if></li>
-			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>ログアウト</a></s:if></li>
-			<li class="header_position"><a class="header_icon" href='<s:url action="#" />'>カート</a></li>
-		</ul>
-	</div>
+
+	<s:include value="header.jsp" />
 
 	<div id="main">
 		<div id="top">
@@ -42,11 +35,8 @@
 		</div>
 	</div>
 
-	<div id="footer">
-		<ul>
-			<li class="hooter_position"><a class="footer_icon" href='<s:url action="#" />'>利用規約</a></li>
-		</ul>
-	</div>
+	<s:include value="footer.jsp" />
+
 </body>
 </html>
 

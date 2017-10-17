@@ -19,9 +19,8 @@
 	<style type="text/css">
 	/* ========TAG LAYOUT======== */
 	</style>
-	<link rel="stylesheet" type="text/css" href="./css/header.css">
+	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/buyItemConfirm.css">
-	<link rel="stylesheet" type="text/css" href="./css/hooter.css">
 	<script type="text/javascript">
 		function submitAction(url) {
 			$('form').attr('action', url);
@@ -30,14 +29,8 @@
 	</script>
 </head>
 <body>
-	<div id="header">
-		<p><a id="header_logo" href="home.jsp">Antique</a></p>
-		<ul>
-			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>ログイン</a></s:if></li>
-			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>ログアウト</a></s:if></li>
-			<li class="header_position"><a class="header_icon" href='<s:url action="#" />'>カート</a></li>
-		</ul>
-	</div>
+
+	<s:include value="header.jsp" />
 
 	<div id="main">
 		<div id="top">
@@ -73,9 +66,8 @@
 			</s:form>
 		</div>
 	</div>
-	<div id="footer">
-		<div id="pr">
-		</div>
-	</div>
+
+	<s:include value="footer.jsp" />
 </body>
+
 </html>
