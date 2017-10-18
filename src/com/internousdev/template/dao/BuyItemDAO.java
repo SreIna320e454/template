@@ -22,14 +22,14 @@ public class BuyItemDAO {
 	 */
 	public ItemDTO getBuyItemInfo() {
 
-		String sql = "SELECT id, item_name, item_price FROM item_info_transaction";
+		String sql = "SELECT item_id, item_name, item_price FROM item_info_transaction";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			if(resultSet.next()) {
-				ItemDTO.setId(resultSet.getInt("id"));
+				ItemDTO.setItemId(resultSet.getInt("item_id"));
 				ItemDTO.setItemName(resultSet.getString("item_name"));
 				ItemDTO.setItemPrice(resultSet.getInt("item_price"));
 			}

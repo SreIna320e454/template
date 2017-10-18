@@ -8,6 +8,7 @@ public class CartDTO {
 	private String itemName;
 	private int itemPrice;
 	private String itemImage;
+	private int itemCount;
 	private int subtotal;
 	private int itemStock;
 
@@ -46,6 +47,12 @@ public class CartDTO {
 	}
 	public void setItemImage(String itemImage){
 		this.itemImage = itemImage;
+	}
+	public int getItemCount(){
+		return itemCount;
+	}
+	public void setItemCount(int itemCount){
+		this.itemCount = itemCount;
 	}
 	public int getSubtotal(){
 		return subtotal;

@@ -2,18 +2,18 @@ package com.internousdev.template.dto;
 
 public class ItemDTO {
 
-	private int id;
+	private int itemId;
 	private String itemName;
 	private int itemPrice;
 	private String category;
 	private String itemImage;
 	private int itemStock=0;
 
-	public int getId(){
-		return id;
+	public int getItemId(){
+		return itemId;
 	}
-	public void setId(int id){
-		this.id = id;
+	public void setItemId(int itemId){
+		this.itemId = itemId;
 	}
 	public String getItemName(){
 		return itemName;

@@ -25,6 +25,11 @@
 		<div id="top">
 			<p>Cart</p>
 		</div>
+
+		<s:iterator value="cartList">
+			<s:property value="itemName" />
+		</s:iterator>
+
 		<table>
 			<tr>
 				<th width="100" height="30">イメージ</th>

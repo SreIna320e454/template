@@ -27,7 +27,7 @@ public class MoveItemlistDAO {
 
 		while(rs.next()){
 			ItemDTO dto = new ItemDTO();
-			dto.setId(rs.getInt("id"));
+			dto.setItemId(rs.getInt("item_id"));
 			dto.setItemName(rs.getString("item_name"));
 			dto.setItemPrice(rs.getInt("item_price"));
 			dto.setItemImage(rs.getString("item_image"));

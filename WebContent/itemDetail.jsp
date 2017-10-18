@@ -28,7 +28,6 @@
 		</div>
 
 		<s:iterator value="detailItemInfo">
-			<s:form action="BuyItemAction">
 			<img src="<s:property value="itemImage" />" width="300px">
 				<table>
 					<tr>
@@ -52,7 +51,7 @@
 							<span>購入個数</span>
 						</td>
 						<td>
-							<select name="count">
+							<select name="itemCount">
 								<option value="1" selected="selected">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -76,11 +75,15 @@
 					</tr>			-->
 					<tr>
 						<td>
+						<s:form action="AddToCartAction">
+							<s:param name="itemId" value="%{itemId}"></s:param>
+							<s:param name="userId" value="%{userId}"></s:param>
+							<s:param name="itemCount" value="%{itemCount}"></s:param>
 							<s:submit value="カートに入れる"/>
+						</s:form>
 						</td>
 					</tr>
 				</table>
-			</s:form>
 		</s:iterator>
 
 		<div>

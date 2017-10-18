@@ -13,7 +13,7 @@ update_date datetime
 );
 
 create table item_info_transaction(
-id int not null primary key auto_increment,
+item_id int not null primary key auto_increment,
 item_name varchar(50),
 category_id int,
 item_price int,
@@ -27,21 +27,19 @@ foreign key(category_id)references item_categories_transaction(category_id)
 );
 
 create table cart_list_transaction(
-id int not null primary key auto_increment,
+cart_id int not null primary key auto_increment,
 item_id int,
 user_id int,
-item_quantities int,
-total_price int,
-deleted boolean default false,
+item_count int,
 insert_date datetime,
 update_date datetime,
 
-foreign key(item_id)references item_info_transaction(id),
-foreign key(user_id)references login_user_transaction(id)
+foreign key(item_id)references item_info_transaction(item_id),
+foreign key(user_id)references login_user_transaction(user_id)
 );
 
 create table login_user_transaction(
-id int not null primary key auto_increment,
+user_id int not null primary key auto_increment,
 login_id varchar(16) unique,
 login_pass varchar(16),
 user_name varchar(50),
@@ -67,10 +65,10 @@ INSERT INTO item_categories_transaction(category_id, category_name) values
 (2,"雑貨");
 
 /*商品情報*/
-INSERT INTO item_info_transaction(id,item_name,category_id,item_price,category,item_image,item_stock) VALUES
-(1,"2003GP 手巻き式懐中時計(スケルトン)",1, 100000,"時計", "./goodsImages/clock/EposPocketWatch01.jpg",50),
-(2,"トリプルカレンダームーンフェイズ", 1,300000, "時計","./goodsImages/clock/MoonPhase01.jpg", 50),
-(3,"Welbyチークウッド・リーフ＆メタル・サンバーストクロック",1,69800,"時計", "./goodsImages/clock/SunBurstClock01.jpg", 50),
+INSERT INTO item_info_transaction(item_id,item_name,category_id,item_price,category,item_image,item_stock) VALUES
+(1,"2003GP 手巻き式懐中時計(スケルトン)",1, 100000,"時計", "./goodsImages/tokei/EposPocketWatch01.jpg",50),
+(2,"トリプルカレンダームーンフェイズ", 1,300000, "時計","./goodsImages/tokei/MoonPhase01.jpg", 50),
+(3,"Welbyチークウッド・リーフ＆メタル・サンバーストクロック",1,69800,"時計", "./goodsImages/tokei/SunBurstClock01.jpg", 50),
 (4,"アンティークブック",2, 3800, "雑貨","./goodsImages/zakka/antiqueBook01.jpg",50),
 (5,"アンティークブリキポット",2, 33000, "雑貨","./goodsImages/zakka/blikPod01.jpg", 50),
 (6,"アンティークボビン･サンドタイマー",2, 2300,"雑貨","./goodsImages/zakka/sundTimer01.jpg", 50);

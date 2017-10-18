@@ -61,6 +61,12 @@
 			<result name="error">itemList.jsp</result>
 		</action>
 
+		<!-- AddToCartAction -->
+		<action name="AddToCartAction" class="com.internousdev.template.action.AddToCartAction" method="execute">
+			<result name="success">cart.jsp</result>
+			<result name="error">itemDetail.jsp</result>
+		</action>
+
 		<!-- BuyItemAction -->
 		<action name="BuyItemAction" class="com.internousdev.template.action.BuyItemAction" method="execute">
 			<result name="success">buyItemConfirm.jsp</result>

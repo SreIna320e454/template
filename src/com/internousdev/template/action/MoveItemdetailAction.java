@@ -7,7 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class MoveItemdetailAction extends ActionSupport{
 
-	private int id;
+	private int itemId;
 	private String itemName;
 	private int itemPrice;
 	private String itemImage;
@@ -20,7 +20,7 @@ public class MoveItemdetailAction extends ActionSupport{
 
     	MoveItemdetailDAO dao = new MoveItemdetailDAO();
 
-    	detailItemInfo = dao.test(id);
+    	detailItemInfo = dao.test(itemId);
 
     	if(detailItemInfo.size()>0){
     		result = SUCCESS;
@@ -28,11 +28,11 @@ public class MoveItemdetailAction extends ActionSupport{
     	return result;
     	}
 
-    public int getId() {
-        return id;
+    public int getItemId() {
+        return itemId;
     }
-    public void setId(int id) {
-        this.id = id;
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
     }
     public String getItemName() {
         return itemName;

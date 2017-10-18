@@ -38,7 +38,7 @@
 		<s:iterator value="searchItemInfo">
 			<div id="container">
 				<div id="itemImage">
-					<a href="<s:url action="MoveItemdetailAction"><s:param name="id" value="%{id}" /></s:url>">
+					<a href="<s:url action="MoveItemdetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
 					<img src="<s:property value="itemImage" />" width="60%"></a>
 				</div>
 				<div id="itemName">

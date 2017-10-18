@@ -14,20 +14,20 @@ public class MoveItemdetailDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-	public ArrayList<ItemDTO> test(int id){
+	public ArrayList<ItemDTO> test(int itemId){
 
 		ArrayList<ItemDTO> detailItemInfo = new ArrayList<ItemDTO>();
 
-		String sql = "SELECT * FROM item_info_transaction WHERE id=?";
+		String sql = "SELECT * FROM item_info_transaction WHERE item_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, id);
+			ps.setInt(1, itemId);
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
 				ItemDTO dto = new ItemDTO();
-				dto.setId(rs.getInt("id"));
+				dto.setItemId(rs.getInt("item_id"));
 				dto.setItemName(rs.getString("item_name"));
 				dto.setItemPrice(rs.getInt("item_price"));
 				dto.setItemImage(rs.getString("item_image"));

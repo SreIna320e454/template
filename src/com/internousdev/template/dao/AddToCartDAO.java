@@ -10,14 +10,11 @@ import com.internousdev.template.dto.CartDTO;
 import com.internousdev.template.dto.ItemDTO;
 import com.internousdev.template.util.DBConnector;
 
-public class GoCartDAO {
+public class AddToCartDAO {
 
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-/**
- * カートテーブルに追加する商品の情報を取得しItemDTOに格納するメソッド
- */
 	public ArrayList<ItemDTO> searchItemInfo(int itemId){
 
 		ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
@@ -31,23 +28,22 @@ public class GoCartDAO {
 
 			while(rs.next()){
 				ItemDTO dto = new ItemDTO();
+				dto.setItemId(rs.getInt("item_id"));
 				dto.setItemName(rs.getString("item_name"));
 				dto.setItemPrice(rs.getInt("item_price"));
 				dto.setItemImage(rs.getString("item_image"));
 				dto.setItemStock(rs.getInt("item_stock"));
 				searchItemInfo.add(dto);
-				}
+			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
 		return searchItemInfo;
 	}
-/**
- * カートテーブルに情報を追加するメソッド
- */
+
 	public boolean addToCart(int itemId, int userId, int itemCount){
 
-		boolean errorCheck = true;
+		boolean check = false;
 		int addCount = 0;
 
 		String sql = "INSERT INTO cart_list_transaction(user_id, item_id, item_count) VALUES(?,?,?)";
@@ -56,50 +52,49 @@ public class GoCartDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, userId);
 			ps.setInt(2, itemId);
-			ps.setInt(3, itemCount);
+			ps.setInt(2,itemCount);
 			addCount = ps.executeUpdate();
 			if(addCount>0){
-				errorCheck = false;
+				check = true;
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return errorCheck;
+		return check;
 	}
-/**
- * カートテーブルの商品情報を取得しCartDTOに格納するメソッド
- */
+
 	public ArrayList<CartDTO> searchCartItemInfo(int userId){
 
-		ArrayList<CartDTO> cartList = new ArrayList<CartDTO>();
+		ArrayList<CartDTO> searchCartItemInfo = new ArrayList<CartDTO>();
 
-		String sqlA ="SELECT * FROM cart_list_transaction WHERE user_id=?";
-		String sqlB ="SELECT * FROM item_info_transaction WHERE item_id=?";
+		String sqlA = "SELECT * cart_list_transaction WHERE user_id=?";
+		String sqlB = "SELECT * item_info_transaction WHERE item_id=?";
 
 		try{
 			PreparedStatement psA = con.prepareStatement(sqlA);
-			psA.setInt(1, userId);
+			psA.setInt(1,userId);
 			ResultSet rsA = psA.executeQuery();
 			while(rsA.next()){
-				CartDTO dto = new CartDTO();
-				dto.setCartId(rsA.getInt("cart_id"));
-				dto.setItemId(rsA.getInt("item_id"));
-				dto.setUserId(rsA.getInt("user_id"));
-				dto.setItemCount(rsA.getInt("item_count"));
-				cartList.add(dto);
+				CartDTO cartdto = new CartDTO();
+				cartdto.setCartId(rsA.getInt("cart_id"));
+				cartdto.setItemId(rsA.getInt("item_id"));
+				cartdto.setUserId(rsA.getInt("user_id"));
+				cartdto.setItemCount(rsA.getInt("item_count"));
+				searchCartItemInfo.add(cartdto);
 
 				PreparedStatement psB = con.prepareStatement(sqlB);
-				psB.setInt(1,dto.getItemId());
+				psB.setInt(1,cartdto.getItemId());
 				ResultSet rsB = psB.executeQuery();
 				while(rsB.next()){
-					dto.setItemName(rsB.getString("item_name"));
-					dto.setItemPrice(rsB.getInt("item_price"));
-					dto.setItemStock(rsB.getInt("item_stock"));
+					cartdto.setItemName(rsB.getString("item_name"));
+					cartdto.setItemPrice(rsB.getInt("item_price"));
+					cartdto.setItemImage(rsB.getString("item_image"));
+					cartdto.setItemStock(rsB.getInt("item_stock"));
 				}
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return cartList;
+		return searchCartItemInfo;
 	}
 }
