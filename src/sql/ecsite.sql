@@ -26,6 +26,18 @@ update_date datetime,
 foreign key(category_id)references item_categories_transaction(category_id)
 );
 
+create table item_comment_transaction(
+comment_id int not null primary key auto_increment,
+user_id int,
+item_id int,
+item_comment varchar(255),
+insert_date datetime,
+update_date datetime,
+
+foreign key(user_id)references login_user_transaction(user_id),
+foreign key(item_id)references item_info_transaction(item_id)
+);
+
 create table cart_list_transaction(
 cart_id int not null primary key auto_increment,
 item_id int,
