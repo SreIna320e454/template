@@ -41,10 +41,7 @@ public class AddToCartDAO {
 		return searchItemInfo;
 	}
 
-	public boolean addToCart(int itemId, int userId, int itemCount){
-
-		boolean check = true;
-		int addCount = 0;
+	public void addToCart(int itemId, int userId, int itemCount){
 
 		String sql = "INSERT INTO cart_list_transaction(user_id, item_id, item_count) VALUES(?,?,?)";
 
@@ -53,14 +50,10 @@ public class AddToCartDAO {
 			ps.setInt(1, userId);
 			ps.setInt(2, itemId);
 			ps.setInt(2,itemCount);
-			addCount = ps.executeUpdate();
-			if(addCount>0){
-				check = false;
-			}
+			ps.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return check;
 	}
 
 	public ArrayList<CartDTO> searchCartItemInfo(int userId){

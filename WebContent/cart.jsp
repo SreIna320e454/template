@@ -39,11 +39,6 @@
 				<th width="70" height="30">変更</th>
 				<th width="70" height="30">削除</th>
 			</tr>
-				<td><img src="./goodsImages/clock/EposPocketWatch01.jpg" width="60px"></td><td align="left">2003GP 手巻き式懐中時計(スケルトン)</td><td>100000</td><td>5</td><td>変更</td><td>削除</td>
-			<tr>
-			</tr>
-				<td><img src="./goodsImages/clock/MoonPhase01.jpg" width="60px"></td><td align="left">トリプルカレンダームーンフェイズ</td><td>300000</td><td>5</td><td>変更</td><td>削除</td>
-			<tr>
 		</table>
 
 		<s:submit value="購入"/>

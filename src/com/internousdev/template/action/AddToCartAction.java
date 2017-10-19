@@ -29,10 +29,13 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 
 		String result = ERROR;
 
-		if(session.containsKey("id")){
-			userId = (int)session.get("id");
-			AddToCartDAO AddToCartDAO = new AddToCartDAO();
+		AddToCartDAO AddToCartDAO = new AddToCartDAO();
 
+		if(session.containsKey("login_user_id")==false){
+			result = LOGIN;
+			return result;
+		}else{
+			session.put("itemCount", itemCount);
 			searchItemInfo = AddToCartDAO.searchItemInfo(itemId);
 			AddToCartDAO.addToCart(itemId, userId, itemCount);
 			if(searchItemInfo.size()>0){

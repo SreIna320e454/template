@@ -28,7 +28,7 @@ public class BuyItemDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
-			if(resultSet.next()) {
+			while(resultSet.next()) {
 				ItemDTO.setItemId(resultSet.getInt("item_id"));
 				ItemDTO.setItemName(resultSet.getString("item_name"));
 				ItemDTO.setItemPrice(resultSet.getInt("item_price"));

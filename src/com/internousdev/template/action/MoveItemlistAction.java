@@ -30,7 +30,7 @@ public class MoveItemlistAction extends ActionSupport implements SessionAware{
 
         searchItemInfo = dao.test(category);
 
-        if(session.containsKey("id")==false){
+        if(session.containsKey("login_user_id")==false){
         	return result;
         }else if(searchItemInfo.size()>0){
 	        result=SUCCESS;
