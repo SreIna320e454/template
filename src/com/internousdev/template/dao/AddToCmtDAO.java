@@ -41,7 +41,7 @@ public class AddToCmtDAO {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				AddToCmtDTO dto = new AddToCmtDTO();
-				dto.setItemComment(rs.getString("item_image"));
+				dto.setItemComment(rs.getString("item_comment"));
 				searchCommentInfo.add(dto);
 			}
 		}catch(SQLException e){

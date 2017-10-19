@@ -30,12 +30,11 @@
 		カート
 		購入画面(購入確認、必要事項入力、購入完了)
 		検索フォーム
-		価格の高い順
 		商品の評価を入力
-		カートの商品から商品詳細画面に飛べるようにする
-		itemDetailはarraylistじゃなくていいのでは	-->
-
-		<s:iterator value="searchItemInfo">
+		カートの商品から商品詳細画面に飛べるようにする	-->
+<a  href='<s:url action="SortPriceLowAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の安い順(時計だけ)/</a>
+<a  href='<s:url action="SortPriceHighAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の高い順(時計だけ)/</a>
+		<s:iterator id="wrap" value="searchItemInfo">
 			<div id="container">
 				<div id="itemImage">
 					<a href="<s:url action="MoveItemdetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">

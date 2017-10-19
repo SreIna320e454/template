@@ -41,13 +41,13 @@ public class AddToCartDAO {
 		return searchItemInfo;
 	}
 
-	public void addToCart(int itemId, int userId, int itemCount){
+	public void addToCart(int itemId, String userId, int itemCount){
 
 		String sql = "INSERT INTO cart_list_transaction(user_id, item_id, item_count) VALUES(?,?,?)";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, userId);
+			ps.setString(1, userId);
 			ps.setInt(2, itemId);
 			ps.setInt(2,itemCount);
 			ps.executeUpdate();
@@ -56,7 +56,7 @@ public class AddToCartDAO {
 		}
 	}
 
-	public ArrayList<CartDTO> searchCartItemInfo(int userId){
+	public ArrayList<CartDTO> searchCartItemInfo(String userId){
 
 		ArrayList<CartDTO> searchCartItemInfo = new ArrayList<CartDTO>();
 
@@ -65,13 +65,13 @@ public class AddToCartDAO {
 
 		try{
 			PreparedStatement psA = con.prepareStatement(sqlA);
-			psA.setInt(1,userId);
+			psA.setString(1,userId);
 			ResultSet rsA = psA.executeQuery();
 			while(rsA.next()){
 				CartDTO cartdto = new CartDTO();
 				cartdto.setCartId(rsA.getInt("cart_id"));
 				cartdto.setItemId(rsA.getInt("item_id"));
-				cartdto.setUserId(rsA.getInt("user_id"));
+				cartdto.setUserId(rsA.getString("user_id"));
 				cartdto.setItemCount(rsA.getInt("item_count"));
 				searchCartItemInfo.add(cartdto);
 
@@ -83,6 +83,7 @@ public class AddToCartDAO {
 					cartdto.setItemPrice(rsB.getInt("item_price"));
 					cartdto.setItemImage(rsB.getString("item_image"));
 					cartdto.setItemStock(rsB.getInt("item_stock"));
+					searchCartItemInfo.add(cartdto);
 				}
 			}
 		}catch(SQLException e){

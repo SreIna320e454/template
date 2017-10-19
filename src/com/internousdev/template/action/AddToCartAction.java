@@ -14,7 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class AddToCartAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
-	private int userId;
+	private String userId;
 	private int cartId;
 	private String itemName;
 	private String itemImage;
@@ -35,10 +35,10 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 			result = LOGIN;
 			return result;
 		}else{
-			session.put("itemCount", itemCount);
+			userId = (String)session.get("login_user_id");
 			searchItemInfo = AddToCartDAO.searchItemInfo(itemId);
-			AddToCartDAO.addToCart(itemId, userId, itemCount);
 			if(searchItemInfo.size()>0){
+				AddToCartDAO.addToCart(itemId, userId, itemCount);
 				searchCartItemInfo = AddToCartDAO.searchCartItemInfo(userId);
 				if(searchCartItemInfo.size()>0){
 					result = SUCCESS;
@@ -49,10 +49,10 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	}
 
 
-	public int getUserId(){
+	public String getUserId(){
 		return userId;
 	}
-	public void setUserId(int userId){
+	public void setUserId(String userId){
 		this.userId = userId;
 	}
 	public int getItemId(){

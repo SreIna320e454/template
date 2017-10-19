@@ -10,11 +10,10 @@ import com.internousdev.template.dao.MoveItemlistDAO;
 import com.internousdev.template.dto.ItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class MoveItemlistAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
-	private int userId;
+	private String userId;
 	private String itemName;
 	private int itemPrice;
 	private String category;
@@ -45,10 +44,10 @@ public class MoveItemlistAction extends ActionSupport implements SessionAware{
 	public void setItemId(int itemId){
 		this.itemId = itemId;
 	}
-	public int getUserId(){
+	public String getUserId(){
 		return userId;
 	}
-	public void setUserId(int userId){
+	public void setUserId(String userId){
 		this.userId = userId;
 	}
 	public String getItemName(){

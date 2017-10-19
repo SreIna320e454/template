@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import com.internousdev.template.dto.ItemDTO;
 import com.internousdev.template.util.DBConnector;
@@ -14,9 +13,9 @@ public class MoveItemdetailDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-	public ArrayList<ItemDTO> test(int itemId){
+	public ItemDTO test(int itemId){
 
-		ArrayList<ItemDTO> detailItemInfo = new ArrayList<ItemDTO>();
+		ItemDTO detailItemInfo = new ItemDTO();
 
 		String sql = "SELECT * FROM item_info_transaction WHERE item_id=?";
 
@@ -26,14 +25,11 @@ public class MoveItemdetailDAO {
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
-				ItemDTO dto = new ItemDTO();
-				dto.setItemId(rs.getInt("item_id"));
-				dto.setItemName(rs.getString("item_name"));
-				dto.setItemPrice(rs.getInt("item_price"));
-				dto.setItemImage(rs.getString("item_image"));
-				dto.setItemStock(rs.getInt("item_stock"));
-
-				detailItemInfo.add(dto);
+				detailItemInfo.setItemId(rs.getInt("item_id"));
+				detailItemInfo.setItemName(rs.getString("item_name"));
+				detailItemInfo.setItemPrice(rs.getInt("item_price"));
+				detailItemInfo.setItemImage(rs.getString("item_image"));
+				detailItemInfo.setItemStock(rs.getInt("item_stock"));
 			}
 		}catch(SQLException e){
 			e.printStackTrace();

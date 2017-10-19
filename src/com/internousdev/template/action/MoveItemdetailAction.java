@@ -1,5 +1,4 @@
 package com.internousdev.template.action;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,12 +11,12 @@ import com.opensymphony.xwork2.ActionSupport;
 public class MoveItemdetailAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
-	private int userId;
+	private String userId;
 	private String itemName;
 	private int itemPrice;
 	private String itemImage;
 	private int itemStock;
-	public ArrayList<ItemDTO> detailItemInfo = new ArrayList<ItemDTO>();
+	public ItemDTO detailItemInfo = new ItemDTO();
 	private Map<String, Object> session = new HashMap<>();
 
     public String execute(){
@@ -30,9 +29,8 @@ public class MoveItemdetailAction extends ActionSupport implements SessionAware{
 
     	if(session.containsKey("login_user_id")==false){
     		return result;
-    	}else if(detailItemInfo.size()>0){
+    	}else{
     		result = SUCCESS;
-    	}else{result = SUCCESS;
     	}
     	return result;
     	}
@@ -43,10 +41,10 @@ public class MoveItemdetailAction extends ActionSupport implements SessionAware{
     public void setItemId(int itemId) {
         this.itemId = itemId;
     }
-    public int getUserId(){
+    public String getUserId(){
     	return userId;
     }
-    public void setUserId(int userId){
+    public void setUserId(String userId){
     	this.userId = userId;
     }
     public String getItemName() {
@@ -73,10 +71,10 @@ public class MoveItemdetailAction extends ActionSupport implements SessionAware{
     public void setItemStocks(int itemStock) {
         this.itemStock = itemStock;
     }
-    public ArrayList<ItemDTO> getDetailItemInfo(){
+    public ItemDTO getDetailItemInfo(){
     	return detailItemInfo;
     }
-    public void setDetailItemInfo(ArrayList<ItemDTO> detailItemInfo){
+    public void setDetailItemInfo(ItemDTO detailItemInfo){
     	this.detailItemInfo = detailItemInfo;
     }
 	public Map<String, Object> getSession() {

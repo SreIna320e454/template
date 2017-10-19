@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class AddToCmtAction extends ActionSupport implements SessionAware{
 
-	private int userId;
+	private String userId;
 	private int itemId;
 	private String itemComment;
 	private ArrayList<AddToCmtDTO> searchCommentInfo = new ArrayList<AddToCmtDTO>();
@@ -23,21 +23,24 @@ public class AddToCmtAction extends ActionSupport implements SessionAware{
 		String result = ERROR;
 
 		AddToCmtDAO AddToCmtDAO = new AddToCmtDAO();
-		session.put("itemComment",this.itemComment);
-		session.put("userId",this.itemId);
 
-		AddToCmtDAO.comment(this.itemId,this.itemComment);
+		if(session.containsKey("login_user_id")==false){
+			result = LOGIN;
+			return result;
+		}else{
+		AddToCmtDAO.comment(itemId,itemComment);
 		searchCommentInfo = AddToCmtDAO.searchCommentInfo(itemId);
-		if(searchCommentInfo.size() > 0){
-			result = SUCCESS;
+			if(searchCommentInfo.size() > 0){
+				result = SUCCESS;
+			}
 		}
 		return result;
 	}
 
-	public int getUserId(){
+	public String getUserId(){
 		return userId;
 	}
-	public void setUserId(int userId){
+	public void setUserId(String userId){
 		this.userId = userId;
 	}
 	public int getItemId(){

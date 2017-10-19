@@ -3,7 +3,7 @@ package com.internousdev.template.dto;
 public class CartDTO {
 
 	private int cartId;
-	private int userId;
+	private String userId;
 	private int itemId;
 	private String itemName;
 	private int itemPrice;
@@ -18,10 +18,10 @@ public class CartDTO {
 	public void setCartId(int cartId){
 		this.cartId = cartId;
 	}
-	public int getUserId(){
+	public String getUserId(){
 		return userId;
 	}
-	public void setUserId(int userId){
+	public void setUserId(String userId){
 		this.userId = userId;
 	}
 	public int getItemId(){

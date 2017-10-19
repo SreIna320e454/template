@@ -1,6 +1,6 @@
 package com.internousdev.template.dto;
 
-public class ItemDTO {
+public class ItemDTO implements Comparable<ItemDTO>{
 
 	private int itemId;
 	private String itemName;
@@ -44,5 +44,15 @@ public class ItemDTO {
 	}
 	public void setItemStock(int itemStock){
 		this.itemStock = itemStock;
+	}
+	@Override
+	public int compareTo(ItemDTO dto) {
+		if(this.getItemPrice()<dto.getItemPrice()){
+			return -1;
+		}else if(this.getItemPrice()>dto.getItemPrice()){
+			return 1;
+		}else{
+			return 0;
+		}
 	}
 }

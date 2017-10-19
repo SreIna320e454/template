@@ -67,8 +67,6 @@
 						<td>
 						<s:form action="AddToCartAction">
 							<s:param name="itemId" value="%{itemId}"></s:param>
-							<s:token />
-							<s:submit value="カートに入れる"/>
 						<select name="itemCount">
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -80,6 +78,7 @@
 								<option value="8">8</option>
 								<option value="9">9</option>
 							</select>
+							<s:submit value="カートに入れる"/>
 						</s:form>
 						</td>
 					</tr>
@@ -96,10 +95,12 @@
 				<s:form action="AddToCmtAction" name="itemId" value="%{itemId}">
 					<s:textfield name="itemComment"/>
 					<s:param name="itemComment" />
-				<s:submit value="送信"/>
-				<s:iterator value="searchCommentInfo">
-					<s:property value="itemComment" />
-				</s:iterator>
+					<s:param name="itemid" value="%{itemId}" />
+						<s:iterator value="searchCommentInfo">
+							<s:property value="itemComment" />
+						</s:iterator>
+				<s:submit value="送信" />
+
 
 
 			</s:form>
