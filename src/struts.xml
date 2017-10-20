@@ -67,8 +67,8 @@
 			<result name="error">login.jsp</result>
 		</action>
 
-		<!-- AddToCmtAction -->
-		<action name="AddToCmtAction" class="com.internousdev.template.action.AddToCmtAction" method="execute">
+		<!-- AddCmtAction -->
+		<action name="AddCmtAction" class="com.internousdev.template.action.AddCmtAction" method="execute">
 			<result name="success">itemDetail.jsp</result>
 			<result name="error">itemView.jsp</result>
 			<result name="login">login.jsp</result>
