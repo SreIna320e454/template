@@ -8,7 +8,7 @@ public class CartDTO {
 	private String itemName;
 	private int itemPrice;
 	private String itemImage;
-	private int itemCount;
+	private int itemCount;/**購入個数*/
 	private int subtotal;
 	private int itemStock;
 

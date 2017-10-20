@@ -15,6 +15,7 @@ public class AddToCartDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
+/**商品情報を検索*/
 	public ArrayList<ItemDTO> searchItemInfo(int itemId){
 
 		ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
@@ -40,7 +41,7 @@ public class AddToCartDAO {
 		}
 		return searchItemInfo;
 	}
-
+/**カートテーブルに情報を追加*/
 	public void addToCart(int itemId, String userId, int itemCount){
 
 		String sql = "INSERT INTO cart_list_transaction(user_id, item_id, item_count) VALUES(?,?,?)";
@@ -55,7 +56,7 @@ public class AddToCartDAO {
 			e.printStackTrace();
 		}
 	}
-
+/**カートに入った商品情報を表示*/
 	public ArrayList<CartDTO> searchCartItemInfo(String userId){
 
 		ArrayList<CartDTO> searchCartItemInfo = new ArrayList<CartDTO>();
