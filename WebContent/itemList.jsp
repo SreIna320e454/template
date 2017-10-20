@@ -27,12 +27,12 @@
 		</div>
 
 		<!-- ここにメニュー（左)を追加
-		カート
 		購入画面(購入確認、必要事項入力、購入完了)
-		検索フォーム
-		商品の評価を入力
+		検索エンジン
+		商品の評価をユーザーから入力できるようにする
+		valueはカテゴリIDからやれば？
 		カートの商品から商品詳細画面に飛べるようにする	-->
-<a  href='<s:url action="SortPriceLowAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の安い順(時計だけ)/</a>
+<a  href='<s:url action="SortPriceLowAction" />' ><input type="hidden" name="category" value=${category} >価格の安い順(時計だけ)/</a>
 <a  href='<s:url action="SortPriceHighAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の高い順(時計だけ)/</a>
 		<s:iterator id="wrap" value="searchItemInfo">
 			<div id="container">

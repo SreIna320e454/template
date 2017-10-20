@@ -26,19 +26,35 @@
 			<p>Cart</p>
 		</div>
 
-		<s:iterator value="cartList">
-			<s:property value="itemName" />
-		</s:iterator>
-
 		<table>
-			<tr>
-				<th width="100" height="30">イメージ</th>
-				<th width="250" height="30">商品</th>
-				<th width="100" height="30">値段</th>
-				<th width="100" height="30">個数</th>
-				<th width="70" height="30">変更</th>
-				<th width="70" height="30">削除</th>
-			</tr>
+			<thead style="background-color:rgba(150,150,150,0.6);">
+				<tr>
+					<th width="100" height="30">イメージ</th>
+					<th width="250" height="30">商品</th>
+					<th width="100" height="30">値段</th>
+					<th width="100" height="30">個数</th>
+					<th width="70" height="30">変更</th>
+					<th width="70" height="30">削除</th>
+				</tr>
+			</thead>
+			<tbody>
+				<s:iterator value="searchCartItemInfo">
+					<tr>
+						<td>
+							<img src="<s:property value="itemImage" />" width="50px">
+						</td>
+						<td align="left">
+							<s:property value="itemName" />
+						</td>
+						<td>
+							<s:property value="itemPrice" />
+						</td>
+						<td>
+							<s:property value="itemCount" />
+						</td>
+					</tr>
+				</s:iterator>
+			</tbody>
 		</table>
 
 		<s:submit value="購入"/>

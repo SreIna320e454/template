@@ -42,31 +42,31 @@ public class AddToCartDAO {
 		return searchItemInfo;
 	}
 /**カートテーブルに情報を追加*/
-	public void addToCart(int itemId, String userId, int itemCount){
+	public void addToCart(int itemId, int userId, int itemCount){
 
 		String sql = "INSERT INTO cart_list_transaction(user_id, item_id, item_count) VALUES(?,?,?)";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, userId);
+			ps.setInt(1, userId);
 			ps.setInt(2, itemId);
-			ps.setInt(2,itemCount);
+			ps.setInt(3,itemCount);
 			ps.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
 	}
 /**カートに入った商品情報を表示*/
-	public ArrayList<CartDTO> searchCartItemInfo(String userId){
+	public ArrayList<CartDTO> searchCartItemInfo(int userId){
 
 		ArrayList<CartDTO> searchCartItemInfo = new ArrayList<CartDTO>();
 
-		String sqlA = "SELECT * cart_list_transaction WHERE user_id=?";
-		String sqlB = "SELECT * item_info_transaction WHERE item_id=?";
+		String sqlA = "SELECT * FROM cart_list_transaction WHERE user_id=?";
+		String sqlB = "SELECT * FROM item_info_transaction WHERE item_id=?";
 
 		try{
 			PreparedStatement psA = con.prepareStatement(sqlA);
-			psA.setString(1,userId);
+			psA.setInt(1,userId);
 			ResultSet rsA = psA.executeQuery();
 			while(rsA.next()){
 				CartDTO cartdto = new CartDTO();

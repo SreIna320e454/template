@@ -27,6 +27,7 @@
 				<input id="border" type="image" src="./images/home_icon.png" name="id" alt="商品一覧へ">
 			</s:form>
 			-->
+			<s:property value="#session.loginUser"/>
 		<div id="text-center">
 			<a href="itemView.jsp"><img src="./images/home_icon.png" alt="商品一覧へ"></a>
 			<p><a id="btn_enter" href='itemView.jsp'>ENTER</a></p>

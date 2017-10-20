@@ -1,7 +1,6 @@
 package com.internousdev.template.action;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -14,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class AddToCartAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
-	private String userId;
+	private int userId;
 	private int cartId;
 	private String itemName;
 	private String itemImage;
@@ -23,7 +22,7 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	private int itemStock;
 	private ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
 	private ArrayList<CartDTO> searchCartItemInfo = new ArrayList<CartDTO>();
-	private Map<String, Object> session = new HashMap<>();
+	private Map<String, Object> session;
 
 	public String execute(){
 
@@ -35,7 +34,7 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 			result = LOGIN;
 			return result;
 		}else{
-			userId = (String)session.get("login_user_id");
+			userId = (int)session.get("login_user_id");
 			searchItemInfo = AddToCartDAO.searchItemInfo(itemId);
 			if(searchItemInfo.size()>0){
 				AddToCartDAO.addToCart(itemId, userId, itemCount);
@@ -49,10 +48,10 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	}
 
 
-	public String getUserId(){
+	public int getUserId(){
 		return userId;
 	}
-	public void setUserId(String userId){
+	public void setUserId(int userId){
 		this.userId = userId;
 	}
 	public int getItemId(){

@@ -26,7 +26,6 @@
 		<div id="top">
 			<p>ItemDetail</p>
 		</div>
-
 		<s:iterator value="detailItemInfo">
 			<img src="<s:property value="itemImage" />" width="300px">
 				<table>
@@ -66,7 +65,8 @@
 					<tr>
 						<td>
 						<s:form action="AddToCartAction">
-							<s:param name="itemId" value="%{itemId}"></s:param>
+							<!--<s:param name="itemId" value="%{itemId}"></s:param>-->
+							<input type="hidden" name="itemId" value=${itemId} />
 						<select name="itemCount">
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -85,11 +85,16 @@
 				</table>
 		</s:iterator>
 
+
+
+		<s:property value="#session.login_user_id"/>
+		<s:property value="#session.loginUser"/>
+
+
 		<div>
 <!--  		<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></p> -->
 			<p>マイぺージは<a href='<s:url action="MyPageAction" />'>こちら</a></p>
 		</div>
-
 
 
 				<s:form action="AddToCmtAction" name="itemId" value="%{itemId}">
