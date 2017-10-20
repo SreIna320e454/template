@@ -85,12 +85,6 @@
 				</table>
 		</s:iterator>
 
-
-
-		<s:property value="#session.login_user_id"/>
-		<s:property value="#session.loginUser"/>
-
-
 		<div>
 <!--  		<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></p> -->
 			<p>マイぺージは<a href='<s:url action="MyPageAction" />'>こちら</a></p>

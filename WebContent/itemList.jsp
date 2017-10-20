@@ -26,12 +26,16 @@
 			<p>Category：clock</p>
 		</div>
 
-		<!-- ここにメニュー（左)を追加
-		購入画面(購入確認、必要事項入力、購入完了)
-		検索エンジン
-		商品の評価をユーザーから入力できるようにする
-		valueはカテゴリIDからやれば？
-		カートの商品から商品詳細画面に飛べるようにする	-->
+	<!--
+		ここにメニュー（左)を追加 7
+		購入画面(購入確認、必要事項入力、購入完了)	5
+		カートの合計金額算出 4
+		検索エンジン6
+		商品の評価をユーザーから入力できるようにする	2
+		valueはカテゴリIDからやれば？	3
+		カートの商品から商品詳細画面に飛べるようにする	1
+		ヘッダーに商品一覧に飛ぶリンクを春 1
+	-->
 <a  href='<s:url action="SortPriceLowAction" />' ><input type="hidden" name="category" value=${category} >価格の安い順(時計だけ)/</a>
 <a  href='<s:url action="SortPriceHighAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の高い順(時計だけ)/</a>
 		<s:iterator id="wrap" value="searchItemInfo">

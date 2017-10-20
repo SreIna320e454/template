@@ -13,7 +13,7 @@
 		<ul>
 			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>ログイン</a></s:if></li>
 			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>ログアウト</a></s:if></li>
-			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="#" />'>カート</a></s:if></li>
+			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="GoCartAction" />'>カート</a></s:if></li>
 		</ul>
 	</div>
 </body>

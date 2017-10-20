@@ -30,7 +30,7 @@
 				<li>
 					<s:form action="MoveItemlistAction">
 						<div class="sample1">
-							<img src="./images/goods_icon1.jpg" width="190px">
+							<img src="./images/goods_icon2.jpg" width="190px">
 							<div class="mask caption">
 								<a class="textClick" href='<s:url action="MoveItemlistAction"><s:param name="category" value="%{'時計'}"/></s:url>'>時計</a>
 							</div>
@@ -40,7 +40,7 @@
 				<li>
 					<s:form action="MoveItemlistAction">
 						<div class="sample1">
-							<img src="./images/goods_icon2.jpg" width="190px">
+							<img src="./images/goods_icon1.jpg" width="190px">
 							<div class="mask caption">
 								<a class="textClick" href='<s:url action="MoveItemlistAction"><s:param name="category" value="%{'雑貨'}"/></s:url>'>雑貨</a>
 							</div>

@@ -84,11 +84,16 @@ public class AddToCartDAO {
 					cartdto.setItemPrice(rsB.getInt("item_price"));
 					cartdto.setItemImage(rsB.getString("item_image"));
 					cartdto.setItemStock(rsB.getInt("item_stock"));
-					searchCartItemInfo.add(cartdto);
 				}
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
+		}finally{
+			try{
+				con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 		return searchCartItemInfo;
 	}

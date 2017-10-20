@@ -27,7 +27,7 @@
 		</div>
 
 		<table>
-			<thead style="background-color:rgba(150,150,150,0.6);">
+			<thead>
 				<tr>
 					<th width="100" height="30">イメージ</th>
 					<th width="250" height="30">商品</th>
@@ -41,13 +41,13 @@
 				<s:iterator value="searchCartItemInfo">
 					<tr>
 						<td>
-							<img src="<s:property value="itemImage" />" width="50px">
+							<img src="<s:property value="itemImage" />" width="60px">
 						</td>
 						<td align="left">
 							<s:property value="itemName" />
 						</td>
 						<td>
-							<s:property value="itemPrice" />
+							<s:property value="itemPrice" /><a>円</a>
 						</td>
 						<td>
 							<s:property value="itemCount" />

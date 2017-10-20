@@ -11,7 +11,7 @@ body {
 	background-image:url("../images/backgroundTexture.jpg");
 	background-size:cover;
 }
-table {
+table{
 	text-align:center;
 	margin:0 auto;
 }
@@ -32,3 +32,4 @@ table {
 	display: inline-block;
 	text-align: right;
 }
+
