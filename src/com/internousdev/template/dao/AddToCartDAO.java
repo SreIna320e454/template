@@ -70,9 +70,7 @@ public class AddToCartDAO {
 			ResultSet rsA = psA.executeQuery();
 			while(rsA.next()){
 				CartDTO cartdto = new CartDTO();
-				cartdto.setCartId(rsA.getInt("cart_id"));
 				cartdto.setItemId(rsA.getInt("item_id"));
-				cartdto.setUserId(rsA.getString("user_id"));
 				cartdto.setItemCount(rsA.getInt("item_count"));
 				searchCartItemInfo.add(cartdto);
 

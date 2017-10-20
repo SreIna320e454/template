@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.template.dto.CartDTO;
-import com.internousdev.template.dto.ItemDTO;
 import com.internousdev.template.util.DBConnector;
 
 public class GoCartDAO {
@@ -14,9 +13,9 @@ public class GoCartDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
+
 	public ArrayList<CartDTO> searchCartItemInfo(int userId)throws SQLException{
 
-		CartDTO cartDTO = new CartDTO();
 		ArrayList<CartDTO> searchCartItemInfo = new ArrayList<CartDTO>();
 
 		String sqlA = "SELECT * FROM cart_list_transaction WHERE user_id=?";
@@ -27,19 +26,20 @@ public class GoCartDAO {
 			psA.setInt(1,userId);
 			ResultSet rsA = psA.executeQuery();
 			while(rsA.next()){
+				CartDTO cartDTO = new CartDTO();
 				cartDTO.setItemId(rsA.getInt("item_id"));
+				cartDTO.setItemCount(rsA.getInt("item_count"));
 				searchCartItemInfo.add(cartDTO);
 
 				PreparedStatement psB = con.prepareStatement(sqlB);
 				psB.setInt(1, cartDTO.getItemId());
 				ResultSet rsB = psB.executeQuery();
 				while(rsB.next()){
-					ItemDTO itemDTO = new ItemDTO();
-					itemDTO.setItemName(rsB.getString("item_name"));
-					itemDTO.setItemPrice(rsB.getInt("item_price"));
-					itemDTO.setItemImage(rsB.getString("item_image"));
-					itemDTO.setItemStock(rsB.getInt("item_stock"));
-				}
+					cartDTO.setItemName(rsB.getString("item_name"));
+					cartDTO.setItemPrice(rsB.getInt("item_price"));
+					cartDTO.setItemImage(rsB.getString("item_image"));
+					cartDTO.setItemStock(rsB.getInt("item_stock"));
+					}
 				}
 		}catch(SQLException e){
 			e.printStackTrace();
