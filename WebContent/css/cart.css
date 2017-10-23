@@ -32,4 +32,8 @@ table{
 	display: inline-block;
 	text-align: right;
 }
-
+.messageInfo{
+	font-weight:bold;
+	font-size:20px;
+	padding-bottom:20px;
+}

@@ -34,11 +34,12 @@ a{
 }
 #hoge ul {
   position: relative;
+  left: 25%;
   float: left;
 }
 #hoge ul li {
   position: relative;
-  left: 50%;
+  float: left;
   list-style: none;
 }
 #container{
@@ -51,11 +52,11 @@ a{
 	margin:auto;
 }
 #itemName{
-
 	text-align:center;
 	margin-top:5px;
-	margin-bottom:20px;
+	margin-bottom:5px;
 }
 #clearFloat{
 	margin-top:50px;
+	font-size:20px;
 }

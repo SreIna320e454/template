@@ -26,6 +26,7 @@
 			<p>Cart</p>
 		</div>
 
+	<s:if test="%{searchCartItemInfo.size() > 0 && #session.id != null}">
 		<table>
 			<thead>
 				<tr>
@@ -57,7 +58,16 @@
 			</tbody>
 		</table>
 
-		<s:submit value="購入"/>
+		<div class="messageInfo">
+			<a>合計:</a><s:property value="totalPrice" /><a>円</a>
+		</div>
+	</s:if>
+
+	<s:else>
+		<div class="messageInfo">
+			<p>カートに商品がありません</p>
+		</div>
+	</s:else>
 
 	</div>
 

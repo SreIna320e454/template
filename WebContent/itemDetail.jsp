@@ -26,8 +26,10 @@
 		<div id="top">
 			<p>ItemDetail</p>
 		</div>
+		<s:form action="AddToCartAction">
 		<s:iterator value="detailItemInfo">
 			<img src="<s:property value="itemImage" />" width="300px">
+
 				<table>
 					<tr>
 						<td>
@@ -73,19 +75,12 @@
 						</td>
 					</tr>-->
 				</table>
-				<s:form action="AddToCartAction">
-					<input type="hidden" name="itemId" value=${itemId} />
-					<s:submit value="カートに入れる"/>
-				</s:form>
-		</s:iterator>
 
-------------------------------------------------------------------------------------------------------------------------------------------
-<p>商品レビュー</p>
-		<s:form action="MoveItemdetailAction">
-				<s:textfield name="itemComment" value="%{itemComment}" />
-				<input type="hidden" name="itemId" value=${itemId} />
-				<s:submit value="レビューをする" />
-			</s:form>
+					<input type="hidden" name="itemId" value=${itemId} />
+				<s:submit value="カートに入れる"/>
+
+		</s:iterator>
+</s:form>
 ------------------------------------------------------------------------------------------------------------------------------------------
 <p>レビュー一覧</p>
 			<s:iterator value="comment">
@@ -93,6 +88,14 @@
 					<s:property value="itemComment" />
 				</div>
 			</s:iterator>
+------------------------------------------------------------------------------------------------------------------------------------------
+<p>商品レビュー</p>
+		<s:form action="MoveItemdetailAction">
+				<s:textfield name="itemComment" value="%{itemComment}" />
+				<input type="hidden" name="itemId" value=${itemId} />
+				<s:submit value="レビューをする" />
+			</s:form>
+
 	</div>
 
 	<s:include value="footer.jsp" />

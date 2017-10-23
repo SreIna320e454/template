@@ -9,7 +9,6 @@ public class CartDTO {
 	private int itemPrice;
 	private String itemImage;
 	private int itemCount;/**購入個数*/
-	private int subtotal;
 	private int itemStock;
 
 	public int getCartId(){
@@ -53,12 +52,6 @@ public class CartDTO {
 	}
 	public void setItemCount(int itemCount){
 		this.itemCount = itemCount;
-	}
-	public int getSubtotal(){
-		return subtotal;
-	}
-	public void setSubtotal(int subtotal){
-		this.subtotal = subtotal;
 	}
 	public int getItemStock(){
 		return itemStock;

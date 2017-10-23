@@ -17,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/itemList.css">
 </head>
-<body>
+<body vlink="#2E2E2E">
 
 	<s:include value="header.jsp" />
 
@@ -29,14 +29,12 @@
 	<!--
 		ここにメニュー（左)を追加 7
 		購入画面(購入確認、必要事項入力、購入完了)	5
-		カートの合計金額 4
-		検索エンジン6
 		並び替え カテゴリごとにできるようにする
 		商品の評価をユーザーから入力できるようにする	2 → ユーザー名を出せるようにする
 		商品の並び替え valueはカテゴリIDからやれば？	3
 		カートの商品から商品詳細画面に飛べるようにする	1
 		カートの同一商品がまとめられてない 1
-		Move を Go に変える
+		画面の高さを調整
 	-->
 
 		<a  href='<s:url action="SortPriceLowAction" />' ><input type="hidden" name="category" value=${category} >価格の安い順(時計だけ)/</a>
