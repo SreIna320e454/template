@@ -49,6 +49,14 @@
 					</tr>
 					<tr>
 						<td>
+							<span>在庫</span>
+						</td>
+						<td>
+							<span>残り</span><s:property value="itemStock" /><span>個</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
 							<span>購入個数</span>
 						</td>
 						<td>

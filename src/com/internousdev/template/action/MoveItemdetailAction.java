@@ -32,11 +32,8 @@ public class MoveItemdetailAction extends ActionSupport implements SessionAware{
     	detailItemInfo = dao.test(itemId);
     	comment = dao.comment(itemId, itemComment);
 
-    	if(session.containsKey("login_user_id")==false){
-    		return result;
-    	}else{
-    		result = SUCCESS;
-    	}
+    	result = SUCCESS;
+
     	return result;
     	}
 

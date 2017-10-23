@@ -17,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/cart.css">
 </head>
-<body>
+<body vlink="#2E2E2E">
 
 	<s:include value="header.jsp" />
 
@@ -27,6 +27,8 @@
 		</div>
 
 	<s:if test="%{searchCartItemInfo.size() > 0 && #session.id != null}">
+
+	<s:form action="MoveItemDetailAction">
 		<table>
 			<thead>
 				<tr>
@@ -42,10 +44,13 @@
 				<s:iterator value="searchCartItemInfo">
 					<tr>
 						<td>
-							<img src="<s:property value="itemImage" />" width="60px">
+							<a href="<s:url action="MoveItemdetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
+							<img src="<s:property value="itemImage" />" width="60px"></a>
 						</td>
 						<td align="left">
+							<a id="textDeco" href="<s:url action="MoveItemdetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
 							<s:property value="itemName" />
+							</a>
 						</td>
 						<td>
 							<s:property value="itemPrice" /><a>円</a>
@@ -61,6 +66,8 @@
 		<div class="messageInfo">
 			<a>合計:</a><s:property value="totalPrice" /><a>円</a>
 		</div>
+	</s:form>
+
 	</s:if>
 
 	<s:else>
