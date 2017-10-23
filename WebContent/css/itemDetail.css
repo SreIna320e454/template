@@ -14,6 +14,10 @@ table {
 	text-align:center;
 	margin:auto;
 }
+#all{
+	background-image:url("../images/backgroundTexture.jpg");
+	background-size:cover;
+}
 #top {
 	font-weight:bold;
 	font-size:25px;
@@ -25,11 +29,28 @@ table {
 	padding-top:100px;
 	width:100%;
 	text-align:center;
-	background-image:url("../images/backgroundTexture.jpg");
-	background-size:cover;
+}
+.btnClick:active{
+	color:#2E2E2E;
 }
 #container{
-	width:900px;
+	width:750px;
 	margin-top:10px;
-	margin: auto;
+	margin: 30px auto;
+	word-wrap: break-word;
+}
+#btnPosition{
+  position: relative;
+  left: -46%;
+  margin-bottom:40px;
+}
+.caption{
+	margin:30px auto;
+	font-size:15px;
+	width:800px;
+	border:1px solid #333;
+	text-align:center;
+}
+.textAlign{
+	text-align:center;
 }

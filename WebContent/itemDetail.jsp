@@ -21,89 +21,108 @@
 
 	<s:include value="header.jsp" />
 
-	<div id="main">
+	<div id="all">
+		<div id="main">
+			<div id="top">
+				<p>ItemDetail</p>
+			</div>
 
-		<div id="top">
-			<p>ItemDetail</p>
+			<s:form action="AddToCartAction">
+				<s:iterator value="itemDetailInfo">
+					<img src="<s:property value="itemImage" />" width="300px">
+
+						<table>
+							<tr>
+								<td>
+									<span>商品名</span>
+								</td>
+								<td>
+									<s:property value="itemName" /><br>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>値段</span>
+								</td>
+								<td>
+									<s:property value="itemPrice" /><span>円</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>在庫</span>
+								</td>
+								<td>
+									<span>残り</span><s:property value="itemStock" /><span>個</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>購入個数</span>
+								</td>
+								<td>
+								<select name="itemCount">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+									</select>
+								</td>
+							</tr>
+						<!--<tr>
+								<td>
+									<span>支払い方法</span>
+								</td>
+								<td>
+			  						<input type="radio" name="pay" value="1" checked="checked">現金払い
+									<input type="radio" name="pay" value="2">クレジットカード
+								</td>
+							</tr>-->
+						</table>
+
+						<input type="hidden" name="itemId" value=${itemId} />
+
+						<div id="btnPosition">
+							<s:submit value="カートに入れる"/>
+						</div>
+				</s:iterator>
+
+				<p><a href='<s:url action="GoItemListAction" />'>前ページに戻る</a></p>
+			</s:form>
 		</div>
-		<s:form action="AddToCartAction">
-		<s:iterator value="detailItemInfo">
-			<img src="<s:property value="itemImage" />" width="300px">
 
-				<table>
-					<tr>
-						<td>
-							<span>商品名</span>
-						</td>
-						<td>
-							<s:property value="itemName" /><br>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span>値段</span>
-						</td>
-						<td>
-							<s:property value="itemPrice" /><span>円</span>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span>在庫</span>
-						</td>
-						<td>
-							<span>残り</span><s:property value="itemStock" /><span>個</span>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span>購入個数</span>
-						</td>
-						<td>
-						<select name="itemCount">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-							</select>
-						</td>
-					</tr>
-				<!--<tr>
-						<td>
-							<span>支払い方法</span>
-						</td>
-						<td>
-	  						<input type="radio" name="pay" value="1" checked="checked">現金払い
-							<input type="radio" name="pay" value="2">クレジットカード
-						</td>
-					</tr>-->
-				</table>
+		<div id="mainB">
+			<div class="caption">
+				<p>Review List</p>
+			</div>
+			<s:if test="%{comment.size()>0}">
+				<p class="textAlign">まだレビューがありません</p>
+			</s:if>
+			<s:else>
+				<s:iterator value="comment">
+					<div id="container">
+						<s:property value="itemComment" />
+					</div>
+				</s:iterator>
+			</s:else>
 
-					<input type="hidden" name="itemId" value=${itemId} />
-				<s:submit value="カートに入れる"/>
-
-		</s:iterator>
-</s:form>
-------------------------------------------------------------------------------------------------------------------------------------------
-<p>レビュー一覧</p>
-			<s:iterator value="comment">
-				<div id="container">
-					<s:property value="itemComment" />
+			<div class="caption">
+				<p>Add review</p>
+			</div>
+			<s:form action="GoItemDetailAction">
+				<div class="textAlign">
+					<textarea name="itemComment" rows="30" cols="80" maxlength="4000"
+    				placeholder="ここに入力してください(4000字まで)"></textarea>
 				</div>
-			</s:iterator>
-------------------------------------------------------------------------------------------------------------------------------------------
-<p>商品レビュー</p>
-		<s:form action="MoveItemdetailAction">
-				<s:textfield name="itemComment" value="%{itemComment}" />
-				<input type="hidden" name="itemId" value=${itemId} />
+						<input type="hidden" name="itemId" value=${itemId} />
 				<s:submit value="レビューをする" />
 			</s:form>
-
+		</div>
 	</div>
 
 	<s:include value="footer.jsp" />

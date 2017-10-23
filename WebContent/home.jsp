@@ -22,14 +22,11 @@
 	<s:include value="header.jsp" />
 
 	<div id="main">
-			<!--
-			<s:form action="HomeAction">
-				<input id="border" type="image" src="./images/home_icon.png" name="id" alt="商品一覧へ">
-			</s:form>
-			-->
+		<s:form action="GoItemViewAction">
+			<input type="image" src="./images/home_icon.png" alt="商品一覧へ">
+		</s:form>
 		<div id="text-center">
-			<a href="itemView.jsp"><img src="./images/home_icon.png" alt="商品一覧へ"></a>
-			<p><a id="btn_enter" href='itemView.jsp'>ENTER</a></p>
+			<a id="btn_enter" href='<s:url action="GoItemViewAction" />'>ENTER</a>
 		</div>
 	</div>
 

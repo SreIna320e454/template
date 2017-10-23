@@ -17,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/cart.css">
 </head>
-<body vlink="#2E2E2E">
+<body link="#2E2E2E" vlink="#2E2E2E">
 
 	<s:include value="header.jsp" />
 
@@ -28,7 +28,7 @@
 
 	<s:if test="%{searchCartItemInfo.size() > 0 && #session.id != null}">
 
-	<s:form action="MoveItemDetailAction">
+	<s:form action="GoItemDetailAction">
 		<table>
 			<thead>
 				<tr>
@@ -44,7 +44,7 @@
 				<s:iterator value="searchCartItemInfo">
 					<tr>
 						<td>
-							<a href="<s:url action="MoveItemdetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
+							<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
 							<img src="<s:property value="itemImage" />" width="60px"></a>
 						</td>
 						<td align="left">

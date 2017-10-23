@@ -5,16 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>header</title>
 </head>
 <body>
 	<div id="header">
 		<p><a id="header_logo" href="home.jsp">Antique</a></p>
 		<ul>
-			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>ログイン</a></s:if></li>
-			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>ログアウト</a></s:if></li>
-			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="GoCartAction" />'>カート</a></s:if></li>
-			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="MyPageAction" />'>マイページ</a></s:if></li>
+			<li class="header_position"><s:if test="#session.id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>Login</a></s:if></li>
+			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>Logout</a></s:if></li>
+			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="GoCartAction" />'>Cart</a></s:if></li>
+			<li class="header_position"><s:if test="#session.id != null"><a class="header_icon" href='<s:url action="MyPageAction" />'>Mypage</a></s:if></li>
 		</ul>
 	</div>
 </body>

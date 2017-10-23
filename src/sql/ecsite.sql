@@ -59,7 +59,6 @@ insert_date datetime,
 updated_date datetime
 );
 
-
 create table user_buy_item_transaction(
 id int not null primary key auto_increment,
 item_transaction_id int,

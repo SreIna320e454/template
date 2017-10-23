@@ -17,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/itemList.css">
 </head>
-<body vlink="#2E2E2E">
+<body link="#2E2E2E" vlink="#2E2E2E">
 
 	<s:include value="header.jsp" />
 
@@ -34,18 +34,13 @@
 		商品の並び替え valueはカテゴリIDからやれば？	3
 		カートの同一商品がまとめられてない 1
 		画面の高さを調整
-		moveをgoになおす
 		値段の表示(カンマをつけたい
-		カートに入れる　の位置
 		ボタンのデコレーション
+		jsで「この内容でよろしい？」
 	-->
 
-		<a  href='<s:url action="SortPriceLowAction" />' ><input type="hidden" name="category" value=${category} >価格の安い順(時計だけ)/</a>
-		<a  href='<s:url action="SortPriceHighAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の高い順(時計だけ)/</a>
-		<s:form action="SortPriceLowAction">
-				<input type="hidden" name="category" value="%{'時計'}" />
-				<s:submit value="価格の安い順" />
-			</s:form>
+		<a class="btnClick" href='<s:url action="SortPriceLowAction" />' ><input type="hidden" name="category" value=${category} >価格の安い順(時計だけ)/</a>
+		<a class="btnClick" href='<s:url action="SortPriceHighAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の高い順(時計だけ)/</a>
 
 	<div id="hoge">
 		<s:iterator value="searchItemInfo">
@@ -53,7 +48,7 @@
 		<li>
 			<div id="container">
 				<div id="itemImage">
-					<a href="<s:url action="MoveItemdetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
+					<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
 					<img src="<s:property value="itemImage" />" width="60%"></a>
 				</div>
 				<div id="itemName">

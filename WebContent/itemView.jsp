@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/itemView.css">
 </head>
-<body vlink="#FFFFFF">
+<body link="#FFFFFF" vlink="#FFFFFF">
 
 	<s:include value="header.jsp" />
 
@@ -29,24 +29,20 @@
 			<div id="text-center">
 				<ul>
 					<li>
-						<s:form action="MoveItemlistAction">
-							<div class="sample1">
-								<img src="./images/goods_icon2.jpg" width="190px">
-								<div class="mask caption">
-									<a class="textClick" href='<s:url action="MoveItemlistAction"><s:param name="category" value="%{'時計'}"/></s:url>'>時計</a>
-								</div>
+						<div class="sample1">
+							<img src="./images/goods_icon2.jpg" width="190px">
+							<div class="mask caption">
+								<a class="textClick" href='<s:url action="GoItemListAction"><s:param name="category" value="%{'時計'}"/></s:url>'>時計</a>
 							</div>
-						</s:form></li>
+						</div></li>
 					<li>
 					<li>
-						<s:form action="MoveItemlistAction">
-							<div class="sample1">
-								<img src="./images/goods_icon1.jpg" width="190px">
-								<div class="mask caption">
-									<a class="textClick" href='<s:url action="MoveItemlistAction"><s:param name="category" value="%{'雑貨'}"/></s:url>'>雑貨</a>
-								</div>
+						<div class="sample1">
+							<img src="./images/goods_icon1.jpg" width="190px">
+							<div class="mask caption">
+								<a class="textClick" href='<s:url action="GoItemListAction"><s:param name="category" value="%{'雑貨'}"/></s:url>'>雑貨</a>
 							</div>
-						</s:form></li>
+						</div></li>
 					<li>
 					<li>
 						<s:form action="#">
