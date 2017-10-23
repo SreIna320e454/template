@@ -67,12 +67,6 @@
 			<result name="error">login.jsp</result>
 		</action>
 
-		<!-- AddCmtAction -->
-		<action name="AddCmtAction" class="com.internousdev.template.action.AddCmtAction" method="execute">
-			<result name="success">itemDetail.jsp</result>
-			<result name="error">itemView.jsp</result>
-		</action>
-
 		<!-- MoveItemdetailAction -->
 		<action name="MoveItemdetailAction" class="com.internousdev.template.action.MoveItemdetailAction" method="execute">
 			<result name="success">itemDetail.jsp</result>

@@ -91,10 +91,9 @@
 		</div>
 
 
-				<s:form action="AddCmtAction">
+				<s:form action="MoveItemdetailAction">
 					<s:textfield name="itemComment" value="%{itemComment}" />
 					<input type="hidden" name="itemId" value=${itemId} />
-					<s:param name="itemId" value="%{itemId}"/>
 					<s:submit value="送信" />
 				</s:form>
 				<s:iterator value="comment">

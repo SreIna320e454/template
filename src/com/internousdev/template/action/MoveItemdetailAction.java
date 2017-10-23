@@ -1,10 +1,12 @@
 package com.internousdev.template.action;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.template.dao.MoveItemdetailDAO;
+import com.internousdev.template.dto.AddCmtDTO;
 import com.internousdev.template.dto.ItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -16,6 +18,8 @@ public class MoveItemdetailAction extends ActionSupport implements SessionAware{
 	private int itemPrice;
 	private String itemImage;
 	private int itemStock;
+	private String itemComment;
+	private ArrayList<AddCmtDTO> comment = new ArrayList<AddCmtDTO>();
 	public ItemDTO detailItemInfo = new ItemDTO();
 	private Map<String, Object> session = new HashMap<>();
 
@@ -26,6 +30,7 @@ public class MoveItemdetailAction extends ActionSupport implements SessionAware{
     	MoveItemdetailDAO dao = new MoveItemdetailDAO();
 
     	detailItemInfo = dao.test(itemId);
+    	comment = dao.comment(itemId, itemComment);
 
     	if(session.containsKey("login_user_id")==false){
     		return result;
@@ -71,6 +76,18 @@ public class MoveItemdetailAction extends ActionSupport implements SessionAware{
     public void setItemStocks(int itemStock) {
         this.itemStock = itemStock;
     }
+	public String getItemComment(){
+		return itemComment;
+	}
+	public void setItemComment(String itemComment){
+		this.itemComment = itemComment;
+	}
+	public ArrayList<AddCmtDTO> getComment(){
+		return comment;
+	}
+	public void setComment(ArrayList<AddCmtDTO> comment){
+		this.comment = comment;
+	}
     public ItemDTO getDetailItemInfo(){
     	return detailItemInfo;
     }
