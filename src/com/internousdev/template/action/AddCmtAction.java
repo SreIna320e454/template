@@ -15,28 +15,8 @@ public class AddCmtAction extends ActionSupport implements SessionAware{
 	private String userId;
 	private int itemId;
 	private String itemComment;
-/**	private ArrayList<AddCmtDTO> searchCommentInfo = new ArrayList<AddCmtDTO>();	*/
 	private ArrayList<AddCmtDTO> comment = new ArrayList<AddCmtDTO>();
-	private Map<String, Object> session = new HashMap<>();
-
-/**	public String execute(){
-
-		String result = ERROR;
-
-		AddCmtDAO AddToCmtDAO = new AddCmtDAO();
-
-		if(session.containsKey("login_user_id")==false){
-			result = LOGIN;
-			return result;
-		}else{
-		AddToCmtDAO.comment(itemId,itemComment);
-		searchCommentInfo = AddToCmtDAO.searchCommentInfo(itemId);
-			if(searchCommentInfo.size() > 0){
-				result = SUCCESS;
-			}
-		}
-		return result;
-	} */
+	Map<String, Object> session = new HashMap<>();
 
 	public String execute(){
 
@@ -44,15 +24,10 @@ public class AddCmtAction extends ActionSupport implements SessionAware{
 
 		AddCmtDAO AddCmtDAO = new AddCmtDAO();
 
-		if(session.containsKey("login_user_id")==false){
-			result = LOGIN;
-			return result;
-		}else{
 			comment = AddCmtDAO.comment(itemId, itemComment);
 			if(comment.size()>0){
 				result = SUCCESS;
 			}
-		}
 		return result;
 	}
 
@@ -65,7 +40,7 @@ public class AddCmtAction extends ActionSupport implements SessionAware{
 	public int getItemId(){
 		return itemId;
 	}
-	public void seItemId(int itemId){
+	public void setItemId(int itemId){
 		this.itemId = itemId;
 	}
 	public String getItemComment(){
@@ -74,12 +49,6 @@ public class AddCmtAction extends ActionSupport implements SessionAware{
 	public void setItemComment(String itemComment){
 		this.itemComment = itemComment;
 	}
-/**	public ArrayList<AddCmtDTO> getSearchCommentInfo(){
-		return searchCommentInfo;
-	}
-	public void setSearchCommentInfo(ArrayList<AddCmtDTO> searchCommentInfo){
-		this.searchCommentInfo = searchCommentInfo;
-	}*/
 	public ArrayList<AddCmtDTO> getComment(){
 		return comment;
 	}
@@ -87,6 +56,9 @@ public class AddCmtAction extends ActionSupport implements SessionAware{
 		this.comment = comment;
 	}
 
+	public Map<String, Object> getSession(){
+		return session;
+	}
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

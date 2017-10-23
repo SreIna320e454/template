@@ -13,48 +13,14 @@ public class AddCmtDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-/**	public void adComment(int itemId, String itemComment){
-
-		String sql = "INSERT INTO item_comment_transaction(item_id, item_comment) VALUES(?,?)";
-
-		try{
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, itemId);
-			ps.setString(2, itemComment);
-			ps.executeUpdate();
-		}catch(SQLException e){
-			e.printStackTrace();
-		}
-	}
-
-	public ArrayList<AddCmtDTO> searchCommentInfo(int itemId){
-
-		ArrayList<AddCmtDTO> searchCommentInfo = new ArrayList<AddCmtDTO>();
-
-		String sql = "SELECT * FROM item_comment_transaction WHERE item_id=?";
-
-		try{
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, itemId);
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()){
-				AddCmtDTO dto = new AddCmtDTO();
-				dto.setItemComment(rs.getString("item_comment"));
-				searchCommentInfo.add(dto);
-			}
-		}catch(SQLException e){
-			e.printStackTrace();
-		}
-		return searchCommentInfo;
-	} */
-
+/**入力されたコメントをDBに格納し、引き出す*/
 	public ArrayList<AddCmtDTO>comment(int itemId, String itemComment){
 		ArrayList<AddCmtDTO> comment = new ArrayList<AddCmtDTO>();
 		String sqlA = "INSERT INTO item_comment_transaction(item_id, item_comment) VALUES(?,?)";
 		String sqlB = "SELECT * FROM item_comment_transaction WHERE item_id=?";
 
 		try{
-			PreparedStatement psA = con.prepareCall(sqlA);
+			PreparedStatement psA = con.prepareStatement(sqlA);
 			psA.setInt(1, itemId);
 			psA.setString(2, itemComment);
 			int commentAmount = psA.executeUpdate();
