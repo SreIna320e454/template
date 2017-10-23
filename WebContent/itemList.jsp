@@ -23,7 +23,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>Category：clock</p>
+			<p>Category：<s:property value="category" /></p>
 		</div>
 
 	<!--
@@ -38,9 +38,18 @@
 		カートの同一商品がまとめられてない 1
 		Move を Go に変える
 	-->
-<a  href='<s:url action="SortPriceLowAction" />' ><input type="hidden" name="category" value=${category} >価格の安い順(時計だけ)/</a>
-<a  href='<s:url action="SortPriceHighAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の高い順(時計だけ)/</a>
-		<s:iterator id="wrap" value="searchItemInfo">
+
+		<a  href='<s:url action="SortPriceLowAction" />' ><input type="hidden" name="category" value=${category} >価格の安い順(時計だけ)/</a>
+		<a  href='<s:url action="SortPriceHighAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の高い順(時計だけ)/</a>
+		<s:form action="SortPriceLowAction">
+				<input type="hidden" name="category" value="%{'時計'}" />
+				<s:submit value="価格の安い順" />
+			</s:form>
+
+	<div id="hoge">
+		<s:iterator value="searchItemInfo">
+		<ul>
+		<li>
 			<div id="container">
 				<div id="itemImage">
 					<a href="<s:url action="MoveItemdetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
@@ -51,9 +60,12 @@
 				</div>
 				<s:property value="itemPrice" /><a>円</a>
 			</div>
+		</li>
+		</ul>
 		</s:iterator>
+	</div>
 
-		<a id="clearFloat" href='<s:url action="GoItemViewAction" />'>商品一覧に戻る</a>
+		<p id="clearFloat" style="clear:left;"><a href='<s:url action="GoItemViewAction" />'>商品一覧に戻る</a></p>
 	</div>
 
 	<s:include value="footer.jsp" />

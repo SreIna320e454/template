@@ -14,7 +14,7 @@
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
 	<title>ItemDetail</title>
-<!--  <link rel="stylesheet" type="text/css" href="./css/headerFooter.css">	-->
+	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/itemDetail.css">
 </head>
 <body>
@@ -50,23 +50,6 @@
 							<span>購入個数</span>
 						</td>
 						<td>
-
-						</td>
-					</tr>
-<!--				<tr>
-						<td>
-							<span>支払い方法</span>
-						</td>
-						<td>
-	  						<input type="radio" name="pay" value="1" checked="checked">現金払い
-							<input type="radio" name="pay" value="2">クレジットカード
-						</td>
-					</tr>			-->
-					<tr>
-						<td>
-						<s:form action="AddToCartAction">
-							<!--<s:param name="itemId" value="%{itemId}"></s:param>-->
-							<input type="hidden" name="itemId" value=${itemId} />
 						<select name="itemCount">
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -78,28 +61,38 @@
 								<option value="8">8</option>
 								<option value="9">9</option>
 							</select>
-							<s:submit value="カートに入れる"/>
-						</s:form>
 						</td>
 					</tr>
+				<!--<tr>
+						<td>
+							<span>支払い方法</span>
+						</td>
+						<td>
+	  						<input type="radio" name="pay" value="1" checked="checked">現金払い
+							<input type="radio" name="pay" value="2">クレジットカード
+						</td>
+					</tr>-->
 				</table>
+				<s:form action="AddToCartAction">
+					<input type="hidden" name="itemId" value=${itemId} />
+					<s:submit value="カートに入れる"/>
+				</s:form>
 		</s:iterator>
 
-		<div>
-<!--  		<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></p> -->
-			<p>マイぺージは<a href='<s:url action="MyPageAction" />'>こちら</a></p>
-		</div>
-
-
-				<s:form action="MoveItemdetailAction">
-					<s:textfield name="itemComment" value="%{itemComment}" />
-					<input type="hidden" name="itemId" value=${itemId} />
-					<s:submit value="送信" />
-				</s:form>
-				<s:iterator value="comment">
+------------------------------------------------------------------------------------------------------------------------------------------
+<p>商品レビュー</p>
+		<s:form action="MoveItemdetailAction">
+				<s:textfield name="itemComment" value="%{itemComment}" />
+				<input type="hidden" name="itemId" value=${itemId} />
+				<s:submit value="レビューをする" />
+			</s:form>
+------------------------------------------------------------------------------------------------------------------------------------------
+<p>レビュー一覧</p>
+			<s:iterator value="comment">
+				<div id="container">
 					<s:property value="itemComment" />
-				</s:iterator>
-
+				</div>
+			</s:iterator>
 	</div>
 
 	<s:include value="footer.jsp" />
