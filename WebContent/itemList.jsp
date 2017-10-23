@@ -35,6 +35,9 @@
 		カートの同一商品がまとめられてない 1
 		画面の高さを調整
 		moveをgoになおす
+		値段の表示(カンマをつけたい
+		カートに入れる　の位置
+		ボタンのデコレーション
 	-->
 
 		<a  href='<s:url action="SortPriceLowAction" />' ><input type="hidden" name="category" value=${category} >価格の安い順(時計だけ)/</a>
