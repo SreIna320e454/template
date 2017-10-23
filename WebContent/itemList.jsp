@@ -27,17 +27,19 @@
 		</div>
 
 	<!--
-		ここにメニュー（左)を追加 7
 		購入画面(購入確認、必要事項入力、購入完了)	5
 		並び替え カテゴリごとにできるようにする
 		商品の評価をユーザーから入力できるようにする	2 → ユーザー名を出せるようにする
 		商品の並び替え valueはカテゴリIDからやれば？	3
 		カートの同一商品がまとめられてない 1
-		画面の高さを調整
+		画像の余白
 		値段の表示(カンマをつけたい
 		ボタンのデコレーション
 		jsで「この内容でよろしい？」
+		ログイン画面から商品詳細へ
+		商品詳細から商品リストへ
 	-->
+
 
 		<a class="btnClick" href='<s:url action="SortPriceLowAction" />' ><input type="hidden" name="category" value=${category} >価格の安い順(時計だけ)/</a>
 		<a class="btnClick" href='<s:url action="SortPriceHighAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の高い順(時計だけ)/</a>

@@ -42,7 +42,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	/**
 	 * ログイン情報を格納
 	 */
-	public Map<String, Object> loginUserInfoMap = new HashMap<>();
+	public Map<String, Object> session = new HashMap<>();
 
 	/**
 	 * ログイン情報取得DAO
@@ -69,18 +69,18 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		// ログイン実行
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 
-		loginUserInfoMap.put("loginUser", loginDTO);
+		session.put("loginUser", loginDTO);
 
 		// ログイン情報を比較
-		if(((LoginDTO) loginUserInfoMap.get("loginUser")).getLoginFlg()) {
+		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
 			result = SUCCESS;
 
 		// アイテム情報を取得
 			ItemDTO ItemDTO = buyItemDAO.getBuyItemInfo();
-			loginUserInfoMap.put("login_user_id",	loginDTO.getUserId());
-			loginUserInfoMap.put("id", ItemDTO.getItemId());
-			loginUserInfoMap.put("buyItem_name", ItemDTO.getItemName());
-			loginUserInfoMap.put("buyItem_price", ItemDTO.getItemPrice());
+			session.put("login_user_id",	loginDTO.getUserId());
+			session.put("id", ItemDTO.getItemId());
+			session.put("buyItem_name", ItemDTO.getItemName());
+			session.put("buyItem_price", ItemDTO.getItemPrice());
 
 			return result;
 		}
@@ -105,7 +105,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	}
 
 	@Override
-	public void setSession(Map<String, Object> loginUserInfoMap) {
-		this.loginUserInfoMap = loginUserInfoMap;
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 }

@@ -31,3 +31,6 @@ body {
 #btn_enter:active{
 	color:#FFFFFF;
 }
+.deco{
+	outline:none;
+}

@@ -23,9 +23,9 @@
 
 	<div id="main">
 		<s:form action="GoItemViewAction">
-			<input type="image" src="./images/home_icon.png" alt="商品一覧へ">
+			<input class="deco" type="image" src="./images/home_icon.png" alt="商品一覧へ">
 		</s:form>
-		<div id="text-center">
+		<div class="text-center">
 			<a id="btn_enter" href='<s:url action="GoItemViewAction" />'>ENTER</a>
 		</div>
 	</div>
