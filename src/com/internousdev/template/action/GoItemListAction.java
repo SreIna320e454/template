@@ -1,7 +1,6 @@
 package com.internousdev.template.action;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -19,7 +18,7 @@ public class GoItemListAction extends ActionSupport implements SessionAware{
 	private String category;
 	private String itemImage;
     public ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
-    private Map<String, Object> session = new HashMap<>();
+    private Map<String, Object> session;
 
     public String execute(){
 

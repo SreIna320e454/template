@@ -120,7 +120,7 @@
     				placeholder="ここに入力してください(4000字まで)"></textarea>
 				</div>
 						<input type="hidden" name="itemId" value=${itemId} />
-				<s:submit value="レビューをする" />
+				<s:submit id="submitButton" value="この内容で送信する" />
 			</s:form>
 		</div>
 	</div>

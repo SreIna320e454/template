@@ -22,7 +22,7 @@ public class BuyItemDAO {
 	 */
 	public ItemDTO getBuyItemInfo() {
 
-		String sql = "SELECT item_id, item_name, item_price, category FROM item_info_transaction";
+		String sql = "SELECT item_id, item_name, item_price, category_name FROM item_info_transaction";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -32,7 +32,7 @@ public class BuyItemDAO {
 				ItemDTO.setItemId(resultSet.getInt("item_id"));
 				ItemDTO.setItemName(resultSet.getString("item_name"));
 				ItemDTO.setItemPrice(resultSet.getInt("item_price"));
-				ItemDTO.setCategoryName(resultSet.getString("category"));
+				ItemDTO.setCategoryName(resultSet.getString("category_name"));
 			}
 
 		} catch(Exception e) {

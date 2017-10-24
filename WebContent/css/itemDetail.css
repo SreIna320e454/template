@@ -54,3 +54,28 @@ table {
 .textAlign{
 	text-align:center;
 }
+#submitButton{
+    padding: 6px 12px;
+    border-style: none;
+    background:none;
+    border:1px solid;
+    transition: all 0.4s;
+}
+#submitButton:hover{
+	color:#fff;
+	background-color:#000000;
+	transition: all 0.9s;
+}
+
+
+    $(function() {
+    $('button').click(function(){
+        $('p').toggle(true);
+    });
+});
+
+$(function() {
+    $('button').click(function(){
+        $('img').toggle();
+    });
+});

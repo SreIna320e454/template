@@ -26,27 +26,33 @@
 			</div>
 
 <s:property value="session.get('login_user_id')" />
+<s:property value="session.get('user_name')" />
 <s:property value="session.get('item_id')" />
-<s:property value="session.get('buyItem_name')" />
-<s:property value="session.get('buyItem_price')" />
-<s:property value="session.get('category')" />
+<s:property value="session.get('item_name')" />
+<s:property value="session.get('item_price')" />
+<s:property value="session.get('category_name')" />
+<s:property value="session.get('category_nametest')" />
 
-		<div id="paddingBottom">
-			<s:iterator value="searchCategoryInfo">
-				<div id="text-center">
-					<ul>
-						<li>
-							<div class="sample1">
-								<img src="<s:property value="categoryImage" />" width="190px">
-								<div class="mask caption">
-									<a class="textClick" href='<s:url action="GoItemListAction"><s:param name="category" value="%{'時計'}"/></s:url>'><s:property value="categoryName"/></a>
+			<div id="paddingBottom">
+
+				<s:iterator value="searchCategoryInfo">
+				<s:form action="GoItemListAction">
+					<div id="text-center">
+						<ul>
+							<li>
+								<div class="sample1">
+									<img src="<s:property value="categoryImage" />" width="190px">
+									<div class="mask caption">
+										<a class="textClick" href='<s:url action="GoItemListAction"><s:param name="categoryName" value='%{"時計"}'/></s:url>'><s:property value="categoryName"/></a>
+									</div>
 								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</s:iterator>
-		</div>
+							</li>
+						</ul>
+					</div>
+				</s:form>
+				</s:iterator>
+
+			</div>
 		</div>
 
 	<s:include value="footer.jsp" />

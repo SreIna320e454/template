@@ -1,5 +1,6 @@
 package com.internousdev.template.action;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -12,7 +13,7 @@ public class GoItemViewAction extends ActionSupport implements SessionAware{
 
 	private String categoryName;
 	private String categoryImage;
-	private Map<String, Object> session;
+	private Map<String, Object> session = new HashMap<>();
 	ArrayList<ItemDTO> searchCategoryInfo = new ArrayList<ItemDTO>();
 
 	public String execute(){
@@ -23,6 +24,7 @@ public class GoItemViewAction extends ActionSupport implements SessionAware{
 
 		searchCategoryInfo =dao.searchCategoryInfo();
 		if(searchCategoryInfo.size()>0){
+			session.put("category_nametest", searchCategoryInfo);
 			result = SUCCESS;
 		}
 		return result;
