@@ -28,7 +28,6 @@
 
 	<!--
 				購入画面(購入確認、必要事項入力、購入完了)	5
-	△	並び替え カテゴリごとにできるようにする valueはカテゴリIDからやれば？
 	○		2 →	jsで「この内容でよろしい？」
 		→ログインしてる人だけレビューできるように ログインしていない場合は入力フォームも隠す
 			何も書いてないと送信できないようにする
@@ -42,14 +41,10 @@
 	-->
 
 	<s:form action="SortPriceLowAction">
-		<input type="hidden" name="categoryName" value="<s:property value='categoryName'/>" />
-		<s:submit value="価格の安い順" />
-		<a class="btnClick" href='<s:url action="SortPriceLowAction" />' ><input type="hidden" name="category" value=${category} >価格の安い順(時計だけ)/</a>
+		<a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
 	</s:form>
 	<s:form action="SortPriceHighAction">
-		<input type="hidden" name="categoryName" value="<s:property value='categoryName'/>" />
-		<s:submit value="価格の高い順" />
-		<a class="btnClick" href='<s:url action="SortPriceHighAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の高い順(時計だけ)/</a>
+		<a class="btnClick" href='<s:url action="SortPriceHighAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>'>価格の高い順</a>
 	</s:form>
 
 	<div id="hoge">
@@ -61,7 +56,6 @@
 				<div id="itemImage">
 					<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
 					<img src="<s:property value="itemImage" />" width="60%"></a>
-					<input type="hidden" name="itemId" value="<s:property value='itemId'/>" /><s:submit value="テスト" />
 				</div>
 				<div id="itemName">
 					<s:property value="itemName" />

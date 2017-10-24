@@ -44,9 +44,9 @@
 								<div class="sample1">
 									<img src="<s:property value="categoryImage" />" width="190px">
 									<div class="mask caption">
-										<a class="textClick" href='<s:url action="GoItemListAction" />'><s:property value="categoryName"/>
-										<input type="hidden" name="categoryName" value="<s:property value='categoryName'/>" /></a>
-										<s:submit value="こっち" />
+										<a class="textClick" href="<s:url action="GoItemListAction">
+										<s:param name="categoryName" value="%{categoryName}" /></s:url>">
+										<s:property value="categoryName" /></a>
 									</div>
 								</div>
 							</s:form>
