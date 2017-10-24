@@ -5,7 +5,8 @@ public class ItemDTO implements Comparable<ItemDTO>{
 	private int itemId;
 	private String itemName;
 	private int itemPrice;
-	private String category;
+	private String categoryImage;
+	private String categoryName;
 	private String itemImage;
 	private int itemStock=0;
 
@@ -27,11 +28,17 @@ public class ItemDTO implements Comparable<ItemDTO>{
 	public void setItemPrice(int itemPrice){
 		this.itemPrice = itemPrice;
 	}
-	public String getCategory(){
-		return category;
+	public String getCategoryImage(){
+		return categoryImage;
 	}
-	public void setCategory(String category){
-		this.category = category;
+	public void setCategoryImage(String categoryImage){
+		this.categoryImage = categoryImage;
+	}
+	public String getCategoryName(){
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName){
+		this.categoryName = categoryName;
 	}
 	public String getItemImage(){
 		return itemImage;

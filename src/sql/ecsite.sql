@@ -18,7 +18,7 @@ item_id int not null primary key auto_increment,
 item_name varchar(50),
 category_id int,
 item_price int,
-category varchar(20),
+category_name varchar(20),
 item_image varchar(255),
 item_stock int,
 insert_date datetime,
@@ -85,7 +85,7 @@ INSERT INTO item_categories_transaction(category_name, category_image) values
 
 
 /*商品情報*/
-INSERT INTO item_info_transaction(item_id,item_name,category_id,item_price,category,item_image,item_stock) VALUES
+INSERT INTO item_info_transaction(item_id,item_name,category_id,item_price,category_name,item_image,item_stock) VALUES
 (1,"2003GP 手巻き式懐中時計(スケルトン)",1, 100000,"時計", "./goodsImages/tokei/EposPocketWatch01.jpg",50),
 (2,"トリプルカレンダームーンフェイズ", 1,300000, "時計","./goodsImages/tokei/MoonPhase01.jpg", 50),
 (3,"Welbyチークウッド・リーフ＆メタル・サンバーストクロック",1,69800,"時計", "./goodsImages/tokei/SunBurstClock01.jpg", 50),

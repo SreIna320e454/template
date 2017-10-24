@@ -28,30 +28,30 @@ a{
 #main {
 	padding-top:100px;
 	width: 100%;
+	height:800px;
 	text-align: center;
 	background-image:url("../images/backgroundTexture.jpg");
 	background-size:cover;
 }
-#paddingBottom{
-	padding-bottom:30px;
-}
 .textClick:active{
 	color:#FFFFFF;
 }
+#paddingBottom{
+	padding-bottom:30px;
+	width:800px;
+}
 #text-center{
+	float:left;
 	position: relative;
-	overflow: hidden;
+	left:43%;
+	margin-bottom:10px;
 }
 #text-center ul{
   position: relative;
-  left: 50%;
-  float: left;
+
 }
 #text-center ul li{
-	padding-right:12px;
-	padding-left:12px;
 	position: relative;
-	left: -50%;
 	float: left;
 	list-style: none;
 	outline:none;
@@ -68,6 +68,9 @@ a{
 	height:	190px;
 	overflow:hidden;
 	position:relative;
+	text-align:center;
+	float:left;
+	margin:auto;
 }
 .sample1 .caption {
 	font-size:20px;

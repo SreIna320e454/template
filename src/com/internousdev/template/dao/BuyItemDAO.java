@@ -32,7 +32,7 @@ public class BuyItemDAO {
 				ItemDTO.setItemId(resultSet.getInt("item_id"));
 				ItemDTO.setItemName(resultSet.getString("item_name"));
 				ItemDTO.setItemPrice(resultSet.getInt("item_price"));
-				ItemDTO.setCategory(resultSet.getString("category"));
+				ItemDTO.setCategoryName(resultSet.getString("category"));
 			}
 
 		} catch(Exception e) {
