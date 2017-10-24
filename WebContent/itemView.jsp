@@ -36,20 +36,22 @@
 			<div id="paddingBottom">
 
 				<s:iterator value="searchCategoryInfo">
-				<s:form action="GoItemListAction">
+
 					<div id="text-center">
 						<ul>
 							<li>
+							<s:form action="GoItemListAction">
 								<div class="sample1">
 									<img src="<s:property value="categoryImage" />" width="190px">
 									<div class="mask caption">
-										<a class="textClick" href='<s:url action="GoItemListAction"><s:param name="categoryName" value='%{"時計"}'/></s:url>'><s:property value="categoryName"/></a>
+										<a class="textClick" href='<s:url action="GoItemListAction" />'><s:property value="categoryName"/>
+										<input type="hidden" name="categoryName" value="<s:property value='categoryName'/>" /></a>
 									</div>
 								</div>
+							</s:form>
 							</li>
 						</ul>
 					</div>
-				</s:form>
 				</s:iterator>
 
 			</div>

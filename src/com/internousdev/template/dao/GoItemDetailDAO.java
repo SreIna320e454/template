@@ -45,15 +45,16 @@ public class GoItemDetailDAO {
 /**
 * 入力されたレビューをDBに格納し、引き出すメソッド
 */
-	public ArrayList<AddCmtDTO>comment(int itemId, String itemComment){
+	public ArrayList<AddCmtDTO>comment(int itemId, String userName, String itemComment){
 		ArrayList<AddCmtDTO> comment = new ArrayList<AddCmtDTO>();
-		String sqlA = "INSERT INTO item_comment_transaction(item_id, item_comment) VALUES(?,?)";
+		String sqlA = "INSERT INTO item_comment_transaction(item_id, user_name, item_comment) VALUES(?,?,?)";
 		String sqlB = "SELECT * FROM item_comment_transaction WHERE item_id=?";
 
 		try{
 			PreparedStatement psA = con.prepareStatement(sqlA);
 			psA.setInt(1, itemId);
-			psA.setString(2, itemComment);
+			psA.setString(2, userName);
+			psA.setString(3,itemComment);
 			int commentAmount = psA.executeUpdate();
 			if(commentAmount>0){
 				PreparedStatement psB = con.prepareStatement(sqlB);
@@ -61,6 +62,7 @@ public class GoItemDetailDAO {
 				ResultSet rs = psB.executeQuery();
 				while(rs.next()){
 					AddCmtDTO dto = new AddCmtDTO();
+					dto.setUserName(rs.getString("user_name"));
 					dto.setItemComment(rs.getString("item_comment"));
 					comment.add(dto);
 				}

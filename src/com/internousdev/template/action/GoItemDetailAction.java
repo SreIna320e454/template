@@ -14,6 +14,7 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
 	private String userId;
+	private String userName;
 	private String itemName;
 	private int itemPrice;
 	private String itemImage;
@@ -25,16 +26,19 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
     public String execute(){
 
-    	String result = ERROR;
 
     	GoItemDetailDAO dao = new GoItemDetailDAO();
 
     	itemDetailInfo = dao.itemDetailInfo(itemId);
-    	comment = dao.comment(itemId, itemComment);
 
-    	result = SUCCESS;
+    	userName = (String)session.get("user_name");
+    	comment = dao.comment(itemId, userName, itemComment);
+
+    	String result = SUCCESS;
     	return result;
-    	}
+
+    }
+
 
     public int getItemId() {
         return itemId;

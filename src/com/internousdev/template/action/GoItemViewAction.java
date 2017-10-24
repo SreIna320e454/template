@@ -24,7 +24,6 @@ public class GoItemViewAction extends ActionSupport implements SessionAware{
 
 		searchCategoryInfo =dao.searchCategoryInfo();
 		if(searchCategoryInfo.size()>0){
-			session.put("category_nametest", searchCategoryInfo);
 			result = SUCCESS;
 		}
 		return result;

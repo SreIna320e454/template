@@ -12,9 +12,10 @@
 		<p><a id="header_logo" href="home.jsp">Antique</a></p>
 		<ul>
 			<li class="header_position"><s:if test="#session.login_user_id == null"><a class="header_icon" href='<s:url action="HomeAction" />'>Login</a></s:if></li>
+			<li class="header_position"><s:if test="#session.login_user_id != null"><a class="header_icon" href='<s:url action="MyPageAction" />'>Mypage</a></s:if></li>
 			<li class="header_position"><s:if test="#session.login_user_id != null"><a class="header_icon" href='<s:url action="LogoutAction" />'>Logout</a></s:if></li>
 			<li class="header_position"><s:if test="#session.login_user_id != null"><a class="header_icon" href='<s:url action="GoCartAction" />'>Cart</a></s:if></li>
-			<li class="header_position"><s:if test="#session.login_user_id != null"><a class="header_icon" href='<s:url action="MyPageAction" />'>Mypage</a></s:if></li>
+			<li class="header_position"><a class="header_icon" href='<s:url action="GoItemViewAction" />'>Item</a></li>
 		</ul>
 	</div>
 </body>

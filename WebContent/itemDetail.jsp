@@ -107,6 +107,7 @@
 				<s:iterator value="comment">
 					<div id="container">
 						<s:property value="itemComment" />
+						<s:property value="userName" />
 					</div>
 				</s:iterator>
 			</s:else>

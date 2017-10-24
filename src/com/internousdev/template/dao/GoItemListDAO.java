@@ -13,16 +13,16 @@ public class GoItemListDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-	public ArrayList<ItemDTO> searchItemInfo(String category){
+	public ArrayList<ItemDTO> searchItemInfo(String categoryName){
 
 	ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
 
 
-	String sql = "SELECT * FROM item_info_transaction WHERE category=?";
+	String sql = "SELECT * FROM item_info_transaction WHERE category_name=?";
 
 	try{
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, category);
+		ps.setString(1, categoryName);
 		ResultSet rs = ps.executeQuery();
 
 		while(rs.next()){
@@ -30,8 +30,8 @@ public class GoItemListDAO {
 			dto.setItemId(rs.getInt("item_id"));
 			dto.setItemName(rs.getString("item_name"));
 			dto.setItemPrice(rs.getInt("item_price"));
+			dto.setCategoryName(rs.getString("category_name"));
 			dto.setItemImage(rs.getString("item_image"));
-			dto.setCategoryName(rs.getString("category"));
 
 			searchItemInfo.add(dto);
 		}

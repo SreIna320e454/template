@@ -30,6 +30,7 @@ foreign key(category_id)references item_categories_transaction(category_id)
 create table item_comment_transaction(
 comment_id int not null primary key auto_increment,
 user_id int,
+user_name varchar(50),
 item_id int,
 item_comment varchar(255),
 insert_date datetime,
