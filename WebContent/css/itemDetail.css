@@ -62,12 +62,11 @@ table {
 }
 .box{
 	float:left;
-	margin-left:20px;
-
+	margin:20px;
 }
 .test{
 	font-size:15px;
-	width:350px;
+	width:500px;
 	border:1px solid #333;
 	text-align:center;
 }

@@ -92,7 +92,7 @@
 						</div>
 				</s:iterator>
 			</s:form>
-		</div>
+
 
 	<!--	<div id="mainB">
 			<div class="caption">
@@ -133,6 +133,7 @@
 			<div class="test">
 				<p>Add review</p>
 			</div>
+		</div>
 		</div>
 	</div>
 
