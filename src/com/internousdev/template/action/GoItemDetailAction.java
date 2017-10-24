@@ -19,6 +19,7 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 	private int itemPrice;
 	private String itemImage;
 	private int itemStock;
+	private String categoryName;
 	private String itemComment;
 	private ArrayList<AddCmtDTO> comment = new ArrayList<AddCmtDTO>();
 	public ItemDTO itemDetailInfo = new ItemDTO();
@@ -77,6 +78,12 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
     }
     public void setItemStocks(int itemStock) {
         this.itemStock = itemStock;
+    }
+    public String getCategoryName() {
+        return categoryName;
+    }
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 	public String getItemComment(){
 		return itemComment;

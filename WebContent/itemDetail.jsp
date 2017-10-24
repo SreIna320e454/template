@@ -26,13 +26,6 @@
 			<div id="top">
 				<p>ItemDetail</p>
 			</div>
-<s:property value="session.get('login_user_id')" />
-<s:property value="session.get('user_name')" />
-<s:property value="session.get('item_id')" />
-<s:property value="session.get('item_name')" />
-<s:property value="session.get('item_price')" />
-<s:property value="session.get('category_name')" />
-<s:property value="session.get('category_nametest')" />
 
 			<s:form action="AddToCartAction">
 				<s:iterator value="itemDetailInfo">
@@ -98,12 +91,10 @@
 							<s:submit value="カートに入れる"/>
 						</div>
 				</s:iterator>
-
-				<p><a href='<s:url action="GoItemListAction" />'>前ページに戻る</a></p>
 			</s:form>
 		</div>
 
-		<div id="mainB">
+	<!--	<div id="mainB">
 			<div class="caption">
 				<p>Review List</p>
 			</div>
@@ -131,10 +122,21 @@
 			<s:else>
 				<p class="textAlign">レビューを追加するにはログインをしてください。</p>
 			</s:else>
+		</div>-->
+
+		<div class="box">
+			<div class="test">
+				<p>Reviw List</p>
+			</div>
+		</div>
+		<div class="box">
+			<div class="test">
+				<p>Add review</p>
+			</div>
 		</div>
 	</div>
 
-	<s:include value="footer.jsp" />
+<!--  	<s:include value="footer.jsp" />	-->
 
 </body>
 </html>

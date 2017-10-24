@@ -20,7 +20,7 @@ public class GoItemDetailDAO {
  * */
 	public ItemDTO itemDetailInfo(int itemId){
 
-		ItemDTO itemDetailInfo = new ItemDTO();
+		ItemDTO itemDTO = new ItemDTO();
 
 		String sql = "SELECT * FROM item_info_transaction WHERE item_id=?";
 
@@ -30,16 +30,17 @@ public class GoItemDetailDAO {
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
-				itemDetailInfo.setItemId(rs.getInt("item_id"));
-				itemDetailInfo.setItemName(rs.getString("item_name"));
-				itemDetailInfo.setItemPrice(rs.getInt("item_price"));
-				itemDetailInfo.setItemImage(rs.getString("item_image"));
-				itemDetailInfo.setItemStock(rs.getInt("item_stock"));
+				itemDTO.setItemId(rs.getInt("item_id"));
+				itemDTO.setItemName(rs.getString("item_name"));
+				itemDTO.setItemPrice(rs.getInt("item_price"));
+				itemDTO.setItemImage(rs.getString("item_image"));
+				itemDTO.setItemStock(rs.getInt("item_stock"));
+				itemDTO.setCategoryName(rs.getString("category_name"));
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return itemDetailInfo;
+		return itemDTO;
 	}
 
 /**

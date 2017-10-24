@@ -29,7 +29,7 @@
 	<!--
 				購入画面(購入確認、必要事項入力、購入完了)	5
 	○		2 →	jsで「この内容でよろしい？」
-		→ログインしてる人だけレビューできるように ログインしていない場合は入力フォームも隠す
+		→
 			何も書いてないと送信できないようにする
 			時間も表示したい
 			二つのブロックを横並びにする
@@ -38,14 +38,12 @@
 		値段の表示(カンマをつけたい
 				ログイン画面から商品詳細へ
 	○	商品詳細から商品リストへ
+	 	review
 	-->
 
-	<s:form action="SortPriceLowAction">
-		<a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
-	</s:form>
-	<s:form action="SortPriceHighAction">
-		<a class="btnClick" href='<s:url action="SortPriceHighAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>'>価格の高い順</a>
-	</s:form>
+	<a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
+	<a class="btnClick" href='<s:url action="SortPriceHighAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>'>価格の高い順</a>
+
 
 	<div id="hoge">
 		<s:iterator value="searchItemInfo">

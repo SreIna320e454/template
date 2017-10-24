@@ -8,7 +8,6 @@ body {
 	font-size:12px;
 	color:#333;
 	background:#fff;
-	height: 100%;
 }
 table {
 	text-align:center;
@@ -21,23 +20,16 @@ table {
 #top {
 	font-weight:bold;
 	font-size:25px;
-	width:900px;
+	width:1000px;
 	margin:10px auto;
 	border:1px solid #333;
 }
 #main {
 	padding-top:100px;
-	width:100%;
 	text-align:center;
 }
 .btnClick:active{
 	color:#2E2E2E;
-}
-#container{
-	width:750px;
-	margin-top:10px;
-	margin: 30px auto;
-	word-wrap: break-word;
 }
 #btnPosition{
   position: relative;
@@ -67,4 +59,15 @@ table {
 	background-color:#000000;
 	border:1px solid;
 	transition: all 0.9s;
+}
+.box{
+	float:left;
+	margin-left:20px;
+
+}
+.test{
+	font-size:15px;
+	width:350px;
+	border:1px solid #333;
+	text-align:center;
 }
