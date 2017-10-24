@@ -26,6 +26,13 @@
 			<div id="top">
 				<p>ItemDetail</p>
 			</div>
+<s:property value="session.get('login_user_id')" />
+<s:property value="session.get('user_name')" />
+<s:property value="session.get('item_id')" />
+<s:property value="session.get('item_name')" />
+<s:property value="session.get('item_price')" />
+<s:property value="session.get('category_name')" />
+<s:property value="session.get('category_nametest')" />
 
 			<s:form action="AddToCartAction">
 				<s:iterator value="itemDetailInfo">
@@ -100,17 +107,17 @@
 			<div class="caption">
 				<p>Review List</p>
 			</div>
-			<s:if test="%{comment.size()>0}">
+		<!-- 	<s:if test="%{comment.size()>0}">
 				<p class="textAlign">まだレビューがありません</p>
-			</s:if>
-			<s:else>
+			</s:if> -->
+
 				<s:iterator value="comment">
 					<div id="container">
-						<s:property value="itemComment" />
-						<s:property value="userName" />
+						<a>コメント:<s:property value="itemComment" /></a>
+						<a>ユーザー名:<s:property value="userName" /></a>
 					</div>
 				</s:iterator>
-			</s:else>
+
 
 			<div class="caption">
 				<p>Add review</p>
@@ -120,7 +127,7 @@
 					<textarea name="itemComment" rows="30" cols="80" maxlength="4000"
     				placeholder="ここに入力してください(4000字まで)"></textarea>
 				</div>
-						<input type="hidden" name="itemId" value=${itemId} />
+				<input type="hidden" name="itemId" value=${itemId} />
 				<s:submit id="submitButton" value="この内容で送信する" />
 			</s:form>
 		</div>

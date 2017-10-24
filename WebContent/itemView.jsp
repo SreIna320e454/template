@@ -46,6 +46,7 @@
 									<div class="mask caption">
 										<a class="textClick" href='<s:url action="GoItemListAction" />'><s:property value="categoryName"/>
 										<input type="hidden" name="categoryName" value="<s:property value='categoryName'/>" /></a>
+										<s:submit value="こっち" />
 									</div>
 								</div>
 							</s:form>

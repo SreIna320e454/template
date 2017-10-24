@@ -30,6 +30,8 @@
 				購入画面(購入確認、必要事項入力、購入完了)	5
 	△	並び替え カテゴリごとにできるようにする valueはカテゴリIDからやれば？
 	○	商品の評価をユーザーから入力できるようにする	2 → ユーザー名を出せるようにする	jsで「この内容でよろしい？」
+		→ログインしてる人だけレビューできるように ログインしていない場合は入力フォームも隠す
+			何も書いてないと送信できないようにする
 		カートの同一商品がまとめられてない 1
 		画像の余白
 		値段の表示(カンマをつけたい
@@ -45,16 +47,19 @@
 		<s:iterator value="searchItemInfo">
 		<ul>
 		<li>
+		<s:form action="GoItemDetailAction">
 			<div id="container">
 				<div id="itemImage">
 					<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
 					<img src="<s:property value="itemImage" />" width="60%"></a>
+					<input type="hidden" name="itemId" value="<s:property value='itemId'/>" /><s:submit value="テスト" />
 				</div>
 				<div id="itemName">
 					<s:property value="itemName" />
 				</div>
 				<s:property value="itemPrice" /><a>円</a>
 			</div>
+		</s:form>
 		</li>
 		</ul>
 		</s:iterator>
