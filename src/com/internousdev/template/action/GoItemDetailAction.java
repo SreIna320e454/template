@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
-	private String userId;
+	private int userId;
 	private String userName;
 	private String itemName;
 	private int itemPrice;
@@ -31,8 +31,10 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
     	itemDetailInfo = dao.itemDetailInfo(itemId);
 
-    	userName = (String)session.get("user_name");
-    	comment = dao.comment(itemId, userName, itemComment);
+    	if(session.containsKey("login_user_id")==true){
+    		userName = (String)session.get("user_name");
+    		comment = dao.comment(itemId, userName, itemComment);
+    		}
 
     	String result = SUCCESS;
     	return result;
@@ -46,10 +48,10 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
     public void setItemId(int itemId) {
         this.itemId = itemId;
     }
-    public String getUserId(){
+    public int getUserId(){
     	return userId;
     }
-    public void setUserId(String userId){
+    public void setUserId(int userId){
     	this.userId = userId;
     }
     public String getItemName() {
