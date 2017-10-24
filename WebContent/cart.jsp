@@ -26,7 +26,7 @@
 			<p>Cart</p>
 		</div>
 
-	<s:if test="%{searchCartItemInfo.size() > 0 && #session.id != null}">
+	<s:if test="%{searchCartItemInfo.size() > 0 && #session.login_user_id != null}">
 
 	<s:form action="GoItemDetailAction">
 		<table>

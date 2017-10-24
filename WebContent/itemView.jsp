@@ -25,6 +25,13 @@
 				<p>ItemView</p>
 			</div>
 
+<s:property value="session.get('login_user_id')" />
+<s:property value="session.get('item_id')" />
+<s:property value="session.get('buyItem_name')" />
+<s:property value="session.get('buyItem_price')" />
+<s:property value="session.get('category')" />
+<s:property value="session.get('login_user_id')" />
+
 		<div id="paddingBottom">
 			<div id="text-center">
 				<ul>

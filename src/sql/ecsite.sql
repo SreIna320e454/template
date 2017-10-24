@@ -8,6 +8,7 @@ use ecsite;
 create table item_categories_transaction(
 category_id int not null primary key auto_increment,
 category_name varchar(50) not null,
+category_image varchar(255),
 insert_date datetime,
 update_date datetime
 );
@@ -71,9 +72,17 @@ delete_date datetime
 );
 
 /*商品分類*/
-INSERT INTO item_categories_transaction(category_name) values
-("時計"),
-("雑貨");
+INSERT INTO item_categories_transaction(category_name, category_image) values
+("時計", "./images/goods_icon2.jpg"),
+("雑貨", "./images/goods_icon1.jpg"),
+("家具", "./images/goods_icon3.jpg"),
+("金具", "./images/goods_icon4.jpg"),
+("証明", "./images/goods_icon5.jpg"),
+("鏡", "./images/goods_icon6.jpg"),
+("空き瓶", "./images/goods_icon7.jpg"),
+("食器", "./images/goods_icon8.jpg"),
+("ビジョン", "./images/goods_icon9.jpg");
+
 
 /*商品情報*/
 INSERT INTO item_info_transaction(item_id,item_name,category_id,item_price,category,item_image,item_stock) VALUES
