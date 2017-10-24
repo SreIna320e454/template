@@ -13,7 +13,7 @@ public class GoItemListDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-	public ArrayList<ItemDTO> test(String category){
+	public ArrayList<ItemDTO> searchItemInfo(String category){
 
 	ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
 

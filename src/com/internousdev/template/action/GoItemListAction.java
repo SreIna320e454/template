@@ -27,7 +27,7 @@ public class GoItemListAction extends ActionSupport implements SessionAware{
 
         GoItemListDAO dao = new GoItemListDAO();
 
-        searchItemInfo = dao.test(category);
+        searchItemInfo = dao.searchItemInfo(category);
 
         if(searchItemInfo.size()>0){
 	        result=SUCCESS;

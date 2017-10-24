@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.template.dao.MoveItemlistDAO;
+import com.internousdev.template.dao.GoItemListDAO;
 import com.internousdev.template.dto.ItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -26,9 +26,9 @@ public class SortPriceLowAction extends ActionSupport implements SessionAware{
 
         String result=ERROR;
 
-        MoveItemlistDAO dao = new MoveItemlistDAO();
+        GoItemListDAO dao = new GoItemListDAO();
 
-        searchItemInfo = dao.test(category);
+        searchItemInfo = dao.searchItemInfo(category);
 
         if(searchItemInfo.size()>0){
         	Collections.sort(searchItemInfo);
