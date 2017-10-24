@@ -32,7 +32,6 @@ public class GoItemListDAO {
 			dto.setItemPrice(rs.getInt("item_price"));
 			dto.setCategoryName(rs.getString("category_name"));
 			dto.setItemImage(rs.getString("item_image"));
-
 			searchItemInfo.add(dto);
 		}
 	}catch(SQLException e){

@@ -17,7 +17,7 @@ public class SortPriceLowAction extends ActionSupport implements SessionAware{
 	private String userId;
 	private String itemName;
 	private int itemPrice;
-	private String category;
+	private String categoryName;
 	private String itemImage;
     public ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
     private Map<String, Object> session = new HashMap<>();
@@ -28,7 +28,7 @@ public class SortPriceLowAction extends ActionSupport implements SessionAware{
 
         GoItemListDAO dao = new GoItemListDAO();
 
-        searchItemInfo = dao.searchItemInfo(category);
+        searchItemInfo = dao.searchItemInfo(categoryName);
 
         if(searchItemInfo.size()>0){
         	Collections.sort(searchItemInfo);
@@ -61,11 +61,11 @@ public class SortPriceLowAction extends ActionSupport implements SessionAware{
 	public void setItemPrice(int itemPrice){
 		this.itemPrice = itemPrice;
 	}
-	public String getCategory(){
-		return category;
+	public String getCategoryName(){
+		return categoryName;
 	}
-	public void setCategory(String category){
-		this.category = category;
+	public void setCategoryName(String categoryName){
+		this.categoryName = categoryName;
 	}
 	public String getItemImage(){
 		return itemImage;

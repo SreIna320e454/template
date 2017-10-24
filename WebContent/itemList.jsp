@@ -29,10 +29,11 @@
 	<!--
 				購入画面(購入確認、必要事項入力、購入完了)	5
 	△	並び替え カテゴリごとにできるようにする valueはカテゴリIDからやれば？
-	○	商品の評価をユーザーから入力できるようにする	2 → ユーザー名を出せるようにする	jsで「この内容でよろしい？」
+	○		2 →	jsで「この内容でよろしい？」
 		→ログインしてる人だけレビューできるように ログインしていない場合は入力フォームも隠す
 			何も書いてないと送信できないようにする
 			時間も表示したい
+			二つのブロックを横並びにする
 		カートの同一商品がまとめられてない 1
 		画像の余白
 		値段の表示(カンマをつけたい
@@ -40,9 +41,16 @@
 	○	商品詳細から商品リストへ
 	-->
 
-
+	<s:form action="SortPriceLowAction">
+		<input type="hidden" name="categoryName" value="<s:property value='categoryName'/>" />
+		<s:submit value="価格の安い順" />
 		<a class="btnClick" href='<s:url action="SortPriceLowAction" />' ><input type="hidden" name="category" value=${category} >価格の安い順(時計だけ)/</a>
+	</s:form>
+	<s:form action="SortPriceHighAction">
+		<input type="hidden" name="categoryName" value="<s:property value='categoryName'/>" />
+		<s:submit value="価格の高い順" />
 		<a class="btnClick" href='<s:url action="SortPriceHighAction"><s:param name="category" value="%{'時計'}"/></s:url>'>価格の高い順(時計だけ)/</a>
+	</s:form>
 
 	<div id="hoge">
 		<s:iterator value="searchItemInfo">

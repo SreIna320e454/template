@@ -63,19 +63,8 @@ table {
 }
 #submitButton:hover{
 	color:#fff;
+	border-style: none;
 	background-color:#000000;
+	border:1px solid;
 	transition: all 0.9s;
 }
-
-
-    $(function() {
-    $('button').click(function(){
-        $('p').toggle(true);
-    });
-});
-
-$(function() {
-    $('button').click(function(){
-        $('img').toggle();
-    });
-});
