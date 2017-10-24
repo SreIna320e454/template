@@ -71,9 +71,9 @@ delete_date datetime
 );
 
 /*商品分類*/
-INSERT INTO item_categories_transaction(category_id, category_name) values
-(1,"時計"),
-(2,"雑貨");
+INSERT INTO item_categories_transaction(category_name) values
+("時計"),
+("雑貨");
 
 /*商品情報*/
 INSERT INTO item_info_transaction(item_id,item_name,category_id,item_price,category,item_image,item_stock) VALUES
