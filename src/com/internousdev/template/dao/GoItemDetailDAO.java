@@ -18,7 +18,7 @@ public class GoItemDetailDAO {
 /**
  商品情報を取得するメソッド
  * */
-	public ItemDTO itemDetailInfo(int itemId, String categoryName){
+	public ItemDTO getItemInfo(int itemId, String categoryName){
 
 		ItemDTO itemDTO = new ItemDTO();
 
@@ -47,8 +47,8 @@ public class GoItemDetailDAO {
 /**
 * 入力されたレビューをDBに格納し、引き出すメソッド
 */
-	public ArrayList<AddCmtDTO>comment(int itemId, String userName, String itemComment, Date date){
-		ArrayList<AddCmtDTO> comment = new ArrayList<AddCmtDTO>();
+	public ArrayList<AddCmtDTO>addComment(int itemId, String userName, String itemComment, Date date){
+		ArrayList<AddCmtDTO> addComment = new ArrayList<AddCmtDTO>();
 		String sqlA = "INSERT INTO item_comment_transaction(item_id, user_name, item_comment, insert_date) VALUES(?,?,?,?)";
 		String sqlB = "SELECT * FROM item_comment_transaction WHERE item_id=?";
 
@@ -67,12 +67,12 @@ public class GoItemDetailDAO {
 					AddCmtDTO dto = new AddCmtDTO();
 					dto.setUserName(rs.getString("user_name"));
 					dto.setItemComment(rs.getString("item_comment"));
-					comment.add(dto);
+					addComment.add(dto);
 				}
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return comment;
+		return addComment;
 	}
 }

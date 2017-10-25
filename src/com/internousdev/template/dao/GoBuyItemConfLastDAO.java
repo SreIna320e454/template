@@ -23,7 +23,7 @@ public class GoBuyItemConfLastDAO {
  * @param streetAddressB
  * @param streetAddressC
  */
-	public void inputUserInfo(int userId, int postCodeA, int postCodeB, String prefectures, String streetAddressA, String streetAddressB, String streetAddressC){
+	public void setUserInfo(int userId, int postCodeA, int postCodeB, String prefectures, String streetAddressA, String streetAddressB, String streetAddressC){
 
 		String sql = "INSERT INTO user_information(user_id, postcode_a, postcode_b, prefectures, street_address_a, street_address_b, street_address_c) VALUES(?,?,?,?,?,?,?)";
 
@@ -47,9 +47,9 @@ public class GoBuyItemConfLastDAO {
  * @param userId
  * @return
  */
-	public ArrayList<UserInfoDTO> selectUserInfo(int userId){
+	public ArrayList<UserInfoDTO> getUserInfo(int userId){
 
-		ArrayList<UserInfoDTO> selectUserInfo = new ArrayList<UserInfoDTO>();
+		ArrayList<UserInfoDTO> getUserInfo = new ArrayList<UserInfoDTO>();
 
 		String sql = "SELECT * FROM user_information WHERE user_id=?";
 
@@ -65,11 +65,11 @@ public class GoBuyItemConfLastDAO {
 				userInfoDTO.setStreetAddressA(rs.getString("street_Address_a"));
 				userInfoDTO.setStreetAddressB(rs.getString("street_Address_b"));
 				userInfoDTO.setStreetAddressC(rs.getString("street_Address_c"));
-				selectUserInfo.add(userInfoDTO);
+				getUserInfo.add(userInfoDTO);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return selectUserInfo;
+		return getUserInfo;
 	}
 }

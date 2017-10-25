@@ -14,9 +14,9 @@ public class GoCartDAO {
 	Connection con = db.getConnection();
 
 
-	public ArrayList<CartDTO> searchCartItem(int userId)throws SQLException{
+	public ArrayList<CartDTO> getCartItemInfo(int userId)throws SQLException{
 
-		ArrayList<CartDTO> searchCartItem = new ArrayList<CartDTO>();
+		ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 
 		String sqlA = "SELECT * FROM cart_list_transaction WHERE user_id=?";
 		String sqlB = "SELECT * FROM item_info_transaction WHERE item_id=?";
@@ -29,7 +29,7 @@ public class GoCartDAO {
 				CartDTO cartDTO = new CartDTO();
 				cartDTO.setItemId(rsA.getInt("item_id"));
 				cartDTO.setItemCount(rsA.getInt("item_count"));
-				searchCartItem.add(cartDTO);
+				getCartItemInfo.add(cartDTO);
 
 				PreparedStatement psB = con.prepareStatement(sqlB);
 				psB.setInt(1, cartDTO.getItemId());
@@ -48,6 +48,6 @@ public class GoCartDAO {
 				con.close();
 			}
 		}
-		return searchCartItem;
+		return getCartItemInfo;
 	}
 }

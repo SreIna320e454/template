@@ -3,8 +3,11 @@ package com.internousdev.template.dto;
 public class AddCmtDTO {
 
 	private int userId;
+
 	private String userName;
+
 	private int itemId;
+
 	private String itemComment;
 
 	public int getUserId(){

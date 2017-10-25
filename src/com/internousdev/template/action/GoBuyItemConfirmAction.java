@@ -16,7 +16,7 @@ public class GoBuyItemConfirmAction extends ActionSupport implements SessionAwar
 	private int itemPrice;
 	private int itemCount;
 	private int totalPrice;
-	private ArrayList<CartDTO> searchCartItem = new ArrayList<CartDTO>();
+	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 	private Map<String, Object> session;
 
 	public String execute(){
@@ -30,8 +30,8 @@ public class GoBuyItemConfirmAction extends ActionSupport implements SessionAwar
 			return result;
 		}else{
 			userId = (int)session.get("login_user_id");
-			searchCartItem = dao.searchCartItem(userId);
-			if(searchCartItem.size()>0){
+			getCartItemInfo = dao.getCartItemInfo(userId);
+			if(getCartItemInfo.size()>0){
 				result = SUCCESS;
 			}
 		}
@@ -67,11 +67,11 @@ public class GoBuyItemConfirmAction extends ActionSupport implements SessionAwar
 	public void setTotalPrice(int totalPrice){
 		this.totalPrice = totalPrice;
 	}
-	public ArrayList<CartDTO> getSearchCartItem(){
-		return searchCartItem;
+	public ArrayList<CartDTO> getGetCartItemInfo(){
+		return getCartItemInfo;
 	}
-	public void setSearchCartItem(ArrayList<CartDTO> searchCartItem){
-		this.searchCartItem = searchCartItem;
+	public void setGetCartItemInfo(ArrayList<CartDTO> getCartItemInfo){
+		this.getCartItemInfo = getCartItemInfo;
 	}
 	@Override
 	public void setSession(Map<String, Object> session) {

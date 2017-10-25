@@ -25,17 +25,9 @@
 				<p>ItemView</p>
 			</div>
 
-<s:property value="session.get('login_user_id')" />
-<s:property value="session.get('user_name')" />
-<s:property value="session.get('item_id')" />
-<s:property value="session.get('item_name')" />
-<s:property value="session.get('item_price')" />
-<s:property value="session.get('category_name')" />
-<s:property value="session.get('category_nametest')" />
-
 			<div id="paddingBottom">
 
-				<s:iterator value="searchCategoryInfo">
+				<s:iterator value="getCategoryInfo">
 
 					<div id="text-center">
 						<ul>

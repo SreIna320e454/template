@@ -35,7 +35,7 @@
 			<div class="contain">
 				カート内容
 			</div>
-			<s:if test="%{searchCartItem.size() > 0 && #session.login_user_id != null}">
+			<s:if test="%{getCartItemInfo.size() > 0 && #session.login_user_id != null}">
 				<s:form action="#">
 					<table>
 						<thead>
@@ -46,7 +46,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<s:iterator value="searchCartItem">
+							<s:iterator value="getCartItemInfo">
 								<tr>
 									<td align="left">
 										<a id="textDeco"><s:property value="itemName" /></a>

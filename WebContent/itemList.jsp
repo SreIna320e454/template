@@ -50,7 +50,7 @@
 
 
 	<div id="hoge">
-		<s:iterator value="searchItemInfo">
+		<s:iterator value="getItemInfo">
 		<ul>
 			<li>
 			<s:form action="GoItemDetailAction">

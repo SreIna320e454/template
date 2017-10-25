@@ -21,8 +21,8 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	private int itemCount;
 	private int itemStock;
 	private int totalPrice;
-	private ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
-	private ArrayList<CartDTO> searchCartItem = new ArrayList<CartDTO>();
+	private ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
+	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 	private Map<String, Object> session;
 
 	public String execute(){
@@ -36,13 +36,13 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 			return result;
 		}else{
 			userId = (int)session.get("login_user_id");
-			searchItemInfo = AddToCartDAO.searchItemInfo(itemId);
-			if(searchItemInfo.size()>0){
+			getItemInfo = AddToCartDAO.getItemInfo(itemId);
+			if(getItemInfo.size()>0){
 				AddToCartDAO.addToCart(itemId, userId, itemCount);
-				searchCartItem = AddToCartDAO.searchCartItem(userId);
-				if(searchCartItem.size()>0){
-					for (int i = 0; i < searchCartItem.size(); i++) {
-						totalPrice += (searchCartItem.get(i).getItemPrice()) * (searchCartItem.get(i).getItemCount());
+				getCartItemInfo = AddToCartDAO.getCartItemInfo(userId);
+				if(getCartItemInfo.size()>0){
+					for (int i = 0; i < getCartItemInfo.size(); i++) {
+						totalPrice += (getCartItemInfo.get(i).getItemPrice()) * (getCartItemInfo.get(i).getItemCount());
 					}
 					result = SUCCESS;
 				}
@@ -106,17 +106,17 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	public void setTotalPrice(int totalPrice){
 		this.totalPrice = totalPrice;
 	}
-	public ArrayList<CartDTO> getSearchCartItem(){
-		return searchCartItem;
+	public ArrayList<ItemDTO> getGetItemInfo(){
+		return getItemInfo;
 	}
-	public void setSearchCartItem(ArrayList<CartDTO> searchCartItem){
-		this.searchCartItem = searchCartItem;
+	public void setGetItemInfo(ArrayList<ItemDTO> getItemInfo){
+		this.getItemInfo = getItemInfo;
 	}
-	public ArrayList<ItemDTO> getSearchItemInfo(){
-		return searchItemInfo;
+	public ArrayList<CartDTO> getGetCartItemInfo(){
+		return getCartItemInfo;
 	}
-	public void setSearchItemInfo(ArrayList<ItemDTO> searchItemInfo){
-		this.searchItemInfo = searchItemInfo;
+	public void setGetCartItemInfo(ArrayList<CartDTO> getCartItemInfo){
+		this.getCartItemInfo = getCartItemInfo;
 	}
 	public Map<String, Object> getSession() {
 		return session;

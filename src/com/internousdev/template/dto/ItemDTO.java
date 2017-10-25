@@ -3,11 +3,17 @@ package com.internousdev.template.dto;
 public class ItemDTO implements Comparable<ItemDTO>{
 
 	private int itemId;
+
 	private String itemName;
+
 	private int itemPrice;
+
 	private String categoryImage;
+
 	private String categoryName;
+
 	private String itemImage;
+
 	private int itemStock=0;
 
 	public int getItemId(){

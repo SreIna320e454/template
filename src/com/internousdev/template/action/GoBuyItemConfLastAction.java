@@ -19,7 +19,7 @@ public class GoBuyItemConfLastAction extends ActionSupport implements SessionAwa
 	private String streetAddressB;
 	private String streetAddressC;
 	private int pay;
-	private ArrayList<UserInfoDTO> selectUserInfo = new ArrayList<UserInfoDTO>();
+	private ArrayList<UserInfoDTO> getUserInfo = new ArrayList<UserInfoDTO>();
 	private Map<String, Object>session;
 
 	public String execute(){
@@ -33,9 +33,9 @@ public class GoBuyItemConfLastAction extends ActionSupport implements SessionAwa
 			return result;
 		}else{
 			userId = (int)session.get("login_user_id");
-			goBuyItemConfLastDAO.inputUserInfo(userId, postCodeA, postCodeB, prefectures, streetAddressA, streetAddressB, streetAddressC);
-			selectUserInfo = goBuyItemConfLastDAO.selectUserInfo(userId);
-			if(selectUserInfo.size()>0){
+			goBuyItemConfLastDAO.setUserInfo(userId, postCodeA, postCodeB, prefectures, streetAddressA, streetAddressB, streetAddressC);
+			getUserInfo = goBuyItemConfLastDAO.getUserInfo(userId);
+			if(getUserInfo.size()>0){
 				if(pay==1){
 					result = SUCCESS;
 				}
@@ -92,11 +92,11 @@ public class GoBuyItemConfLastAction extends ActionSupport implements SessionAwa
 	public void setPay(int pay){
 		this.pay = pay;
 	}
-	public ArrayList<UserInfoDTO> getSelectUserInfo(){
-		return selectUserInfo;
+	public ArrayList<UserInfoDTO> getGetUserInfo(){
+		return getUserInfo;
 	}
-	public void setSelectUserInfo(ArrayList<UserInfoDTO> selectUserInfo){
-		this.selectUserInfo = selectUserInfo;
+	public void setGetUserInfo(ArrayList<UserInfoDTO> getUserInfo){
+		this.getUserInfo = getUserInfo;
 	}
 	public Map<String, Object> session(){
 		return session;

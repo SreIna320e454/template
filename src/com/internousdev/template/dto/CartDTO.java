@@ -3,12 +3,19 @@ package com.internousdev.template.dto;
 public class CartDTO {
 
 	private int cartId;
+
 	private String userId;
+
 	private int itemId;
+
 	private String itemName;
+
 	private int itemPrice;
+
 	private String itemImage;
-	private int itemCount;/**購入個数*/
+
+	private int itemCount;
+
 	private int itemStock;
 
 	public int getCartId(){

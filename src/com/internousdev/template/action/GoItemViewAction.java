@@ -14,7 +14,7 @@ public class GoItemViewAction extends ActionSupport implements SessionAware{
 	private String categoryName;
 	private String categoryImage;
 	private Map<String, Object> session = new HashMap<>();
-	ArrayList<ItemDTO> searchCategoryInfo = new ArrayList<ItemDTO>();
+	ArrayList<ItemDTO> getCategoryInfo = new ArrayList<ItemDTO>();
 
 	public String execute(){
 
@@ -22,8 +22,8 @@ public class GoItemViewAction extends ActionSupport implements SessionAware{
 
 		GoItemViewDAO dao = new GoItemViewDAO();
 
-		searchCategoryInfo =dao.searchCategoryInfo();
-		if(searchCategoryInfo.size()>0){
+		getCategoryInfo =dao.getCategoryInfo();
+		if(getCategoryInfo.size()>0){
 			result = SUCCESS;
 		}
 		return result;
@@ -42,11 +42,11 @@ public class GoItemViewAction extends ActionSupport implements SessionAware{
 	public void setCategoryName(String categoryName){
 		this.categoryName = categoryName;
 	}
-	public ArrayList<ItemDTO> getSearchCategoryInfo(){
-		return searchCategoryInfo;
+	public ArrayList<ItemDTO> getGetCategoryInfo(){
+		return getCategoryInfo;
 	}
-	public void setSearchCategoryInfo(ArrayList<ItemDTO> searchCategoryInfo){
-		this.searchCategoryInfo = searchCategoryInfo;
+	public void setGetCategoryInfo(ArrayList<ItemDTO> getCategoryInfo){
+		this.getCategoryInfo = getCategoryInfo;
 	}
 	public Map<String, Object> getSession(){
 		return this.session;

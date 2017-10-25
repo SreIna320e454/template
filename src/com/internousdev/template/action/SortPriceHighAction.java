@@ -20,7 +20,7 @@ public class SortPriceHighAction extends ActionSupport implements SessionAware{
 	private int itemPrice;
 	private String categoryName;
 	private String itemImage;
-    public ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
+    public ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
     private Map<String, Object> session = new HashMap<>();
 
     public String execute(){
@@ -29,11 +29,11 @@ public class SortPriceHighAction extends ActionSupport implements SessionAware{
 
         GoItemListDAO dao = new GoItemListDAO();
 
-        searchItemInfo = dao.searchItemInfo(categoryName);
+        getItemInfo = dao.getItemInfo(categoryName);
 
-        if(searchItemInfo.size()>0){
-        	Collections.sort(searchItemInfo);
-        	searchItemInfo.sort(Comparator.reverseOrder());
+        if(getItemInfo.size()>0){
+        	Collections.sort(getItemInfo);
+        	getItemInfo.sort(Comparator.reverseOrder());
 	        result=SUCCESS;
 	    	}
         return result;
@@ -75,11 +75,11 @@ public class SortPriceHighAction extends ActionSupport implements SessionAware{
 	public void setItemImage(String itemImage){
 		this.itemImage = itemImage;
 	}
-    public ArrayList<ItemDTO> getSearchItemInfo() {
-        return searchItemInfo;
+    public ArrayList<ItemDTO> getGetItemInfo() {
+        return getItemInfo;
     }
-    public void setSearchItemInfo(ArrayList<ItemDTO> searchItemInfo) {
-        this.searchItemInfo = searchItemInfo;
+    public void setGetItemInfo(ArrayList<ItemDTO> getItemInfo) {
+        this.getItemInfo = getItemInfo;
    }
 	public Map<String, Object> getSession() {
 		return session;

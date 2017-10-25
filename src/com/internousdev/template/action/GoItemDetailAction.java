@@ -23,8 +23,8 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 	private String categoryName;
 	private String itemComment;
 	private Date date;
-	private ArrayList<AddCmtDTO> comment = new ArrayList<AddCmtDTO>();
-	public ItemDTO itemDetailInfo = new ItemDTO();
+	public ItemDTO getItemInfo = new ItemDTO();
+	private ArrayList<AddCmtDTO> addComment = new ArrayList<AddCmtDTO>();
 	private Map<String, Object> session = new HashMap<>();
 
     public String execute(){
@@ -32,11 +32,11 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
     	GoItemDetailDAO dao = new GoItemDetailDAO();
 
-    	itemDetailInfo = dao.itemDetailInfo(itemId,categoryName);
+    	getItemInfo = dao.getItemInfo(itemId,categoryName);
 
     	if(session.containsKey("login_user_id")==true){
     		userName = (String)session.get("user_name");
-    		comment = dao.comment(itemId, userName, itemComment, date);
+    		addComment = dao.addComment(itemId, userName, itemComment, date);
     		}
 
     	String result = SUCCESS;
@@ -98,17 +98,17 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 	public void setDate(Date date){
 		this.date = date;
 	}
-	public ArrayList<AddCmtDTO> getComment(){
-		return comment;
+	public ArrayList<AddCmtDTO> getAddComment(){
+		return addComment;
 	}
-	public void setComment(ArrayList<AddCmtDTO> comment){
-		this.comment = comment;
+	public void setAddComment(ArrayList<AddCmtDTO> addComment){
+		this.addComment = addComment;
 	}
-    public ItemDTO getItemDetailInfo(){
-    	return itemDetailInfo;
+    public ItemDTO getGetItemInfo(){
+    	return getItemInfo;
     }
-    public void setItemDetailInfo(ItemDTO itemDetailInfo){
-    	this.itemDetailInfo = itemDetailInfo;
+    public void setGetItemInfo(ItemDTO getItemInfo){
+    	this.getItemInfo = getItemInfo;
     }
 	public Map<String, Object> getSession() {
 		return session;

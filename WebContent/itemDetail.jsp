@@ -28,7 +28,7 @@
 			</div>
 
 			<s:form action="AddToCartAction">
-				<s:iterator value="itemDetailInfo">
+				<s:iterator value="getItemInfo">
 					<img src="<s:property value="itemImage" />" width="300px">
 
 						<table>
@@ -92,7 +92,7 @@
 				<p>Review List</p>
 			</div>
 
-			<s:iterator value="comment">
+			<s:iterator value="addComment">
 				<div id="container">
 					<a>コメント:<s:property value="itemComment" /></a>
 					<a>ユーザー名:<s:property value="userName" /></a>
@@ -110,6 +110,7 @@
 	    				placeholder="ここに入力してください(4000字まで)"></textarea>
 					</div>
 					<input type="hidden" name="itemId" value=${itemId} />
+					<input type="hidden"name="categoryName" value=${categoryName} />
 					<s:submit id="submitButton" value="この内容で送信する" />
 				</s:form>
 			</s:if>

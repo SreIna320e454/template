@@ -21,7 +21,7 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 	private int itemCount;
 	private int itemStock;
 	private int totalPrice;
-	private ArrayList<CartDTO> searchCartItem = new ArrayList<CartDTO>();
+	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 	private Map<String, Object> session;
 
 	public String execute() throws SQLException{
@@ -35,10 +35,10 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 			return result;
 		}else{
 			userId = (int)session.get("login_user_id");
-			searchCartItem = goCartDAO.searchCartItem(userId);
-			if(searchCartItem.size()>0){
-				for (int i = 0; i < searchCartItem.size(); i++) {
-					totalPrice += (searchCartItem.get(i).getItemPrice()) * (searchCartItem.get(i).getItemCount());
+			getCartItemInfo = goCartDAO.getCartItemInfo(userId);
+			if(getCartItemInfo.size()>0){
+				for (int i = 0; i < getCartItemInfo.size(); i++) {
+					totalPrice += (getCartItemInfo.get(i).getItemPrice()) * (getCartItemInfo.get(i).getItemCount());
 				}
 				result = SUCCESS;
 			}
@@ -101,11 +101,11 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 	public void setTotalPrice(int totalPrice){
 		this.totalPrice = totalPrice;
 	}
-	public ArrayList<CartDTO> getSearchCartItem(){
-		return searchCartItem;
+	public ArrayList<CartDTO> getGetCartItemInfo(){
+		return getCartItemInfo;
 	}
-	public void setSearchCartItem(ArrayList<CartDTO> searchCartItem){
-		this.searchCartItem = searchCartItem;
+	public void setGetCartItemInfo(ArrayList<CartDTO> getCartItemInfo){
+		this.getCartItemInfo = getCartItemInfo;
 	}
 	public Map<String, Object> getSession() {
 		return session;

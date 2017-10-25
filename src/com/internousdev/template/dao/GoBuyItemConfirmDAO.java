@@ -14,9 +14,10 @@ public class GoBuyItemConfirmDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-	public ArrayList<CartDTO> searchCartItem(int userId){
+	public ArrayList<CartDTO> getCartItemInfo(int userId){
 
-		ArrayList<CartDTO> searchCartItem = new ArrayList<CartDTO>();
+		ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
+
 		String sqlA = "SELECT * FROM cart_list_transaction WHERE user_id=?";
 		String sqlB = "SELECT * FROM item_info_transaction WHERE item_id=?";
 
@@ -27,7 +28,7 @@ public class GoBuyItemConfirmDAO {
 			while(rsA.next()){
 				CartDTO cartDTO = new CartDTO();
 				cartDTO.setItemId(rsA.getInt("item_id"));
-				searchCartItem.add(cartDTO);
+				getCartItemInfo.add(cartDTO);
 
 				PreparedStatement psB = con.prepareStatement(sqlB);
 				psB.setInt(1, cartDTO.getItemId());
@@ -41,6 +42,6 @@ public class GoBuyItemConfirmDAO {
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return searchCartItem;
+		return getCartItemInfo;
 	}
 }

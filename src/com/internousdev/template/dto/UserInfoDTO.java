@@ -2,12 +2,31 @@ package com.internousdev.template.dto;
 
 public class UserInfoDTO {
 
+	/**
+	 * 郵便番号(3ケタ)
+	 */
 	private int postCodeA;
+	/**
+	 * 郵便番号(4ケタ)
+	 */
 	private int postCodeB;
+	/**
+	 * 都道府県
+	 */
 	private String prefectures;
+	/**
+	 * 市区町村
+	 */
 	private String streetAddressA;
+	/**
+	 * 住居番号
+	 */
 	private String streetAddressB;
+	/**
+	 * マンション等名
+	 */
 	private String streetAddressC;
+
 	private int pay;
 
 	public int getPostCodeA(){

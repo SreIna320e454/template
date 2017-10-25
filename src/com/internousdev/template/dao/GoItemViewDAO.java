@@ -14,9 +14,9 @@ public class GoItemViewDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-	public ArrayList<ItemDTO> searchCategoryInfo(){
+	public ArrayList<ItemDTO> getCategoryInfo(){
 
-		ArrayList<ItemDTO> searchCategoryInfo = new ArrayList<ItemDTO>();
+		ArrayList<ItemDTO> getCategoryInfo = new ArrayList<ItemDTO>();
 
 		String sql = "SELECT category_name, category_image FROM item_categories_transaction";
 
@@ -27,11 +27,11 @@ public class GoItemViewDAO {
 				ItemDTO itemDTO = new ItemDTO();
 				itemDTO.setCategoryName(rs.getString("category_name"));
 				itemDTO.setCategoryImage(rs.getString("category_image"));
-				searchCategoryInfo.add(itemDTO);
+				getCategoryInfo.add(itemDTO);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return searchCategoryInfo;
+		return getCategoryInfo;
 	}
 }

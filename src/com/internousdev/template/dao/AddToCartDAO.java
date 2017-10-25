@@ -16,9 +16,9 @@ public class AddToCartDAO {
 	Connection con = db.getConnection();
 
 /**商品情報を検索*/
-	public ArrayList<ItemDTO> searchItemInfo(int itemId){
+	public ArrayList<ItemDTO> getItemInfo(int itemId){
 
-		ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
+		ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
 
 		String sql = "SELECT * FROM item_info_transaction WHERE item_id=?";
 
@@ -34,12 +34,12 @@ public class AddToCartDAO {
 				dto.setItemPrice(rs.getInt("item_price"));
 				dto.setItemImage(rs.getString("item_image"));
 				dto.setItemStock(rs.getInt("item_stock"));
-				searchItemInfo.add(dto);
+				getItemInfo.add(dto);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return searchItemInfo;
+		return getItemInfo;
 	}
 /**カートテーブルに情報を追加*/
 	public void addToCart(int itemId, int userId, int itemCount){
@@ -57,9 +57,9 @@ public class AddToCartDAO {
 		}
 	}
 /**カートに入った商品情報を表示*/
-	public ArrayList<CartDTO> searchCartItem(int userId){
+	public ArrayList<CartDTO> getCartItemInfo(int userId){
 
-		ArrayList<CartDTO> searchCartItem = new ArrayList<CartDTO>();
+		ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 
 		String sqlA = "SELECT * FROM cart_list_transaction WHERE user_id=?";
 		String sqlB = "SELECT * FROM item_info_transaction WHERE item_id=?";
@@ -72,7 +72,7 @@ public class AddToCartDAO {
 				CartDTO cartdto = new CartDTO();
 				cartdto.setItemId(rsA.getInt("item_id"));
 				cartdto.setItemCount(rsA.getInt("item_count"));
-				searchCartItem.add(cartdto);
+				getCartItemInfo.add(cartdto);
 
 				PreparedStatement psB = con.prepareStatement(sqlB);
 				psB.setInt(1,cartdto.getItemId());
@@ -93,6 +93,6 @@ public class AddToCartDAO {
 				e.printStackTrace();
 			}
 		}
-		return searchCartItem;
+		return getCartItemInfo;
 	}
 }
