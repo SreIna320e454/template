@@ -66,6 +66,9 @@
 		<div class="messageInfo">
 			<a>合計:</a><s:property value="totalPrice" /><a>円</a>
 		</div>
+
+		<input type="hidden" name="totalPrice" value=${totalPrice} />
+		<s:submit type="購入画面へ進む" />
 	</s:form>
 
 	</s:if>

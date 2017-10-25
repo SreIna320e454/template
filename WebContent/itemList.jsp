@@ -37,6 +37,7 @@
 		値段の表示(カンマをつけたい
 				ログイン画面から商品詳細へ
 	 	review つづり
+	 	カート商品を全削除する
 	-->
 
 	<a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>

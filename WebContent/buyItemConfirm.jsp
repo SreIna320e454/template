@@ -36,7 +36,7 @@
 		<div id="top">
 			<p>BuyItemConfirm</p>
 		</div>
-		<div>
+<!--  		<div>
 			<s:form>
 				<tr>
 					<td>商品名</td>
@@ -64,7 +64,12 @@
 					<td><input type="button" value="完了" onclick="submitAction('BuyItemConfirmAction')" /></td>
 				</tr>
 			</s:form>
-		</div>
+		</div>	-->
+		商品名、購入個数
+		合計金額
+		支払い方法(現金、カード)
+		購入する(最終確認ページへ)
+		戻る
 	</div>
 
 	<s:include value="footer.jsp" />
