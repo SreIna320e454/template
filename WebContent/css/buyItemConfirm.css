@@ -19,8 +19,27 @@ body {
 }
 #main {
 	padding-top:100px;
-	width: 100%;
 	text-align: center;
 	background-image:url("../images/backgroundTexture.jpg");
 	background-size:cover;
+}
+#container{
+	margin:auto;
+	width:900px;
+}
+#containerLeft{
+ float:left;
+}
+#containerRight{
+	float:right;
+}
+.contain{
+	font-weight:bold;
+	font-size:15px;
+	width:445px;
+	margin:10px auto;
+	border:1px solid #333;
+}
+#CustomerInfo{
+	text-align:left;
 }

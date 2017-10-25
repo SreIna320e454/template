@@ -35,6 +35,7 @@ public class GoBuyItemConfirmDAO {
 				while(rsB.next()){
 					cartDTO.setItemName(rsB.getString("item_name"));
 					cartDTO.setItemPrice(rsB.getInt("item_price"));
+					cartDTO.setItemCount(rsA.getInt("item_count"));
 				}
 			}
 		}catch(SQLException e){

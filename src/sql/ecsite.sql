@@ -61,6 +61,17 @@ insert_date datetime,
 updated_date datetime
 );
 
+create table user_information{
+user_information_id int not null primary key auto_increment,
+user_id int,
+postcode_a int,
+postcode_b int,
+prefectures varchar(20),
+street_adress_a varchar(30),
+street_adress_b varchar(30),
+street_adress_c varchar(60)
+};
+
 create table user_buy_item_transaction(
 id int not null primary key auto_increment,
 item_transaction_id int,

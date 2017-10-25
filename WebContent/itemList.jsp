@@ -38,7 +38,8 @@
 													ログイン画面から商品詳細へ
 	 												review つづり
 	 	カート商品を全削除するアクション
-	 	カートから商品詳細へ飛べなくなりました
+	 												カートから商品詳細へ飛べなくなりました
+	 	小計
 	-->
 
 	<a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>

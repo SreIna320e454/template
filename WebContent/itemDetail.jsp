@@ -87,7 +87,7 @@
 					<s:submit value="商品一覧に戻る" />
 				</s:form>
 
-	<!--	<div id="mainB">
+		<div id="mainB">
 			<div class="caption">
 				<p>Review List</p>
 			</div>
@@ -115,7 +115,7 @@
 			<s:else>
 				<p class="textAlign">レビューを追加するにはログインをしてください。</p>
 			</s:else>
-		</div>-->
+		</div>
 
 		<div class="box">
 			<div class="test">

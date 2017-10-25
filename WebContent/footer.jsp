@@ -8,9 +8,9 @@
 <title>footer</title>
 </head>
 <body>
-	<div id="footer">
+	<div id="footer" style="clear:left;">
 		<ul>
-			<li class="hooter_position"><a class="footer_icon" href='<s:url action="#" />'>利用規約</a></li>
+			<li class="hooter_position"><a class="footer_icon" href=#>利用規約</a></li>
 		</ul>
 	</div>
 </body>

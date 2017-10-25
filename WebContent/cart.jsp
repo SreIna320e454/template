@@ -43,11 +43,11 @@
 					<s:iterator value="searchCartItem">
 						<tr>
 							<td>
-								<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
+								<a href="<s:url action="GoItemDetailAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">
 								<img src="<s:property value="itemImage" />" width="60px"></a>
 							</td>
 							<td align="left">
-								<a id="textDeco" href="<s:url action="MoveItemdetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
+								<a id="textDeco" href="<s:url action="GoItemDetailAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">
 								<s:property value="itemName" />
 								</a>
 							</td>
@@ -55,18 +55,16 @@
 								<s:property value="itemPrice" /><a>円</a>
 							</td>
 							<td>
-								<s:property value="itemCount" />
+								<s:property value="itemCount" /><a>個</a>
 							</td>
 						</tr>
 					</s:iterator>
 				</tbody>
 			</table>
-
 			<div class="messageInfo">
 				<a>合計:</a><s:property value="totalPrice" /><a>円</a>
 			</div>
 		</s:form>
-
 		<s:form action="GoBuyItemConfirmAction">
 			<input type="hidden" name="totalPrice" value=${totalPrice} />
 			<s:submit value="購入画面へ進む" />
