@@ -65,9 +65,17 @@
 				</tr>
 			</s:form>
 		</div>	-->
-		商品名、購入個数
-		合計金額
+		支払い方法決定画面、住所入力も
+	×商品名、購入個数
+	×合計金額
 		支払い方法(現金、カード)
+		<s:property value="totalPrice" />
+
+									<span>支払い方法</span>
+
+			  						<input type="radio" name="pay" value="1" checked="checked">現金払い
+									<input type="radio" name="pay" value="2">クレジットカード
+
 		購入する(最終確認ページへ)
 		戻る
 	</div>

@@ -87,10 +87,11 @@
 			<result name="error">login.jsp</result>
 		</action>
 
-		<!-- BuyItemAction -->
-		<action name="BuyItemAction" class="com.internousdev.template.action.BuyItemAction" method="execute">
+		<!-- GoBuyItemConfirmAction -->
+		<action name="GoBuyItemConfirmAction" class="com.internousdev.template.action.GoBuyItemConfirmAction" method="execute">
 			<result name="success">buyItemConfirm.jsp</result>
-			<result name="error">itemView.jsp</result>
+			<result name="error">cart.jsp</result>
+			<result name="login">login.jsp</result>
 		</action>
 
 		<!-- BuyItemConfirmAction -->

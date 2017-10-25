@@ -22,7 +22,7 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	private int itemStock;
 	private int totalPrice;
 	private ArrayList<ItemDTO> searchItemInfo = new ArrayList<ItemDTO>();
-	private ArrayList<CartDTO> searchCartItemInfo = new ArrayList<CartDTO>();
+	private ArrayList<CartDTO> searchCartItem = new ArrayList<CartDTO>();
 	private Map<String, Object> session;
 
 	public String execute(){
@@ -39,10 +39,10 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 			searchItemInfo = AddToCartDAO.searchItemInfo(itemId);
 			if(searchItemInfo.size()>0){
 				AddToCartDAO.addToCart(itemId, userId, itemCount);
-				searchCartItemInfo = AddToCartDAO.searchCartItemInfo(userId);
-				if(searchCartItemInfo.size()>0){
-					for (int i = 0; i < searchCartItemInfo.size(); i++) {
-						totalPrice += (searchCartItemInfo.get(i).getItemPrice()) * (searchCartItemInfo.get(i).getItemCount());
+				searchCartItem = AddToCartDAO.searchCartItem(userId);
+				if(searchCartItem.size()>0){
+					for (int i = 0; i < searchCartItem.size(); i++) {
+						totalPrice += (searchCartItem.get(i).getItemPrice()) * (searchCartItem.get(i).getItemCount());
 					}
 					result = SUCCESS;
 				}
@@ -106,11 +106,11 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	public void setTotalPrice(int totalPrice){
 		this.totalPrice = totalPrice;
 	}
-	public ArrayList<CartDTO> getSearchCartItemInfo(){
-		return searchCartItemInfo;
+	public ArrayList<CartDTO> getSearchCartItem(){
+		return searchCartItem;
 	}
-	public void setSearchCartItemInfo(ArrayList<CartDTO> searchCartItemInfo){
-		this.searchCartItemInfo = searchCartItemInfo;
+	public void setSearchCartItem(ArrayList<CartDTO> searchCartItem){
+		this.searchCartItem = searchCartItem;
 	}
 	public ArrayList<ItemDTO> getSearchItemInfo(){
 		return searchItemInfo;

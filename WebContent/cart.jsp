@@ -26,51 +26,51 @@
 			<p>Cart</p>
 		</div>
 
-	<s:if test="%{searchCartItemInfo.size() > 0 && #session.login_user_id != null}">
-
-	<s:form action="GoItemDetailAction">
-		<table>
-			<thead>
-				<tr>
-					<th width="100" height="30">イメージ</th>
-					<th width="250" height="30">商品</th>
-					<th width="100" height="30">値段</th>
-					<th width="100" height="30">個数</th>
-					<th width="70" height="30">変更</th>
-					<th width="70" height="30">削除</th>
-				</tr>
-			</thead>
-			<tbody>
-				<s:iterator value="searchCartItemInfo">
+	<s:if test="%{searchCartItem.size() > 0 && #session.login_user_id != null}">
+		<s:form action="GoItemDetailAction">
+			<table>
+				<thead>
 					<tr>
-						<td>
-							<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
-							<img src="<s:property value="itemImage" />" width="60px"></a>
-						</td>
-						<td align="left">
-							<a id="textDeco" href="<s:url action="MoveItemdetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
-							<s:property value="itemName" />
-							</a>
-						</td>
-						<td>
-							<s:property value="itemPrice" /><a>円</a>
-						</td>
-						<td>
-							<s:property value="itemCount" />
-						</td>
+						<th width="100" height="30">イメージ</th>
+						<th width="250" height="30">商品</th>
+						<th width="100" height="30">値段</th>
+						<th width="100" height="30">個数</th>
+						<th width="70" height="30">変更</th>
+						<th width="70" height="30">削除</th>
 					</tr>
-				</s:iterator>
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					<s:iterator value="searchCartItem">
+						<tr>
+							<td>
+								<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
+								<img src="<s:property value="itemImage" />" width="60px"></a>
+							</td>
+							<td align="left">
+								<a id="textDeco" href="<s:url action="MoveItemdetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
+								<s:property value="itemName" />
+								</a>
+							</td>
+							<td>
+								<s:property value="itemPrice" /><a>円</a>
+							</td>
+							<td>
+								<s:property value="itemCount" />
+							</td>
+						</tr>
+					</s:iterator>
+				</tbody>
+			</table>
 
-		<div class="messageInfo">
-			<a>合計:</a><s:property value="totalPrice" /><a>円</a>
-		</div>
+			<div class="messageInfo">
+				<a>合計:</a><s:property value="totalPrice" /><a>円</a>
+			</div>
+		</s:form>
 
-		<input type="hidden" name="totalPrice" value=${totalPrice} />
-		<s:submit type="購入画面へ進む" />
-	</s:form>
-
+		<s:form action="GoBuyItemConfirmAction">
+			<input type="hidden" name="totalPrice" value=${totalPrice} />
+			<s:submit value="購入画面へ進む" />
+		</s:form>
 	</s:if>
 
 	<s:else>

@@ -57,9 +57,9 @@ public class AddToCartDAO {
 		}
 	}
 /**カートに入った商品情報を表示*/
-	public ArrayList<CartDTO> searchCartItemInfo(int userId){
+	public ArrayList<CartDTO> searchCartItem(int userId){
 
-		ArrayList<CartDTO> searchCartItemInfo = new ArrayList<CartDTO>();
+		ArrayList<CartDTO> searchCartItem = new ArrayList<CartDTO>();
 
 		String sqlA = "SELECT * FROM cart_list_transaction WHERE user_id=?";
 		String sqlB = "SELECT * FROM item_info_transaction WHERE item_id=?";
@@ -72,7 +72,7 @@ public class AddToCartDAO {
 				CartDTO cartdto = new CartDTO();
 				cartdto.setItemId(rsA.getInt("item_id"));
 				cartdto.setItemCount(rsA.getInt("item_count"));
-				searchCartItemInfo.add(cartdto);
+				searchCartItem.add(cartdto);
 
 				PreparedStatement psB = con.prepareStatement(sqlB);
 				psB.setInt(1,cartdto.getItemId());
@@ -81,7 +81,7 @@ public class AddToCartDAO {
 					cartdto.setItemName(rsB.getString("item_name"));
 					cartdto.setItemPrice(rsB.getInt("item_price"));
 					cartdto.setItemImage(rsB.getString("item_image"));
-					cartdto.setItemStock(rsB.getInt("item_stock"));
+				//	cartdto.setItemStock(rsB.getInt("item_stock"));
 				}
 			}
 		}catch(SQLException e){
@@ -93,6 +93,6 @@ public class AddToCartDAO {
 				e.printStackTrace();
 			}
 		}
-		return searchCartItemInfo;
+		return searchCartItem;
 	}
 }

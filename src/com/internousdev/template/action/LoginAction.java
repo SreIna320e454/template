@@ -5,9 +5,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.template.dao.BuyItemDAO;
 import com.internousdev.template.dao.LoginDAO;
-import com.internousdev.template.dto.ItemDTO;
 import com.internousdev.template.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -55,11 +53,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private LoginDTO loginDTO = new LoginDTO();
 
 	/**
-	 * アイテム情報を取得
-	 */
-	public BuyItemDAO buyItemDAO = new BuyItemDAO();
-
-	/**
 	 * 実行メソッド
 	 */
 	public String execute() {
@@ -75,20 +68,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
 			result = SUCCESS;
 
-		// アイテム情報を取得
-			ItemDTO ItemDTO = buyItemDAO.getBuyItemInfo();
+		// ユーザー情報をセッションに記入
 			session.put("login_user_id",	loginDTO.getUserId());
 			session.put("user_name", loginDTO.getUserName());
-			session.put("item_id", ItemDTO.getItemId());
-			session.put("item_name", ItemDTO.getItemName());
-			session.put("item_price", ItemDTO.getItemPrice());
-			session.put("category_name", ItemDTO.getCategoryName());
-
-
 
 			return result;
 		}
-
 		return result;
 	}
 
