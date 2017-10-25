@@ -1,4 +1,5 @@
 package com.internousdev.template.action;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +22,7 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 	private int itemStock;
 	private String categoryName;
 	private String itemComment;
+	private Date date;
 	private ArrayList<AddCmtDTO> comment = new ArrayList<AddCmtDTO>();
 	public ItemDTO itemDetailInfo = new ItemDTO();
 	private Map<String, Object> session = new HashMap<>();
@@ -34,14 +36,13 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
     	if(session.containsKey("login_user_id")==true){
     		userName = (String)session.get("user_name");
-    		comment = dao.comment(itemId, userName, itemComment);
+    		comment = dao.comment(itemId, userName, itemComment, date);
     		}
 
     	String result = SUCCESS;
     	return result;
 
     }
-
 
     public int getItemId() {
         return itemId;
@@ -90,6 +91,12 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 	}
 	public void setItemComment(String itemComment){
 		this.itemComment = itemComment;
+	}
+	public Date getDate(){
+		return date;
+	}
+	public void setDate(Date date){
+		this.date = date;
 	}
 	public ArrayList<AddCmtDTO> getComment(){
 		return comment;

@@ -61,16 +61,20 @@ insert_date datetime,
 updated_date datetime
 );
 
-create table user_information{
+create table user_information(
 user_information_id int not null primary key auto_increment,
 user_id int,
 postcode_a int,
 postcode_b int,
 prefectures varchar(20),
-street_adress_a varchar(30),
-street_adress_b varchar(30),
-street_adress_c varchar(60)
-};
+street_address_a varchar(30),
+street_address_b varchar(30),
+street_address_c varchar(60),
+insert_date datetime,
+updated_date datetime,
+
+foreign key(user_id)references login_user_transaction(user_id)
+);
 
 create table user_buy_item_transaction(
 id int not null primary key auto_increment,

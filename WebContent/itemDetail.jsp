@@ -96,6 +96,7 @@
 				<div id="container">
 					<a>コメント:<s:property value="itemComment" /></a>
 					<a>ユーザー名:<s:property value="userName" /></a>
+					<s:property value="date" />
 				</div>
 			</s:iterator>
 

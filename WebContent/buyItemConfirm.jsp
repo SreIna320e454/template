@@ -21,12 +21,6 @@
 	</style>
 	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/buyItemConfirm.css">
-	<script type="text/javascript">
-		function submitAction(url) {
-			$('form').attr('action', url);
-			$('form').submit();
-		}
-	</script>
 </head>
 <body>
 
@@ -82,6 +76,7 @@
 			<div class="contain">
 				住所・支払い方法選択
 			</div>
+		<s:form action="GoBuyItemConfLastAction">
 			<div id="CustomerInfo">
 				<table>
 					<thead>
@@ -92,23 +87,23 @@
 					</thead>
 					<tr>
 						<td><a>郵便番号</a></td>
-						<td>(必須)<input type="text" name="PostCodeA" style=width:23px; placeholder="000"/>-<input type="text" name="PostCode2" style=width:30px; placeholder="0000"/><a>例:113-0034</a></td>
+						<td>(必須)<input type="text" name="postCodeA" style=width:23px; placeholder="000"/>-<input type="text" name="PostCodeB" style=width:32px; placeholder="0000"/><a>例:113-0034</a></td>
 					</tr>
 					<tr>
 						<td><a>住所</a></td>
-						<td>(必須)<input type="text" name="Prefectures" placeholder="都道府県"/><a>例:東京都</a></td>
+						<td>(必須)<input type="text" name="prefectures" placeholder="都道府県"/><a>例:東京都</a></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>(必須)<input type="text" name="StreetAddressA" placeholder="市区町村"/><a>例:文京区</a></td>
+						<td>(必須)<input type="text" name="streetAddressA" placeholder="市区町村"/><a>例:文京区</a></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>(必須)<input type="text" name="StreetAddressB" placeholder="住居番号"/><a>例:湯島３丁目２−１２</a></td>
+						<td>(必須)<input type="text" name="streetAddressB" placeholder="住居番号"/><a>例:湯島３丁目２−１２</a></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>(任意)<input type="text" name="StreetAddressC" placeholder="マンション等名"/><a>例:御茶ノ水天神ビル2F</a></td>
+						<td>(任意)<input type="text" name="streetAddressC" placeholder="マンション等名"/><a>例:御茶ノ水天神ビル2F</a></td>
 					</tr>
 					<tr>
 						<td>支払い方法</td>
@@ -121,6 +116,7 @@
 				</table>
 				<s:submit value="すすむ" />
 			</div>
+		</s:form>
 		</div>
 		<p style="clear:left;">戻る</p>
 		</div>
