@@ -13,25 +13,41 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoBuyItemConfirmAction extends ActionSupport implements SessionAware{
 
 	private int userId;
+
 	private String itemName;
+
 	private int itemPrice;
+
 	private int itemCount;
+
 	private int totalPrice;
+
 	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
+
 	private Map<String, Object> session;
 
+	/**
+	 * 顧客情報入力画面へ遷移するアクション
+	 */
 	public String execute()throws SQLException{
 
 		String result = ERROR;
 
 		GoBuyItemConfirmDAO dao =new GoBuyItemConfirmDAO();
 
+		/*
+		 * ログイン情報を確認
+		 */
 		if(session.containsKey("login_user_id")==false){
 			result = LOGIN;
 			return result;
 		}else{
 			userId = (int)session.get("login_user_id");
+			/*
+			 * カート情報を取得
+			 */
 			getCartItemInfo = dao.getCartItemInfo(userId);
+
 			if(getCartItemInfo.size()>0){
 				result = SUCCESS;
 			}

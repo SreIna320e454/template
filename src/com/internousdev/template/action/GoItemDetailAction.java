@@ -15,36 +15,57 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
+
 	private int userId;
+
 	private String userName;
+
 	private String itemName;
+
 	private int itemPrice;
+
 	private String itemImage;
+
 	private int itemStock;
+
 	private String categoryName;
+
 	private String itemComment;
+
 	private Date date;
-	public ItemDTO getItemInfo = new ItemDTO();
+
+	private ItemDTO getItemInfo = new ItemDTO();
+
 	private ArrayList<AddCmtDTO> addComment = new ArrayList<AddCmtDTO>();
+
 	private Map<String, Object> session = new HashMap<>();
 
+	/**
+	 * 商品詳細画面へ遷移するアクション
+	 */
     public String execute()throws SQLException{
-
 
     	GoItemDetailDAO dao = new GoItemDetailDAO();
 
+		/*
+		 * 商品情報を取得
+		 */
     	getItemInfo = dao.getItemInfo(itemId,categoryName);
-
+		/*
+		 * ログイン情報を確認
+		 */
     	if(session.containsKey("login_user_id")==true){
+
     		userName = (String)session.get("user_name");
+    		/*
+    		 * レビューをコメントテーブルに格納し取得
+    		 */
     		if(itemComment != null){
     		addComment = dao.addComment(itemId, userName, itemComment, date);
     		}
     	}
-
     	String result = SUCCESS;
     	return result;
-
     }
 
     public int getItemId() {

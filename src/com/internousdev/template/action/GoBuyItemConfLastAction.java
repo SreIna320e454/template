@@ -13,14 +13,23 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoBuyItemConfLastAction extends ActionSupport implements SessionAware{
 
 	private int userId;
+
 	private int postCodeA;
+
 	private int postCodeB;
+
 	private String prefectures;
+
 	private String streetAddressA;
+
 	private String streetAddressB;
+
 	private String streetAddressC;
+
 	private int pay;
+
 	private ArrayList<UserInfoDTO> getUserInfo = new ArrayList<UserInfoDTO>();
+
 	private Map<String, Object>session;
 
 	public String execute()throws SQLException{

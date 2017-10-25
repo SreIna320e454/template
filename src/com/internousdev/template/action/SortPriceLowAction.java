@@ -23,15 +23,23 @@ public class SortPriceLowAction extends ActionSupport implements SessionAware{
     public ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
     private Map<String, Object> session = new HashMap<>();
 
+    /**
+     * 商品を値段の低い順に並べ替えるアクション
+     */
     public String execute()throws SQLException{
 
         String result=ERROR;
 
         GoItemListDAO dao = new GoItemListDAO();
-
+        /*
+         * 商品報を取得
+         */
         getItemInfo = dao.getItemInfo(categoryName);
 
         if(getItemInfo.size()>0){
+        	/*
+        	 * 値段の低い順に並べ替える
+        	 */
         	Collections.sort(getItemInfo);
 	        result=SUCCESS;
         	}

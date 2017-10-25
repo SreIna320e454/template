@@ -13,16 +13,24 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoItemViewAction extends ActionSupport implements SessionAware{
 
 	private String categoryName;
+
 	private String categoryImage;
+
 	private Map<String, Object> session = new HashMap<>();
+
 	ArrayList<ItemDTO> getCategoryInfo = new ArrayList<ItemDTO>();
 
+	/**
+	 * 商品カテゴリ一覧へ遷移するアクション
+	 */
 	public String execute()throws SQLException{
 
 		String result = ERROR;
 
 		GoItemViewDAO dao = new GoItemViewDAO();
-
+        /*
+         * カテゴリ情報を取得
+         */
 		getCategoryInfo =dao.getCategoryInfo();
 		if(getCategoryInfo.size()>0){
 			result = SUCCESS;

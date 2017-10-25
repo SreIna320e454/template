@@ -13,33 +13,55 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoCartAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
+
 	private int userId;
-	private int cartId;
+
+	private int cartId
+	;
 	private String itemName;
+
 	private String itemImage;
+
 	private int itemPrice;
+
 	private int itemCount;
+
 	private int itemStock;
+
 	private int totalPrice;
+
 	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
+
 	private Map<String, Object> session;
 
+	/**
+	 * カート画面へ遷移するアクション
+	 */
 	public String execute() throws SQLException{
 
 		String result = SUCCESS;
 
 		GoCartDAO goCartDAO = new GoCartDAO();
 
+		/*
+		 * ログイン情報を確認
+		 */
 		if(session.containsKey("login_user_id")==false){
 			result = LOGIN;
 			return result;
 		}else{
 			userId = (int)session.get("login_user_id");
+			/*
+			 * カート情報を取得
+			 */
 			getCartItemInfo = goCartDAO.getCartItemInfo(userId);
+			/*
+			 * 商品の価格合計を計算
+			 */
+			for (int i = 0; i < getCartItemInfo.size(); i++) {
+				totalPrice += (getCartItemInfo.get(i).getItemPrice()) * (getCartItemInfo.get(i).getItemCount());
+			}
 			if(getCartItemInfo.size()>0){
-				for (int i = 0; i < getCartItemInfo.size(); i++) {
-					totalPrice += (getCartItemInfo.get(i).getItemPrice()) * (getCartItemInfo.get(i).getItemCount());
-				}
 				result = SUCCESS;
 			}
 		}

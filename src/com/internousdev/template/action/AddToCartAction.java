@@ -37,25 +37,44 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 
 	private Map<String, Object> session;
 
+	/**
+	 * 商品をカートに追加するアクション
+	 */
 	public String execute()throws SQLException{
 
 		String result = ERROR;
 
 		AddToCartDAO AddToCartDAO = new AddToCartDAO();
-
+		/*
+		 * ログイン情報を確認
+		 */
 		if(session.containsKey("login_user_id")==false){
 			result = LOGIN;
 			return result;
 		}else{
-			userId = (int)session.get("login_user_id");
+			/*
+			 * 商品情報を取得
+			 */
 			getItemInfo = AddToCartDAO.getItemInfo(itemId);
+
 			if(getItemInfo.size()>0){
+				userId = (int)session.get("login_user_id");
+				/*
+				 * 商品情報をカートテーブルに格納
+				 */
 				AddToCartDAO.addToCart(itemId, userId, itemCount);
+				/*
+				 * カート情報を取得
+				 */
 				getCartItemInfo = AddToCartDAO.getCartItemInfo(userId);
+				/*
+				 * 商品の価格合計を計算
+				 */
+				for (int i = 0; i < getCartItemInfo.size(); i++) {
+					totalPrice += (getCartItemInfo.get(i).getItemPrice()) * (getCartItemInfo.get(i).getItemCount());
+				}
+
 				if(getCartItemInfo.size()>0){
-					for (int i = 0; i < getCartItemInfo.size(); i++) {
-						totalPrice += (getCartItemInfo.get(i).getItemPrice()) * (getCartItemInfo.get(i).getItemCount());
-					}
 					result = SUCCESS;
 				}
 			}
