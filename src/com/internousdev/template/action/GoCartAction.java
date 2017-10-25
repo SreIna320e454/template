@@ -16,8 +16,6 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 
 	private int userId;
 
-	private int cartId
-	;
 	private String itemName;
 
 	private String itemImage;
@@ -25,8 +23,6 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 	private int itemPrice;
 
 	private int itemCount;
-
-	private int itemStock;
 
 	private int totalPrice;
 
@@ -81,12 +77,6 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 	public void setUserId(int userId){
 		this.userId = userId;
 	}
-	public int getCartId(){
-		return cartId;
-	}
-	public void setCartId(int cartId){
-		this.cartId = cartId;
-	}
 	public String getItemName(){
 		return itemName;
 	}
@@ -110,12 +100,6 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 	}
 	public void setItemCount(int itemCount){
 		this.itemCount = itemCount;
-	}
-	public int getItemStock(){
-		return itemStock;
-	}
-	public void setItemStock(int itemStock){
-		this.itemStock = itemStock;
 	}
 	public int getTotalPrice(){
 		return totalPrice;

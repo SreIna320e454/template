@@ -16,12 +16,17 @@ import com.opensymphony.xwork2.ActionSupport;
 public class SortPriceHighAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
-	private String userId;
+
 	private String itemName;
+
 	private int itemPrice;
+
 	private String categoryName;
+
 	private String itemImage;
+
     public ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
+
     private Map<String, Object> session = new HashMap<>();
 
     /**
@@ -53,12 +58,6 @@ public class SortPriceHighAction extends ActionSupport implements SessionAware{
 	}
 	public void setItemId(int itemId){
 		this.itemId = itemId;
-	}
-	public String getUserId(){
-		return userId;
-	}
-	public void setUserId(String userId){
-		this.userId = userId;
 	}
 	public String getItemName(){
 		return itemName;

@@ -57,7 +57,9 @@ public class GoItemDetailDAO {
  * @throws SQLException
  */
 	public ArrayList<AddCmtDTO>addComment(int itemId, String userName, String itemComment, Date date)throws SQLException{
+
 		ArrayList<AddCmtDTO> addComment = new ArrayList<AddCmtDTO>();
+
 		String sqlA = "INSERT INTO item_comment_transaction(item_id, user_name, item_comment, insert_date) VALUES(?,?,?,?)";
 		String sqlB = "SELECT * FROM item_comment_transaction WHERE item_id=?";
 
@@ -67,7 +69,9 @@ public class GoItemDetailDAO {
 			psA.setString(2, userName);
 			psA.setString(3,itemComment);
 			psA.setDate(4, date);
+
 			int commentAmount = psA.executeUpdate();
+
 			if(commentAmount>0){
 				PreparedStatement psB = con.prepareStatement(sqlB);
 				psB.setInt(1, itemId);

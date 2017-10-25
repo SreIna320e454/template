@@ -31,13 +31,13 @@ public class GoItemListDAO {
 		ResultSet rs = ps.executeQuery();
 
 		while(rs.next()){
-			ItemDTO dto = new ItemDTO();
-			dto.setItemId(rs.getInt("item_id"));
-			dto.setItemName(rs.getString("item_name"));
-			dto.setItemPrice(rs.getInt("item_price"));
-			dto.setCategoryName(rs.getString("category_name"));
-			dto.setItemImage(rs.getString("item_image"));
-			getItemInfo.add(dto);
+			ItemDTO itemDTO = new ItemDTO();
+			itemDTO.setItemId(rs.getInt("item_id"));
+			itemDTO.setItemName(rs.getString("item_name"));
+			itemDTO.setItemPrice(rs.getInt("item_price"));
+			itemDTO.setCategoryName(rs.getString("category_name"));
+			itemDTO.setItemImage(rs.getString("item_image"));
+			getItemInfo.add(itemDTO);
 		}
 	}catch(SQLException e){
 		e.printStackTrace();

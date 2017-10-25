@@ -14,8 +14,6 @@ public class GoItemListAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
 
-	private String userId;
-
 	private String itemName;
 
 	private int itemPrice;
@@ -52,12 +50,6 @@ public class GoItemListAction extends ActionSupport implements SessionAware{
 	}
 	public void setItemId(int itemId){
 		this.itemId = itemId;
-	}
-	public String getUserId(){
-		return userId;
-	}
-	public void setUserId(String userId){
-		this.userId = userId;
 	}
 	public String getItemName(){
 		return itemName;

@@ -17,8 +17,6 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 
 	private int userId;
 
-	private int cartId;
-
 	private String itemName;
 
 	private String itemImage;
@@ -27,11 +25,7 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 
 	private int itemCount;
 
-	private int itemStock;
-
 	private int totalPrice;
-
-	private ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
 
 	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 
@@ -55,6 +49,8 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 			/*
 			 * 商品情報を取得
 			 */
+			ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
+
 			getItemInfo = AddToCartDAO.getItemInfo(itemId);
 
 			if(getItemInfo.size()>0){
@@ -94,12 +90,6 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	public void setItemId(int itemId){
 		this.itemId = itemId;
 	}
-	public int getCartId(){
-		return cartId;
-	}
-	public void setCartId(int cartId){
-		this.cartId = cartId;
-	}
 	public String getItemName(){
 		return itemName;
 	}
@@ -124,23 +114,11 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	public void setItemCount(int itemCount){
 		this.itemCount = itemCount;
 	}
-	public int getItemStock(){
-		return itemStock;
-	}
-	public void setItemStock(int itemStock){
-		this.itemStock = itemStock;
-	}
 	public int getTotalPrice(){
 		return totalPrice;
 	}
 	public void setTotalPrice(int totalPrice){
 		this.totalPrice = totalPrice;
-	}
-	public ArrayList<ItemDTO> getGetItemInfo(){
-		return getItemInfo;
-	}
-	public void setGetItemInfo(ArrayList<ItemDTO> getItemInfo){
-		this.getItemInfo = getItemInfo;
 	}
 	public ArrayList<CartDTO> getGetCartItemInfo(){
 		return getCartItemInfo;

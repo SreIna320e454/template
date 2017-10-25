@@ -30,15 +30,14 @@ public class AddToCartDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, itemId);
 			ResultSet rs = ps.executeQuery();
-
 			while(rs.next()){
-				ItemDTO dto = new ItemDTO();
-				dto.setItemId(rs.getInt("item_id"));
-				dto.setItemName(rs.getString("item_name"));
-				dto.setItemPrice(rs.getInt("item_price"));
-				dto.setItemImage(rs.getString("item_image"));
-				dto.setItemStock(rs.getInt("item_stock"));
-				getItemInfo.add(dto);
+				ItemDTO itemDTO = new ItemDTO();
+				itemDTO.setItemId(rs.getInt("item_id"));
+				itemDTO.setItemName(rs.getString("item_name"));
+				itemDTO.setItemPrice(rs.getInt("item_price"));
+				itemDTO.setItemImage(rs.getString("item_image"));
+				itemDTO.setItemStock(rs.getInt("item_stock"));
+				getItemInfo.add(itemDTO);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -67,7 +66,6 @@ public class AddToCartDAO {
 		}
 	}
 
-
 	/**
 	 * カート情報を取得する
 	 * @param userId
@@ -86,18 +84,18 @@ public class AddToCartDAO {
 			psA.setInt(1,userId);
 			ResultSet rsA = psA.executeQuery();
 			while(rsA.next()){
-				CartDTO cartdto = new CartDTO();
-				cartdto.setItemId(rsA.getInt("item_id"));
-				cartdto.setItemCount(rsA.getInt("item_count"));
-				getCartItemInfo.add(cartdto);
+				CartDTO cartDTO = new CartDTO();
+				cartDTO.setItemId(rsA.getInt("item_id"));
+				getCartItemInfo.add(cartDTO);
 
 				PreparedStatement psB = con.prepareStatement(sqlB);
-				psB.setInt(1,cartdto.getItemId());
+				psB.setInt(1,cartDTO.getItemId());
 				ResultSet rsB = psB.executeQuery();
 				while(rsB.next()){
-					cartdto.setItemName(rsB.getString("item_name"));
-					cartdto.setItemPrice(rsB.getInt("item_price"));
-					cartdto.setItemImage(rsB.getString("item_image"));
+					cartDTO.setItemName(rsB.getString("item_name"));
+					cartDTO.setItemPrice(rsB.getInt("item_price"));
+					cartDTO.setItemImage(rsB.getString("item_image"));
+					cartDTO.setItemCount(rsA.getInt("item_count"));
 				}
 			}
 		}catch(Exception e){

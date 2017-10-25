@@ -2,8 +2,6 @@ package com.internousdev.template.dto;
 
 public class CartDTO {
 
-	private int cartId;
-
 	private String userId;
 
 	private int itemId;
@@ -18,12 +16,6 @@ public class CartDTO {
 
 	private int itemStock;
 
-	public int getCartId(){
-		return cartId;
-	}
-	public void setCartId(int cartId){
-		this.cartId = cartId;
-	}
 	public String getUserId(){
 		return userId;
 	}
