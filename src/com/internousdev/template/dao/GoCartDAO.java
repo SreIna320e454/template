@@ -13,7 +13,12 @@ public class GoCartDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-
+	/**
+	 * カート情報を取得する
+	 * @param userId
+	 * @return
+	 * @throws SQLException
+	 */
 	public ArrayList<CartDTO> getCartItemInfo(int userId)throws SQLException{
 
 		ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
@@ -41,12 +46,10 @@ public class GoCartDAO {
 					cartDTO.setItemStock(rsB.getInt("item_stock"));
 					}
 				}
-		}catch(SQLException e){
+		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-			if(!(con==null)){
-				con.close();
-			}
+			con.close();
 		}
 		return getCartItemInfo;
 	}

@@ -15,9 +15,12 @@ public class GoItemDetailDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-/**
- 商品情報を取得するメソッド
- * */
+	/**
+	 * 商品情報を取得する
+	 * @param itemId
+	 * @param categoryName
+	 * @return
+	 */
 	public ItemDTO getItemInfo(int itemId, String categoryName){
 
 		ItemDTO itemDTO = new ItemDTO();
@@ -45,9 +48,15 @@ public class GoItemDetailDAO {
 	}
 
 /**
-* 入力されたレビューをDBに格納し、引き出すメソッド
-*/
-	public ArrayList<AddCmtDTO>addComment(int itemId, String userName, String itemComment, Date date){
+ * レビューをDBに格納し取得するメソッド
+ * @param itemId
+ * @param userName
+ * @param itemComment
+ * @param date
+ * @return
+ * @throws SQLException
+ */
+	public ArrayList<AddCmtDTO>addComment(int itemId, String userName, String itemComment, Date date)throws SQLException{
 		ArrayList<AddCmtDTO> addComment = new ArrayList<AddCmtDTO>();
 		String sqlA = "INSERT INTO item_comment_transaction(item_id, user_name, item_comment, insert_date) VALUES(?,?,?,?)";
 		String sqlB = "SELECT * FROM item_comment_transaction WHERE item_id=?";
@@ -70,9 +79,11 @@ public class GoItemDetailDAO {
 					addComment.add(dto);
 				}
 			}
-		}catch(SQLException e){
+		}catch(Exception e){
 			e.printStackTrace();
-		}
+		}finally{
+			con.close();
+	}
 		return addComment;
 	}
 }

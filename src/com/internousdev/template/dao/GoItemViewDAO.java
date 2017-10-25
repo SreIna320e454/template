@@ -14,7 +14,12 @@ public class GoItemViewDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-	public ArrayList<ItemDTO> getCategoryInfo(){
+	/**
+	 * カテゴリ情報を取得する
+	 * @return
+	 * @throws SQLException
+	 */
+	public ArrayList<ItemDTO> getCategoryInfo()throws SQLException{
 
 		ArrayList<ItemDTO> getCategoryInfo = new ArrayList<ItemDTO>();
 
@@ -31,7 +36,9 @@ public class GoItemViewDAO {
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
-		}
+		}finally{
+			con.close();
+	}
 		return getCategoryInfo;
 	}
 }

@@ -1,5 +1,6 @@
 package com.internousdev.template.action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public class GoBuyItemConfirmAction extends ActionSupport implements SessionAwar
 	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 	private Map<String, Object> session;
 
-	public String execute(){
+	public String execute()throws SQLException{
 
 		String result = ERROR;
 

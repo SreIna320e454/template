@@ -1,5 +1,6 @@
 package com.internousdev.template.action;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +28,7 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 	private ArrayList<AddCmtDTO> addComment = new ArrayList<AddCmtDTO>();
 	private Map<String, Object> session = new HashMap<>();
 
-    public String execute(){
+    public String execute()throws SQLException{
 
 
     	GoItemDetailDAO dao = new GoItemDetailDAO();
@@ -36,8 +37,10 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
     	if(session.containsKey("login_user_id")==true){
     		userName = (String)session.get("user_name");
+    		if(itemComment != null){
     		addComment = dao.addComment(itemId, userName, itemComment, date);
     		}
+    	}
 
     	String result = SUCCESS;
     	return result;

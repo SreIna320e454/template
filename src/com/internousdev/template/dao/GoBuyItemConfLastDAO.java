@@ -13,16 +13,16 @@ public class GoBuyItemConfLastDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-/**
- * 入力された各情報をDBに格納するメソッド
- * @param userId
- * @param postCodeA
- * @param postCodeB
- * @param prefectures
- * @param streetAddressA
- * @param streetAddressB
- * @param streetAddressC
- */
+	/**
+	 * 入力された各情報をDBに格納する
+	 * @param userId
+	 * @param postCodeA
+	 * @param postCodeB
+	 * @param prefectures
+	 * @param streetAddressA
+	 * @param streetAddressB
+	 * @param streetAddressC
+	 */
 	public void setUserInfo(int userId, int postCodeA, int postCodeB, String prefectures, String streetAddressA, String streetAddressB, String streetAddressC){
 
 		String sql = "INSERT INTO user_information(user_id, postcode_a, postcode_b, prefectures, street_address_a, street_address_b, street_address_c) VALUES(?,?,?,?,?,?,?)";
@@ -37,17 +37,17 @@ public class GoBuyItemConfLastDAO {
 			ps.setString(1, streetAddressB);
 			ps.setString(1, streetAddressC);
 			ps.executeUpdate();
-		}catch(SQLException e){
+		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 
-/**
- * DBからユーザ情報を引き出すメソッド
- * @param userId
- * @return
- */
-	public ArrayList<UserInfoDTO> getUserInfo(int userId){
+	/**
+	 * DBからユーザー情報を引き出す
+	 * @param userId
+	 * @return
+	 */
+	public ArrayList<UserInfoDTO> getUserInfo(int userId)throws SQLException{
 
 		ArrayList<UserInfoDTO> getUserInfo = new ArrayList<UserInfoDTO>();
 
@@ -67,9 +67,11 @@ public class GoBuyItemConfLastDAO {
 				userInfoDTO.setStreetAddressC(rs.getString("street_Address_c"));
 				getUserInfo.add(userInfoDTO);
 			}
-		}catch(SQLException e){
+		}catch(Exception e){
 			e.printStackTrace();
-		}
+		}finally{
+			con.close();
+	}
 		return getUserInfo;
 	}
 }

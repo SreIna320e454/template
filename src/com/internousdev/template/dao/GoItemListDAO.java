@@ -13,10 +13,15 @@ public class GoItemListDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-	public ArrayList<ItemDTO> getItemInfo(String categoryName){
+	/**
+	 * 商品情報を取得する
+	 * @param categoryName
+	 * @return
+	 * @throws SQLException
+	 */
+	public ArrayList<ItemDTO> getItemInfo(String categoryName)throws SQLException{
 
 	ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
-
 
 	String sql = "SELECT * FROM item_info_transaction WHERE category_name=?";
 
@@ -36,7 +41,9 @@ public class GoItemListDAO {
 		}
 	}catch(SQLException e){
 		e.printStackTrace();
-	}
+	}finally{
+		con.close();
+}
 	return getItemInfo;
 }
 }

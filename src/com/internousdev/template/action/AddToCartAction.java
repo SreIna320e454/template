@@ -1,5 +1,6 @@
 package com.internousdev.template.action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -13,19 +14,30 @@ import com.opensymphony.xwork2.ActionSupport;
 public class AddToCartAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
+
 	private int userId;
+
 	private int cartId;
+
 	private String itemName;
+
 	private String itemImage;
+
 	private int itemPrice;
+
 	private int itemCount;
+
 	private int itemStock;
+
 	private int totalPrice;
+
 	private ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
+
 	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
+
 	private Map<String, Object> session;
 
-	public String execute(){
+	public String execute()throws SQLException{
 
 		String result = ERROR;
 
@@ -50,7 +62,6 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 		}
 	return result;
 	}
-
 
 	public int getUserId(){
 		return userId;

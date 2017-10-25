@@ -1,5 +1,6 @@
 package com.internousdev.template.action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,7 +24,7 @@ public class SortPriceHighAction extends ActionSupport implements SessionAware{
     public ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
     private Map<String, Object> session = new HashMap<>();
 
-    public String execute(){
+    public String execute()throws SQLException{
 
         String result=ERROR;
 

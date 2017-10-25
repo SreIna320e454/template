@@ -40,9 +40,9 @@
 					<table>
 						<thead>
 							<tr>
-								<th width="260" height="30">商品</th>
-								<th width="100" height="30">値段</th>
-								<th width="70" height="30">個数</th>
+								<th width="100" height="30">商品</th>
+								<th width="50" height="30">値段</th>
+								<th width="30" height="30">個数</th>
 							</tr>
 						</thead>
 						<tbody>

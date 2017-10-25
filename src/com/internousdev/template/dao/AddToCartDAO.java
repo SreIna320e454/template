@@ -15,7 +15,11 @@ public class AddToCartDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-/**商品情報を検索*/
+	/**
+	 * 商品情報を取得する
+	 * @param itemId
+	 * @return
+	 */
 	public ArrayList<ItemDTO> getItemInfo(int itemId){
 
 		ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
@@ -41,7 +45,13 @@ public class AddToCartDAO {
 		}
 		return getItemInfo;
 	}
-/**カートテーブルに情報を追加*/
+
+	/**
+	 * カートテーブルに商品を追加する
+	 * @param itemId
+	 * @param userId
+	 * @param itemCount
+	 */
 	public void addToCart(int itemId, int userId, int itemCount){
 
 		String sql = "INSERT INTO cart_list_transaction(user_id, item_id, item_count) VALUES(?,?,?)";
@@ -56,8 +66,15 @@ public class AddToCartDAO {
 			e.printStackTrace();
 		}
 	}
-/**カートに入った商品情報を表示*/
-	public ArrayList<CartDTO> getCartItemInfo(int userId){
+
+
+	/**
+	 * カート情報を取得する
+	 * @param userId
+	 * @return
+	 * @throws SQLException
+	 */
+	public ArrayList<CartDTO> getCartItemInfo(int userId)throws SQLException{
 
 		ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 
@@ -81,17 +98,12 @@ public class AddToCartDAO {
 					cartdto.setItemName(rsB.getString("item_name"));
 					cartdto.setItemPrice(rsB.getInt("item_price"));
 					cartdto.setItemImage(rsB.getString("item_image"));
-				//	cartdto.setItemStock(rsB.getInt("item_stock"));
 				}
 			}
-		}catch(SQLException e){
+		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-			try{
 				con.close();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
 		}
 		return getCartItemInfo;
 	}

@@ -14,7 +14,13 @@ public class GoBuyItemConfirmDAO {
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
 
-	public ArrayList<CartDTO> getCartItemInfo(int userId){
+	/**
+	 * カート情報を取得する
+	 * @param userId
+	 * @return
+	 * @throws SQLException
+	 */
+	public ArrayList<CartDTO> getCartItemInfo(int userId)throws SQLException{
 
 		ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 
@@ -39,9 +45,11 @@ public class GoBuyItemConfirmDAO {
 					cartDTO.setItemCount(rsA.getInt("item_count"));
 				}
 			}
-		}catch(SQLException e){
+		}catch(Exception e){
 			e.printStackTrace();
-		}
+		}finally{
+			con.close();
+	}
 		return getCartItemInfo;
 	}
 }

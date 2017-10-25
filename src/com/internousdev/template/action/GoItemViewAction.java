@@ -1,4 +1,5 @@
 package com.internousdev.template.action;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class GoItemViewAction extends ActionSupport implements SessionAware{
 	private Map<String, Object> session = new HashMap<>();
 	ArrayList<ItemDTO> getCategoryInfo = new ArrayList<ItemDTO>();
 
-	public String execute(){
+	public String execute()throws SQLException{
 
 		String result = ERROR;
 
