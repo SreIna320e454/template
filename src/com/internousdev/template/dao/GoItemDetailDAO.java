@@ -18,15 +18,16 @@ public class GoItemDetailDAO {
 /**
  商品情報を取得するメソッド
  * */
-	public ItemDTO itemDetailInfo(int itemId){
+	public ItemDTO itemDetailInfo(int itemId, String categoryName){
 
 		ItemDTO itemDTO = new ItemDTO();
 
-		String sql = "SELECT * FROM item_info_transaction WHERE item_id=?";
+		String sql = "SELECT * FROM item_info_transaction WHERE item_id=? and category_name=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, itemId);
+			ps.setString(2, categoryName);
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){

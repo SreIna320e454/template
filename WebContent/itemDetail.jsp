@@ -84,15 +84,17 @@
 								</td>
 							</tr>-->
 						</table>
-
 						<input type="hidden" name="itemId" value=${itemId} />
-
 						<div id="btnPosition">
 							<s:submit value="カートに入れる"/>
 						</div>
 				</s:iterator>
-			</s:form>
+				</s:form>
 
+				<s:form action="GoItemListAction">
+					<input type="hidden" name="categoryName" value="<s:property value="categoryName" />"/>
+					<s:submit value="商品一覧に戻る" />
+				</s:form>
 
 	<!--	<div id="mainB">
 			<div class="caption">

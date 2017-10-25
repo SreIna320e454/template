@@ -30,7 +30,7 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
     	GoItemDetailDAO dao = new GoItemDetailDAO();
 
-    	itemDetailInfo = dao.itemDetailInfo(itemId);
+    	itemDetailInfo = dao.itemDetailInfo(itemId,categoryName);
 
     	if(session.containsKey("login_user_id")==true){
     		userName = (String)session.get("user_name");

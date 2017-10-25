@@ -36,8 +36,7 @@
 		画像の余白
 		値段の表示(カンマをつけたい
 				ログイン画面から商品詳細へ
-	○	商品詳細から商品リストへ
-	 	review
+	 	review つづり
 	-->
 
 	<a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
@@ -47,25 +46,25 @@
 	<div id="hoge">
 		<s:iterator value="searchItemInfo">
 		<ul>
-		<li>
-		<s:form action="GoItemDetailAction">
-			<div id="container">
-				<div id="itemImage">
-					<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /></s:url>">
-					<img src="<s:property value="itemImage" />" width="60%"></a>
+			<li>
+			<s:form action="GoItemDetailAction">
+				<div id="container">
+					<div id="itemImage">
+						<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /><s:param name="categoryName" value="categoryName" /></s:url>">
+						<img src="<s:property value="itemImage" />" width="60%"></a>
+					</div>
+					<div id="itemName">
+						<s:property value="itemName" />
+					</div>
+					<s:property value="itemPrice" /><a>円</a>
 				</div>
-				<div id="itemName">
-					<s:property value="itemName" />
-				</div>
-				<s:property value="itemPrice" /><a>円</a>
-			</div>
-		</s:form>
-		</li>
+			</s:form>
+			</li>
 		</ul>
 		</s:iterator>
 	</div>
 
-		<p id="clearFloat" style="clear:left;"><a href='<s:url action="GoItemViewAction" />'>商品一覧に戻る</a></p>
+		<p id="clearFloat" style="clear:left;"><a href='<s:url action="GoItemViewAction" />'>カテゴリ一覧に戻る</a></p>
 	</div>
 
 	<s:include value="footer.jsp" />
