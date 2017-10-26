@@ -18,7 +18,7 @@ public class GoItemDetailDAO {
 	 * @param categoryName
 	 * @return
 	 */
-	public ItemDTO getItemInfo(int itemId){
+	public ItemDTO getItemInfo(int itemId)throws SQLException{
 
 		ItemDTO itemDTO = new ItemDTO();
 
@@ -35,8 +35,10 @@ public class GoItemDetailDAO {
 				itemDTO.setItemImage(rs.getString("item_image"));
 				itemDTO.setItemStock(rs.getInt("item_stock"));
 			}
-		}catch(SQLException e){
+		}catch(Exception e){
 			e.printStackTrace();
+		}finally{
+			con.close();
 		}
 		return itemDTO;
 	}

@@ -34,7 +34,7 @@ public class GoItemViewDAO {
 				itemDTO.setCategoryImage(rs.getString("category_image"));
 				getCategoryInfo.add(itemDTO);
 			}
-		}catch(SQLException e){
+		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
 			con.close();
