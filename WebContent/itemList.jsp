@@ -35,10 +35,11 @@
 		カートの同一商品がまとめられてない 1
 													画像の余白
 		値段の表示(カンマをつけたい
-		ログイン画面から商品詳細へ
+																					ログイン画面から商品詳細へ
 	 	小計
 	 	多重ログイン禁止
 	 	詳細開いた時点でコメントされちゃうようになってる]con.closeもう一回
+	 	カートから商品詳細へ飛べない
 	-->
 
 	<a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
@@ -47,7 +48,6 @@
 
 	<div id="hoge">
 		<s:iterator value="getItemInfo">
-		<input type="hidden" name="categoryName" value=${categoryName} />
 		<ul>
 			<li>
 			<s:form action="GoItemDetailAction">

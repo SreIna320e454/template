@@ -47,15 +47,15 @@ public class GoItemDetailDAO {
 		return itemDTO;
 	}
 
-/**
- * レビューをDBに格納し取得するメソッド
- * @param itemId
- * @param userName
- * @param itemComment
- * @param date
- * @return
- * @throws SQLException
- */
+	/**
+	 * レビューをDBに格納し取得するメソッド
+	 * @param itemId
+	 * @param userName
+	 * @param itemComment
+	 * @param date
+	 * @return
+	 * @throws SQLException
+	 */
 	public ArrayList<AddCmtDTO>addComment(int itemId, String userName, String itemComment, Date date)throws SQLException{
 
 		ArrayList<AddCmtDTO> addComment = new ArrayList<AddCmtDTO>();

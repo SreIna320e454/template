@@ -41,15 +41,13 @@
 				</thead>
 				<tbody>
 					<s:iterator value="getCartItemInfo">
-						<input type="hidden" name="itemId" value=${itemId} />
-						<input type="hidden" name="categoryName" value=${categoryName} />
 						<tr>
 							<td>
-								<a href="<s:url action="GoItemDetailAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">
+								<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /><s:param name="categoryName" value="%{categoryName}" /></s:url>">
 								<img src="<s:property value="itemImage" />" width="60px"></a>
 							</td>
 							<td align="left">
-								<a id="textDeco" href="<s:url action="GoItemDetailAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">
+								<a id="textDeco" href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /><s:param name="categoryName" value="%{categoryName}" /></s:url>">
 								<s:property value="itemName" />
 								</a>
 							</td>
