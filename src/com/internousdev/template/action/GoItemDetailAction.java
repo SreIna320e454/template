@@ -50,11 +50,9 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
     	 */
     	ItemCommentDAO itemCommentDAO = new ItemCommentDAO();
     	getComment = itemCommentDAO.getComment(itemId);
-    	if(getComment.size()>0){
+
     		result = SUCCESS;
     		return result;
-    	}
-    	return result;
     }
 
     public int getItemId() {

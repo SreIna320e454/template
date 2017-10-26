@@ -29,13 +29,11 @@ public class GoItemDetailDAO {
 			ps.setInt(1, itemId);
 			ResultSet rs = ps.executeQuery();
 
-			if(rs.next()){
-				itemDTO.setItemId(rs.getInt("item_id"));
+			while(rs.next()){
 				itemDTO.setItemName(rs.getString("item_name"));
 				itemDTO.setItemPrice(rs.getInt("item_price"));
 				itemDTO.setItemImage(rs.getString("item_image"));
 				itemDTO.setItemStock(rs.getInt("item_stock"));
-				itemDTO.setCategoryName(rs.getString("category_name"));
 			}
 		}catch(SQLException e){
 			e.printStackTrace();

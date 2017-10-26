@@ -39,7 +39,6 @@
 	 	小計
 	 	多重ログイン禁止
 	 												con.closeもう一回
-		一部の商品が商品詳細にいけない
 	-->
 
 	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
