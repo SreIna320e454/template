@@ -41,6 +41,8 @@
 				</thead>
 				<tbody>
 					<s:iterator value="getCartItemInfo">
+						<input type="hidden" name="itemId" value=${itemId} />
+						<input type="hidden" name="categoryName" value=${categoryName} />
 						<tr>
 							<td>
 								<a href="<s:url action="GoItemDetailAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">
@@ -57,6 +59,11 @@
 							<td>
 								<s:property value="itemCount" /><a>個</a>
 							</td>
+							<td>
+								<a>更新(未実装)</a>
+							</td>
+							<td><a href="<s:url action='CartItemDeleteAction'><s:param name="itemId" value="%{itemId}" /></s:url> ">削除</a>
+							</td>
 						</tr>
 					</s:iterator>
 				</tbody>
@@ -64,6 +71,10 @@
 			<div class="messageInfo">
 				<a>合計:</a><s:property value="totalPrice" /><a>円</a>
 			</div>
+		</s:form>
+		<s:form action="CartItemDeleteAction">
+			<input type="hidden" name="deleteAll" value="deleteAll" />
+ 			<s:submit value="全て削除" />
 		</s:form>
 		<s:form action="GoBuyItemConfirmAction">
 			<input type="hidden" name="totalPrice" value=${totalPrice} />

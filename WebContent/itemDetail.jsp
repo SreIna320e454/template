@@ -76,6 +76,7 @@
 							</tr>
 						</table>
 						<input type="hidden" name="itemId" value=${itemId} />
+						<input type="hidden" name="categoryName" value=${categoryName} />
 						<div id="btnPosition">
 							<s:submit value="カートに入れる"/>
 						</div>

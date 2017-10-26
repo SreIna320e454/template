@@ -36,10 +36,9 @@
 													画像の余白
 		値段の表示(カンマをつけたい
 		ログイン画面から商品詳細へ
-	 	カート商品を全削除するアクション
 	 	小計
 	 	多重ログイン禁止
-	 	詳細開いた時点でコメントされちゃうようになってる
+	 	詳細開いた時点でコメントされちゃうようになってる]con.closeもう一回
 	-->
 
 	<a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
@@ -48,6 +47,7 @@
 
 	<div id="hoge">
 		<s:iterator value="getItemInfo">
+		<input type="hidden" name="categoryName" value=${categoryName} />
 		<ul>
 			<li>
 			<s:form action="GoItemDetailAction">
