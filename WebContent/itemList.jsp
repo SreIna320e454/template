@@ -39,7 +39,6 @@
 	 	小計
 	 	多重ログイン禁止
 	 	詳細開いた時点でコメントされちゃうようになってる]con.closeもう一回
-	 	カートから商品詳細へ飛べない
 	-->
 
 	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
@@ -53,7 +52,7 @@
 			<s:form action="GoItemDetailAction">
 				<div id="container">
 					<div id="itemImage">
-						<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /><s:param name="categoryName" value="categoryName" /></s:url>">
+						<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /><s:param name="categoryName" value="%{categoryName}" /></s:url>">
 						<img src="<s:property value="itemImage" />" width="60%"></a>
 					</div>
 					<div id="itemName">

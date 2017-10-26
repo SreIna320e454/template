@@ -26,9 +26,9 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
 	private String itemImage;
 
-	private int itemStock;
-
 	private String categoryName;
+
+	private int itemStock;
 
 	private String itemComment;
 
@@ -50,7 +50,7 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 		/*
 		 * 商品情報を取得
 		 */
-    	getItemInfo = dao.getItemInfo(itemId,categoryName);
+    	getItemInfo = dao.getItemInfo(itemId);
 		/*
 		 * ログイン情報を確認
 		 */
@@ -98,17 +98,17 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
     public void setItemImage(String itemImage) {
         this.itemImage = itemImage;
     }
-    public int getItemStock() {
-        return itemStock;
-    }
-    public void setItemStocks(int itemStock) {
-        this.itemStock = itemStock;
-    }
     public String getCategoryName() {
         return categoryName;
     }
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+    public int getItemStock() {
+        return itemStock;
+    }
+    public void setItemStocks(int itemStock) {
+        this.itemStock = itemStock;
     }
 	public String getItemComment(){
 		return itemComment;

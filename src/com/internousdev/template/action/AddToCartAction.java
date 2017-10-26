@@ -25,8 +25,6 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 
 	private int itemCount;
 
-	private String categoryName;
-
 	private int totalPrice;
 
 	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
@@ -53,7 +51,7 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 			 */
 			ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
 
-			getItemInfo = AddToCartDAO.getItemInfo(itemId, categoryName);
+			getItemInfo = AddToCartDAO.getItemInfo(itemId);
 
 			if(getItemInfo.size()>0){
 				userId = (int)session.get("login_user_id");
@@ -115,12 +113,6 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	}
 	public void setItemCount(int itemCount){
 		this.itemCount = itemCount;
-	}
-	public String getCategoryName(){
-		return categoryName;
-	}
-	public void setCategoryName(String categoryName){
-		this.categoryName = categoryName;
 	}
 	public int getTotalPrice(){
 		return totalPrice;

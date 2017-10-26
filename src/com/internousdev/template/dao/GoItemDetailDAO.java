@@ -21,16 +21,15 @@ public class GoItemDetailDAO {
 	 * @param categoryName
 	 * @return
 	 */
-	public ItemDTO getItemInfo(int itemId, String categoryName){
+	public ItemDTO getItemInfo(int itemId){
 
 		ItemDTO itemDTO = new ItemDTO();
 
-		String sql = "SELECT * FROM item_info_transaction WHERE item_id=? and category_name=?";
+		String sql = "SELECT * FROM item_info_transaction WHERE item_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, itemId);
-			ps.setString(2, categoryName);
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){

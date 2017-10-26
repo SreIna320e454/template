@@ -27,6 +27,8 @@ public class CartItemDeleteDAO {
 			ps.execute();
 		}catch(Exception e){
 			e.printStackTrace();
+		}finally{
+			con.close();
 		}
 	}
 	/**
@@ -44,6 +46,8 @@ public class CartItemDeleteDAO {
 			ps.execute();
 		}catch(Exception e){
 			e.printStackTrace();
+		}finally{
+			con.close();
 		}
 	}
 }

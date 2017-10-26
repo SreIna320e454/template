@@ -76,7 +76,6 @@
 							</tr>
 						</table>
 						<input type="hidden" name="itemId" value=${itemId} />
-						<input type="hidden" name="categoryName" value=${categoryName} />
 						<div id="btnPosition">
 							<s:submit value="カートに入れる"/>
 						</div>
@@ -84,7 +83,7 @@
 				</s:form>
 
 				<s:form action="GoItemListAction">
-					<input type="hidden" name="categoryName" value="<s:property value="categoryName" />"/>
+					<input type="hidden" name="categoryName" value=${categoryName} />
 					<s:submit value="商品一覧に戻る" />
 				</s:form>
 
@@ -111,7 +110,6 @@
 	    				placeholder="ここに入力してください(4000字まで)"></textarea>
 					</div>
 					<input type="hidden" name="itemId" value=${itemId} />
-					<input type="hidden"name="categoryName" value=${categoryName} />
 					<s:submit id="submitButton" value="この内容で送信する" />
 				</s:form>
 			</s:if>

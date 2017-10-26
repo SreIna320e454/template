@@ -20,16 +20,15 @@ public class AddToCartDAO {
 	 * @param itemId
 	 * @return
 	 */
-	public ArrayList<ItemDTO> getItemInfo(int itemId, String categoryName){
+	public ArrayList<ItemDTO> getItemInfo(int itemId){
 
 		ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
 
-		String sql = "SELECT * FROM item_info_transaction WHERE item_id=? AND category_name=?";
+		String sql = "SELECT * FROM item_info_transaction WHERE item_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, itemId);
-			ps.setString(2, categoryName);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				ItemDTO itemDTO = new ItemDTO();
