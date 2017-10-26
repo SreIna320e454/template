@@ -92,7 +92,7 @@
 				<p>Review List</p>
 			</div>
 
-			<s:iterator value="addComment">
+			<s:iterator value="getComment">
 				<div id="container">
 					<a>コメント:<s:property value="itemComment" /></a>
 					<a>ユーザー名:<s:property value="userName" /></a>
@@ -104,10 +104,10 @@
 				<p>Add review</p>
 			</div>
 			<s:if test="#session.login_user_id != null">
-				<s:form action="GoItemDetailAction">
+				<s:form action="AddCommentAction">
 					<div class="textAlign">
-						<textarea name="itemComment" rows="30" cols="80" maxlength="4000"
-	    				placeholder="ここに入力してください(4000字まで)"></textarea>
+						<textarea name="itemComment" rows="20" cols="50" maxlength="2000"
+	    				placeholder="ここに入力してください(2000字まで)"></textarea>
 					</div>
 					<input type="hidden" name="itemId" value=${itemId} />
 					<s:submit id="submitButton" value="この内容で送信する" />

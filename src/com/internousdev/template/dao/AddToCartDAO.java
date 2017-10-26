@@ -32,11 +32,9 @@ public class AddToCartDAO {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				ItemDTO itemDTO = new ItemDTO();
-				itemDTO.setItemId(rs.getInt("item_id"));
 				itemDTO.setItemName(rs.getString("item_name"));
 				itemDTO.setItemPrice(rs.getInt("item_price"));
 				itemDTO.setItemImage(rs.getString("item_image"));
-				itemDTO.setItemStock(rs.getInt("item_stock"));
 				getItemInfo.add(itemDTO);
 			}
 		}catch(SQLException e){

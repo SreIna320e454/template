@@ -1,5 +1,4 @@
 package com.internousdev.template.action;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,17 +7,14 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.template.dao.GoItemDetailDAO;
-import com.internousdev.template.dto.AddCmtDTO;
+import com.internousdev.template.dao.ItemCommentDAO;
+import com.internousdev.template.dto.CommentDTO;
 import com.internousdev.template.dto.ItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
-
-	private int userId;
-
-	private String userName;
 
 	private String itemName;
 
@@ -30,13 +26,9 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
 	private int itemStock;
 
-	private String itemComment;
-
-	private Date date;
-
 	private ItemDTO getItemInfo = new ItemDTO();
 
-	private ArrayList<AddCmtDTO> addComment = new ArrayList<AddCmtDTO>();
+	private ArrayList<CommentDTO> getComment = new ArrayList<CommentDTO>();
 
 	private Map<String, Object> session = new HashMap<>();
 
@@ -45,26 +37,23 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 	 */
     public String execute()throws SQLException{
 
-    	GoItemDetailDAO dao = new GoItemDetailDAO();
+    	String result = ERROR;
+
+    	GoItemDetailDAO goItemDetailDAO = new GoItemDetailDAO();
 
 		/*
 		 * 商品情報を取得
 		 */
-    	getItemInfo = dao.getItemInfo(itemId);
-		/*
-		 * ログイン情報を確認
-		 */
-    	if(session.containsKey("login_user_id")==true){
-
-    		userName = (String)session.get("user_name");
-    		/*
-    		 * レビューをコメントテーブルに格納し取得
-    		 */
-    		if(itemComment != null){
-    		addComment = dao.addComment(itemId, userName, itemComment, date);
-    		}
+    	getItemInfo = goItemDetailDAO.getItemInfo(itemId);
+    	/*
+    	 * レビュー情報を取得
+    	 */
+    	ItemCommentDAO itemCommentDAO = new ItemCommentDAO();
+    	getComment = itemCommentDAO.getComment(itemId);
+    	if(getComment.size()>0){
+    		result = SUCCESS;
+    		return result;
     	}
-    	String result = SUCCESS;
     	return result;
     }
 
@@ -73,12 +62,6 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
     }
     public void setItemId(int itemId) {
         this.itemId = itemId;
-    }
-    public int getUserId(){
-    	return userId;
-    }
-    public void setUserId(int userId){
-    	this.userId = userId;
     }
     public String getItemName() {
         return itemName;
@@ -110,23 +93,11 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
     public void setItemStocks(int itemStock) {
         this.itemStock = itemStock;
     }
-	public String getItemComment(){
-		return itemComment;
+	public ArrayList<CommentDTO> getGetComment(){
+		return getComment;
 	}
-	public void setItemComment(String itemComment){
-		this.itemComment = itemComment;
-	}
-	public Date getDate(){
-		return date;
-	}
-	public void setDate(Date date){
-		this.date = date;
-	}
-	public ArrayList<AddCmtDTO> getAddComment(){
-		return addComment;
-	}
-	public void setAddComment(ArrayList<AddCmtDTO> addComment){
-		this.addComment = addComment;
+	public void setGetComment(ArrayList<CommentDTO> getComment){
+		this.getComment = getComment;
 	}
     public ItemDTO getGetItemInfo(){
     	return getItemInfo;

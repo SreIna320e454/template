@@ -73,6 +73,13 @@
 			<result name="error">itemList.jsp</result>
 		</action>
 
+		<!-- AddCommentAction -->
+		<action name="AddCommentAction" class="com.internousdev.template.action.AddCommentAction" method="execute">
+			<result name="success">itemDetail.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="login">login.jsp</result>
+		</action>
+
 		<!-- AddToCartAction -->
 		<action name="AddToCartAction" class="com.internousdev.template.action.AddToCartAction" method="execute">
 			<result name="login">login.jsp</result>
