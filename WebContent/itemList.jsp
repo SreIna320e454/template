@@ -13,7 +13,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
-	<title>Category：clock</title>
+	<title>ItemList</title>
 	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/itemList.css">
 </head>
@@ -23,7 +23,7 @@
 
 	<div id="main">
 		<div id="top">
-			<p>Category：<s:property value="category" /></p>
+			<p>Category：<s:property value="categoryName" /></p>
 		</div>
 
 	<!--
@@ -42,7 +42,7 @@
 	 	カートから商品詳細へ飛べない
 	-->
 
-	<a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
+	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
 	<a class="btnClick" href='<s:url action="SortPriceHighAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>'>価格の高い順</a>
 
 

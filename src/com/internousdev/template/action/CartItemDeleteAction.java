@@ -6,8 +6,8 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.template.dao.AddToCartDAO;
 import com.internousdev.template.dao.CartItemDeleteDAO;
-import com.internousdev.template.dao.GoCartDAO;
 import com.internousdev.template.dto.CartDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -27,7 +27,7 @@ public class CartItemDeleteAction extends ActionSupport implements SessionAware{
 
 		String result = ERROR;
 
-		GoCartDAO goCartDAO = new GoCartDAO();
+		AddToCartDAO addToCartDAO = new AddToCartDAO();
 		CartItemDeleteDAO cartItemDeleteDAO = new CartItemDeleteDAO();
 
 			/*
@@ -48,7 +48,7 @@ public class CartItemDeleteAction extends ActionSupport implements SessionAware{
 				userId = (int)session.get("login_user_id");
 				cartItemDeleteDAO.deleteAll(userId);
 
-				getCartItemInfo = goCartDAO.getCartItemInfo(userId);
+				getCartItemInfo = addToCartDAO.getCartItemInfo(userId);
 				result = SUCCESS;
 			}
 
@@ -64,7 +64,7 @@ public class CartItemDeleteAction extends ActionSupport implements SessionAware{
 				/*
 				 * 値段の合計を計算
 				 */
-				getCartItemInfo = goCartDAO.getCartItemInfo(userId);
+				getCartItemInfo = addToCartDAO.getCartItemInfo(userId);
 				for (int i = 0; i < getCartItemInfo.size(); i++) {
 					totalPrice += (getCartItemInfo.get(i).getItemPrice()) * (getCartItemInfo.get(i).getItemCount());
 				}

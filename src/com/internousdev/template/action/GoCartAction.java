@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.template.dao.GoCartDAO;
+import com.internousdev.template.dao.AddToCartDAO;
 import com.internousdev.template.dto.CartDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -39,7 +39,7 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 
 		String result = SUCCESS;
 
-		GoCartDAO goCartDAO = new GoCartDAO();
+		AddToCartDAO addToCartDAO = new AddToCartDAO();
 
 		/*
 		 * ログイン情報を確認
@@ -52,7 +52,7 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 			/*
 			 * カート情報を取得
 			 */
-			getCartItemInfo = goCartDAO.getCartItemInfo(userId);
+			getCartItemInfo = addToCartDAO.getCartItemInfo(userId);
 			/*
 			 * 商品の価格合計を計算
 			 */
