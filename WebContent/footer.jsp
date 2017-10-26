@@ -8,7 +8,7 @@
 <title>footer</title>
 </head>
 <body>
-	<div id="footer" style="clear:left;">
+	<div id="footer">
 		<ul>
 			<li class="hooter_position"><a class="footer_icon" href=#>利用規約</a></li>
 		</ul>

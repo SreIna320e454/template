@@ -31,14 +31,12 @@
 	○	jsで「この内容でよろしい？」
 			何も書いてないと送信できないようにする
 			時間も表示したい→連続で送信できないように
-													二つのブロックを横並びにする
 		カートの同一商品がまとめられてない 1
 													画像の余白
 		値段の表示(カンマをつけたい
 																					ログイン画面から商品詳細へ
 	 	小計
-	 	多重ログイン禁止
-	 												con.closeもう一回
+	 	多重ログイン禁止eもう一回
 	-->
 
 	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
@@ -59,6 +57,7 @@
 						<s:property value="itemName" />
 					</div>
 					<s:property value="itemPrice" /><a>円</a>
+					<input type="hidden" name="itemId" value=${itemId} />
 				</div>
 			</s:form>
 			</li>

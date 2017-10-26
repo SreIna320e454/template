@@ -75,11 +75,11 @@
 								</td>
 							</tr>
 						</table>
-						<input type="hidden" name="itemId" value=${itemId} />
-						<div id="btnPosition">
-							<s:submit value="カートに入れる"/>
-						</div>
 				</s:iterator>
+				<input type="hidden" name="itemId" value=${itemId} />
+					<div id="btnPosition">
+						<s:submit value="カートに入れる"/>
+					</div>
 				</s:form>
 
 				<s:form action="GoItemListAction">
@@ -119,20 +119,10 @@
 			</s:else>
 		</div>
 
-		<div class="box">
-			<div class="test">
-				<p>Reviw List</p>
-			</div>
-		</div>
-		<div class="box">
-			<div class="test">
-				<p>Add review</p>
-			</div>
-		</div>
 		</div>
 	</div>
 
-<!--  	<s:include value="footer.jsp" />	-->
+  	<s:include value="footer.jsp" />
 
 </body>
 </html>

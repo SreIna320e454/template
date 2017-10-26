@@ -3,7 +3,6 @@ package com.internousdev.template.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import com.internousdev.template.dto.ItemDTO;
 import com.internousdev.template.util.DBConnector;
@@ -18,7 +17,7 @@ public class GoItemDetailDAO {
 	 * @param categoryName
 	 * @return
 	 */
-	public ItemDTO getItemInfo(int itemId)throws SQLException{
+	public ItemDTO getItemInfo(int itemId){
 
 		ItemDTO itemDTO = new ItemDTO();
 
@@ -37,8 +36,6 @@ public class GoItemDetailDAO {
 			}
 		}catch(Exception e){
 			e.printStackTrace();
-		}finally{
-			con.close();
 		}
 		return itemDTO;
 	}
