@@ -91,6 +91,7 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 				/*
 				 * レビュー情報を取得
 				 */
+
 				getComment = itemCommentDAO.getComment(itemId);
 				result = SUCCESS;
 				return result;

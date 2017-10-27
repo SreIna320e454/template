@@ -94,7 +94,7 @@
 
 			<s:iterator value="getComment">
 				<div id="container">
-					<a><font size="4">レビュー:<s:property value="itemComment" /></font></a><br>
+					<a><font size="3">レビュー:<s:property value="itemComment" /></font></a><br>
 					<a>ユーザー名:<s:property value="userName" /></a><br>
 					<a>日付：<s:property value="commentDate" /></a>
 					<s:property value="date" />
@@ -107,11 +107,11 @@
 			<s:if test="#session.login_user_id != null">
 				<s:form action="AddCommentAction">
 					<div class="textAlign">
-						<textarea name="itemComment" rows="20" cols="50" maxlength="2000"
-	    				placeholder="ここに入力してください(2000字まで)"></textarea>
+						<textarea name="itemComment" rows="20" cols="50" maxlength="800" wrap="hard"
+	    				placeholder="ここに入力してください(800字まで)"></textarea>
 					</div>
 					<input type="hidden" name="itemId" value=${itemId} />
-					<font size="5" color="red"><s:property value="errorMessage" /></font>
+					<font size="3" color="red"><s:property value="errorMessage" /></font>
 					<s:submit id="submitButton" value="この内容で送信する" />
 				</s:form>
 			</s:if>
