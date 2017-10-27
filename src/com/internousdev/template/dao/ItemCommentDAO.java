@@ -22,7 +22,7 @@ public class ItemCommentDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public void addComment(int itemId, String userName, String itemComment)throws SQLException{
+	public void addComment(int itemId, String userName, String itemComment, String commentDate)throws SQLException{
 
 		String sql = "INSERT INTO item_comment_transaction(item_id, user_name, item_comment) VALUES(?,?,?)";
 

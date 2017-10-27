@@ -33,6 +33,8 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 
 	private String itemComment;
 
+	private String errorMessage;
+
 	private ItemDTO getItemInfo = new ItemDTO();
 
 	private ArrayList<CommentDTO> getComment = new ArrayList<CommentDTO>();
@@ -48,37 +50,47 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 
 		ItemCommentDAO addComment = new ItemCommentDAO();
 		GoItemDetailDAO goItemDetailDAO = new GoItemDetailDAO();
+		ItemCommentDAO itemCommentDAO = new ItemCommentDAO();
 
-		/*
-		 * ログイン情報を確認
-		 */
 		if(session.containsKey("login_user_id")==false){
 			result = LOGIN;
 			return result;
 		}else{
 
 			/*
-			 * レビュー情報をDBに格納
-			 */
-			userName = (String)session.get("user_name");
-			addComment.addComment(itemId, userName, itemComment);
-
-			/*
 			 * 商品情報を取得
 			 */
 			getItemInfo = goItemDetailDAO.getItemInfo(itemId);
 
+
+			userName = (String)session.get("user_name");
+
 			/*
-			 * レビュー情報を取得
+			 * 何も入力されていない場合エラーメッセージを返す
 			 */
-			ItemCommentDAO itemCommentDAO = new ItemCommentDAO();
-			getComment = itemCommentDAO.getComment(itemId);
-			if(getComment.size()>0){
+			if(itemComment==null || itemComment.equals("")){
+
+				getComment = itemCommentDAO.getComment(itemId);
+
+				errorMessage = "追加に失敗しました。レビューを入力してください";
+				result = SUCCESS;
+				return result;
+
+			}else{
+				/*
+				 * レビューをDBに格納
+				 */
+				
+				addComment.addComment(itemId, userName, itemComment, itemDate);
+
+				/*
+				 * レビュー情報を取得
+				 */
+				getComment = itemCommentDAO.getComment(itemId);
 				result = SUCCESS;
 				return result;
 			}
 		}
-		return result;
 	}
 
 	public int getUserId() {
@@ -134,6 +146,12 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
     }
     public void setItemComment(String itemComment) {
         this.itemComment = itemComment;
+    }
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
     public ItemDTO getGetItemInfo(){
     	return getItemInfo;

@@ -27,6 +27,7 @@
 				<p>ItemDetail</p>
 			</div>
 
+<p><input type="button" value="確認ダイアログ" onClick="disp()"></p>
 			<s:form action="AddToCartAction">
 				<s:iterator value="getItemInfo">
 					<img src="<s:property value="itemImage" />" width="300px">
@@ -94,7 +95,7 @@
 
 			<s:iterator value="getComment">
 				<div id="container">
-					<a>コメント:<s:property value="itemComment" /></a>
+					<a>レビュー:<s:property value="itemComment" /></a>
 					<a>ユーザー名:<s:property value="userName" /></a>
 					<s:property value="date" />
 				</div>
@@ -110,7 +111,7 @@
 	    				placeholder="ここに入力してください(2000字まで)"></textarea>
 					</div>
 					<input type="hidden" name="itemId" value=${itemId} />
-					<s:property value="errorMessage" />
+					<font size="5" color="red"><s:property value="errorMessage" /></font>
 					<s:submit id="submitButton" value="この内容で送信する" />
 				</s:form>
 			</s:if>
