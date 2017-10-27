@@ -1,4 +1,5 @@
 package com.internousdev.template.dto;
+import java.sql.Date;
 
 public class CommentDTO {
 
@@ -10,7 +11,7 @@ public class CommentDTO {
 
 	private String itemComment;
 
-	private String commentDate;
+	private Date commentDate4;
 
 	public int getUserId(){
 		return userId;
@@ -36,10 +37,10 @@ public class CommentDTO {
 	public void setItemComment(String itemComment){
 		this.itemComment = itemComment;
 	}
-	public String getCommentDate(){
-		return commentDate;
+	public Date getCommentDate4(){
+		return commentDate4;
 	}
-	public void setCommentDate(String commentDate){
-		this.commentDate = commentDate;
+	public void setCommentDate4(Date commentDate4){
+		this.commentDate4 = commentDate4;
 	}
 }

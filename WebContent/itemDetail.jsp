@@ -97,7 +97,7 @@
 					<a><font size="3">レビュー:<s:property value="itemComment" /></font></a><br>
 					<a>ユーザー名:<s:property value="userName" /></a><br>
 					<a>日付：<s:property value="commentDate" /></a>
-					<s:property value="date" />
+					<s:property value="CommentDate2" />
 				</div>
 			</s:iterator>
 

@@ -1,9 +1,8 @@
 package com.internousdev.template.action;
 
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +34,7 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 
 	private String itemComment;
 
-	private String commentDate;
+	private String commentDate4;
 
 	private String errorMessage;
 
@@ -84,9 +83,16 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 				/*
 				 * レビューをDBに格納
 				 */
-				Date date = new Date();
-				commentDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(date);
-				addComment.addComment(itemId, userName, itemComment, commentDate);
+				java.util.Date commentDate = new java.util.Date();
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(commentDate);
+				cal.set(Calendar.HOUR_OF_DAY, 0);
+				cal.set(Calendar.MINUTE, 0);
+				cal.set(Calendar.SECOND, 0);
+				cal.set(Calendar.MILLISECOND, 0);
+				java.sql.Date commentDate4 = new java.sql.Date(cal.getTimeInMillis());
+
+				addComment.addComment(itemId, userName, itemComment, commentDate4);
 
 				/*
 				 * レビュー情報を取得
@@ -153,11 +159,11 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
     public void setItemComment(String itemComment) {
         this.itemComment = itemComment;
     }
-    public String getCommentDate() {
-        return commentDate;
+    public String getCommentDate4() {
+        return commentDate4;
     }
-    public void setCommentDate(String commentDate) {
-        this.commentDate = commentDate;
+    public void setCommentDate4(String commentDate4) {
+        this.commentDate4 = commentDate4;
     }
     public String getErrorMessage() {
         return errorMessage;

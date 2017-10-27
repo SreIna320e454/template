@@ -1,6 +1,7 @@
 package com.internousdev.template.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,16 +23,16 @@ public class ItemCommentDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public void addComment(int itemId, String userName, String itemComment, String commentDate)throws SQLException{
+	public void addComment(int itemId, String userName, String itemComment, Date commentDate4)throws SQLException{
 
-		String sql = "INSERT INTO item_comment_transaction(item_id, user_name, item_comment, comment_date) VALUES(?,?,?,?)";
+		String sql = "INSERT INTO item_comment_transaction(item_id, user_name, item_comment, insert_date) VALUES(?,?,?,?)";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, itemId);
 			ps.setString(2, userName);
 			ps.setString(3,itemComment);
-			ps.setString(4, commentDate);
+			ps.setDate(4, commentDate4);
 			ps.execute();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -60,7 +61,7 @@ public class ItemCommentDAO {
 				CommentDTO commentDTO = new CommentDTO();
 				commentDTO.setUserName(rs.getString("user_name"));
 				commentDTO.setItemComment(rs.getString("item_comment"));
-				commentDTO.setCommentDate(rs.getString("comment_date"));
+				commentDTO.setCommentDate4(rs.getDate("insert_date"));
 				getComment.add(commentDTO);
 			}
 		}catch(Exception e){
