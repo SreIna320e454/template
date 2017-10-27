@@ -24,13 +24,14 @@ public class ItemCommentDAO {
 	 */
 	public void addComment(int itemId, String userName, String itemComment, String commentDate)throws SQLException{
 
-		String sql = "INSERT INTO item_comment_transaction(item_id, user_name, item_comment) VALUES(?,?,?)";
+		String sql = "INSERT INTO item_comment_transaction(item_id, user_name, item_comment, comment_date) VALUES(?,?,?,?)";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, itemId);
 			ps.setString(2, userName);
 			ps.setString(3,itemComment);
+			ps.setString(4, commentDate);
 			ps.execute();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -59,6 +60,7 @@ public class ItemCommentDAO {
 				CommentDTO commentDTO = new CommentDTO();
 				commentDTO.setUserName(rs.getString("user_name"));
 				commentDTO.setItemComment(rs.getString("item_comment"));
+				commentDTO.setCommentDate(rs.getString("comment_date"));
 				getComment.add(commentDTO);
 			}
 		}catch(Exception e){

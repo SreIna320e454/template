@@ -27,7 +27,6 @@
 				<p>ItemDetail</p>
 			</div>
 
-<p><input type="button" value="確認ダイアログ" onClick="disp()"></p>
 			<s:form action="AddToCartAction">
 				<s:iterator value="getItemInfo">
 					<img src="<s:property value="itemImage" />" width="300px">
@@ -95,8 +94,9 @@
 
 			<s:iterator value="getComment">
 				<div id="container">
-					<a>レビュー:<s:property value="itemComment" /></a>
-					<a>ユーザー名:<s:property value="userName" /></a>
+					<a><font size="4">レビュー:<s:property value="itemComment" /></font></a><br>
+					<a>ユーザー名:<s:property value="userName" /></a><br>
+					<a>日付：<s:property value="commentDate" /></a>
 					<s:property value="date" />
 				</div>
 			</s:iterator>

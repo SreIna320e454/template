@@ -1,7 +1,9 @@
 package com.internousdev.template.action;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +34,8 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 	private int itemStock;
 
 	private String itemComment;
+
+	private String commentDate;
 
 	private String errorMessage;
 
@@ -80,8 +84,9 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 				/*
 				 * レビューをDBに格納
 				 */
-				
-				addComment.addComment(itemId, userName, itemComment, itemDate);
+				Date date = new Date();
+				commentDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(date);
+				addComment.addComment(itemId, userName, itemComment, commentDate);
 
 				/*
 				 * レビュー情報を取得
@@ -146,6 +151,12 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
     }
     public void setItemComment(String itemComment) {
         this.itemComment = itemComment;
+    }
+    public String getCommentDate() {
+        return commentDate;
+    }
+    public void setCommentDate(String commentDate) {
+        this.commentDate = commentDate;
     }
     public String getErrorMessage() {
         return errorMessage;

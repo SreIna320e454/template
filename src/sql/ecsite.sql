@@ -33,6 +33,7 @@ user_id int,
 user_name varchar(50),
 item_id int,
 item_comment varchar(255),
+comment_date varchar(20),
 insert_date datetime,
 update_date datetime,
 

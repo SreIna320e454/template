@@ -10,6 +10,8 @@ public class CommentDTO {
 
 	private String itemComment;
 
+	private String commentDate;
+
 	public int getUserId(){
 		return userId;
 	}
@@ -33,5 +35,11 @@ public class CommentDTO {
 	}
 	public void setItemComment(String itemComment){
 		this.itemComment = itemComment;
+	}
+	public String getCommentDate(){
+		return commentDate;
+	}
+	public void setCommentDate(String commentDate){
+		this.commentDate = commentDate;
 	}
 }
