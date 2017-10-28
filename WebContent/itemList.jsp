@@ -27,16 +27,11 @@
 		</div>
 
 	<!--
-		購入画面(購入確認、必要事項入力、購入完了)	5
-		購入完了でテーブルに格納するもの→購入日、値段、支払方法、ユーザーID、カートID
-		都道府県は選択式で ゆうびんばんごうは１つにまとめたい
-		sql上書き
-		テーブルに購入確定を追加
-		値段合計もDBに格納
+		購入画面(必要事項入力、購入完了)
+		購入完了でテーブルに格納するもの→購入日、ユーザーID、（カートID 個数
 		連続で送信できないように→buyitemcomplate にヒントが
-		カートの同一商品がまとめられてない 1
+		カートの同一商品がまとめられてない
 		値段の表示(カンマをつけたい
-															ログイン画面から商品詳細へ(ifでできる？）
 	 	小計
 	 	多重ログイン禁止
 	 	アカウント作成アクションを確認
@@ -51,7 +46,7 @@
 		<ul>
 			<li>
 			<s:form action="GoItemDetailAction">
-				<div id="container">
+				<div id="block">
 					<div id="itemImage">
 						<a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}" /><s:param name="categoryName" value="%{categoryName}" /></s:url>">
 						<img src="<s:property value="itemImage" />" width="60%"></a>
@@ -60,7 +55,6 @@
 						<s:property value="itemName" />
 					</div>
 					<s:property value="itemPrice" /><a>円</a>
-					<input type="hidden" name="itemId" value=${itemId} />
 				</div>
 			</s:form>
 			</li>

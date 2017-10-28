@@ -28,15 +28,12 @@ table {
 	padding-top:100px;
 	text-align:center;
 }
-.btnClick:active{
-	color:#2E2E2E;
-}
 #btnPosition{
   position: relative;
   left: -46%;
   margin-bottom:40px;
 }
-.caption{
+.reviewForm{
 	margin:30px auto;
 	font-size:15px;
 	width:800px;

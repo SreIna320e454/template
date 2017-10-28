@@ -46,14 +46,23 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 
 		GoBuyItemConfirmNextDAO goBuyItemConfLastDAO = new GoBuyItemConfirmNextDAO();
 
+		/*
+		 * ログイン情報を確認
+		 */
 		if(session.containsKey("login_user_id")==false){
 			result = LOGIN;
 			return result;
 		}else{
+			/*
+			 * ユーザー情報をDBに格納、取得する
+			 */
 			userId = (int)session.get("login_user_id");
 			int countTest =goBuyItemConfLastDAO.setUserInfo(userId, postCodeA, postCodeB, prefectures, streetAddressA, streetAddressB, streetAddressC);
 			if(countTest>0){
 				getUserInfo = goBuyItemConfLastDAO.getUserInfo(userId);
+					/*
+					 * 現金払いの場合
+					 */
 					if(pay==1){
 						AddToCartDAO addToCartDAO = new AddToCartDAO();
 						getCartItemInfo = addToCartDAO.getCartItemInfo(userId);
@@ -61,6 +70,9 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 						totalPrice += 350;
 						result = "buyItemConfirm3";
 						return result;
+						/*
+						 * クレジットカード払いの場合
+						 */
 					}if(pay==2){
 						result = "buyItemConfirm2";
 						return result;

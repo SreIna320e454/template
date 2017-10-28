@@ -17,15 +17,15 @@
 	<link rel="stylesheet" type="text/css" href="./css/home.css">
 
 </head>
-<body vlink="#FFFFFF">
+<body link="#FFFFFF" vlink="#FFFFFF">
 
 	<s:include value="header.jsp" />
 
 	<div id="main">
 		<s:form action="GoItemViewAction">
-			<input class="deco" type="image" src="./images/home_icon.png" alt="商品一覧へ">
+			<input id="homeImg" type="image" src="./images/home_icon.png" alt="商品一覧へ">
 		</s:form>
-		<div class="text-center">
+		<div id="text-center">
 			<a id="btn_enter" href='<s:url action="GoItemViewAction" />'>ENTER</a>
 		</div>
 	</div>

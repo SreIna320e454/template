@@ -14,12 +14,6 @@ public class GoBuyItemConfirm1Action extends ActionSupport implements SessionAwa
 
 	private int userId;
 
-	private String itemName;
-
-	private int itemPrice;
-
-	private int itemCount;
-
 	private int totalPrice;
 
 	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
@@ -59,24 +53,6 @@ public class GoBuyItemConfirm1Action extends ActionSupport implements SessionAwa
 	}
 	public void setUserId(int userId){
 		this.userId = userId;
-	}
-	public String getItemName(){
-		return itemName;
-	}
-	public void setItemName(String itemName){
-		this.itemName = itemName;
-	}
-	public int getItemPrice(){
-		return itemPrice;
-	}
-	public void setItemPrice(int itemPrice){
-		this.itemPrice = itemPrice;
-	}
-	public int getItemCount(){
-		return itemCount;
-	}
-	public void setItemCount(int itemCount){
-		this.itemCount = itemCount;
 	}
 	public int getTotalPrice(){
 		return totalPrice;

@@ -33,10 +33,10 @@
 						<ul>
 							<li>
 							<s:form action="GoItemListAction">
-								<div class="sample1">
+								<div class="ornament">
 									<img src="<s:property value="categoryImage" />" width="190px">
 									<div class="mask caption">
-										<a class="textClick" href="<s:url action="GoItemListAction">
+										<a href="<s:url action="GoItemListAction">
 										<s:param name="categoryName" value="%{categoryName}" /></s:url>">
 										<s:property value="categoryName" /></a>
 									</div>

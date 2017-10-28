@@ -21,7 +21,7 @@
 /* ========TAG LAYOUT======== */
 </style>
 <link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
-<link rel="stylesheet" type="text/css" href="./css/buyItemConfirm.css">
+<link rel="stylesheet" type="text/css" href="./css/buyItemConfirm1.css">
 </head>
 <body>
 
@@ -29,11 +29,13 @@
 
 	<div id="main">
 		<div id="container">
+
 			<div id="top">
 				<p>BuyItemConfirm1</p>
 			</div>
+
 			<div id="containerLeft">
-				<div class="contain">カート内容</div>
+				<div class="block">カート内容</div>
 				<s:if test="%{getCartItemInfo.size() > 0 && #session.login_user_id != null}">
 					<s:form action="#">
 						<table>
@@ -47,27 +49,24 @@
 							<tbody>
 								<s:iterator value="getCartItemInfo">
 									<tr>
-										<td align="left"><a id="textDeco"><s:property value="itemName" /></a></td>
+										<td align="left"><a><s:property value="itemName" /></a></td>
 										<td><s:property value="itemPrice" /><a>円</a></td>
 										<td><s:property value="itemCount" /><a>個</a></td>
 									</tr>
 								</s:iterator>
 								<tr>
 									<td></td>
-									<td><a>合計:</a>
-									<s:property value="totalPrice" /><a>円</a></td>
+									<td><a>合計:</a><s:property value="totalPrice" /><a>円</a></td>
 									<td></td>
 								</tr>
 							</tbody>
 						</table>
 					</s:form>
 				</s:if>
-				<s:else>
-				カートには何も入っていません。
-			</s:else>
 			</div>
+
 			<div id="containerRight">
-				<div class="contain">住所・支払い方法選択</div>
+				<div class="block">住所・支払い方法選択</div>
 				<s:form action="GoBuyItemConfirmNextAction">
 					<div id="CustomerInfo">
 						<table>
@@ -79,9 +78,9 @@
 							</thead>
 							<tr>
 								<td><a>郵便番号</a></td>
-								<td>(必須)<input type="text" name="postCodeA"
+								<td>(必須)<input type="text" name="postcodeA"
 									style="width: 23px;" placeholder="000" />-<input type="text"
-									name="PostCodeB" style="width: 32px;" placeholder="0000" /><a>例:113-0034</a></td>
+									name="PostcodeB" style="width: 32px;" placeholder="0000" /><a>例:113-0034</a></td>
 							</tr>
 							<tr>
 								<td><a>住所</a></td>
@@ -118,13 +117,13 @@
 					</div>
 				</s:form>
 			</div>
+
 		</div>
-		<div>
-		<p>戻る</p>
-		</div>
+
 	</div>
 
-			<s:include value="footer.jsp" />
+	<s:include value="footer.jsp" />
+
 </body>
 
 </html>

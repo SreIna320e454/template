@@ -1,7 +1,6 @@
 package com.internousdev.template.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,11 +8,15 @@ import java.util.ArrayList;
 
 import com.internousdev.template.dto.CommentDTO;
 import com.internousdev.template.util.DBConnector;
+import com.internousdev.template.util.DateUtil;
 
 public class ItemCommentDAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = db.getConnection();
+	private DBConnector db = new DBConnector();
+
+	private Connection con = db.getConnection();
+
+	private DateUtil dateUtil = new DateUtil();
 	/**
 	 * レビューをDBに格納する
 	 * @param itemId
@@ -23,7 +26,7 @@ public class ItemCommentDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public void addComment(int itemId, String userName, String itemComment, Date commentDate4)throws SQLException{
+	public void addComment(int itemId, String userName, String itemComment)throws SQLException{
 
 		String sql = "INSERT INTO item_comment_transaction(item_id, user_name, item_comment, insert_date) VALUES(?,?,?,?)";
 
@@ -32,7 +35,7 @@ public class ItemCommentDAO {
 			ps.setInt(1, itemId);
 			ps.setString(2, userName);
 			ps.setString(3,itemComment);
-			ps.setDate(4, commentDate4);
+			ps.setString(4, dateUtil.getDate());
 			ps.execute();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -61,7 +64,7 @@ public class ItemCommentDAO {
 				CommentDTO commentDTO = new CommentDTO();
 				commentDTO.setUserName(rs.getString("user_name"));
 				commentDTO.setItemComment(rs.getString("item_comment"));
-				commentDTO.setCommentDate4(rs.getDate("insert_date"));
+				commentDTO.setCommentDate(rs.getString("insert_date"));
 				getComment.add(commentDTO);
 			}
 		}catch(Exception e){

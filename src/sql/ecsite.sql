@@ -79,10 +79,9 @@ foreign key(user_id)references login_user_transaction(user_id)
 
 create table user_buy_item_transaction(
 id int not null primary key auto_increment,
-item_transaction_id int,
-total_price int,
-total_count int,
-user_master_id varchar(16),
+user_id int,
+subtotal int,
+item_count int,
 pay varchar(30),
 insert_date datetime,
 delete_date datetime

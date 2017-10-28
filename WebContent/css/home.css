@@ -24,13 +24,13 @@ body {
 #border{
 	outline:none;
 }
+#homeImg{
+	outline:none;
+}
 #btn_enter{
 	font-size:40px;
 	text-decoration:none;
 }
 #btn_enter:active{
 	color:#FFFFFF;
-}
-.deco{
-	outline:none;
 }

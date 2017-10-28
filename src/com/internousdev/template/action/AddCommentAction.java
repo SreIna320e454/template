@@ -2,7 +2,6 @@ package com.internousdev.template.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +33,7 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 
 	private String itemComment;
 
-	private String commentDate4;
+	private String commentDate;
 
 	private String errorMessage;
 
@@ -54,6 +53,7 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 		ItemCommentDAO addComment = new ItemCommentDAO();
 		GoItemDetailDAO goItemDetailDAO = new GoItemDetailDAO();
 		ItemCommentDAO itemCommentDAO = new ItemCommentDAO();
+		ItemCommentDAO getCommentDate = new ItemCommentDAO();
 
 		if(session.containsKey("login_user_id")==false){
 			result = LOGIN;
@@ -83,16 +83,7 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 				/*
 				 * レビューをDBに格納
 				 */
-				java.util.Date commentDate = new java.util.Date();
-				Calendar cal = Calendar.getInstance();
-				cal.setTime(commentDate);
-				cal.set(Calendar.HOUR_OF_DAY, 0);
-				cal.set(Calendar.MINUTE, 0);
-				cal.set(Calendar.SECOND, 0);
-				cal.set(Calendar.MILLISECOND, 0);
-				java.sql.Date commentDate4 = new java.sql.Date(cal.getTimeInMillis());
-
-				addComment.addComment(itemId, userName, itemComment, commentDate4);
+				addComment.addComment(itemId, userName, itemComment);
 
 				/*
 				 * レビュー情報を取得
@@ -159,11 +150,11 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
     public void setItemComment(String itemComment) {
         this.itemComment = itemComment;
     }
-    public String getCommentDate4() {
-        return commentDate4;
+    public String getCommentDate() {
+        return commentDate;
     }
-    public void setCommentDate4(String commentDate4) {
-        this.commentDate4 = commentDate4;
+    public void setCommentDate(String commentDate) {
+        this.commentDate = commentDate;
     }
     public String getErrorMessage() {
         return errorMessage;

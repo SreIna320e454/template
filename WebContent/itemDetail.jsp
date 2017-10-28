@@ -28,6 +28,7 @@
 			</div>
 
 			<s:form action="AddToCartAction">
+
 				<s:iterator value="getItemInfo">
 					<img src="<s:property value="itemImage" />" width="300px">
 
@@ -76,32 +77,36 @@
 							</tr>
 						</table>
 				</s:iterator>
-				<input type="hidden" name="itemId" value=${itemId} />
-					<div id="btnPosition">
-						<s:submit value="カートに入れる"/>
-					</div>
-				</s:form>
 
-				<s:form action="GoItemListAction">
-					<input type="hidden" name="categoryName" value=${categoryName} />
-					<s:submit value="商品一覧に戻る" />
-				</s:form>
+				<div id="btnPosition">
+					<input type="hidden" name="itemId" value=${itemId} />
+					<s:submit value="カートに入れる"/>
+				</div>
 
-		<div id="mainB">
-			<div class="caption">
+			</s:form>
+
+			<s:form action="GoItemListAction">
+				<input type="hidden" name="categoryName" value=${categoryName} />
+				<s:submit value="商品一覧に戻る" />
+			</s:form>
+
+			<div class="reviewForm">
 				<p>Review List</p>
 			</div>
+			<s:if test="getComment.size>0">
+				<s:iterator value="getComment">
+					<div id="container">
+						<a><font size="3">レビュー:<s:property value="itemComment" /></font></a><br>
+						<a>ユーザー名:<s:property value="userName" /></a><br>
+						<a>日付：<s:property value="commentDate" /></a>
+					</div>
+				</s:iterator>
+			</s:if>
+			<s:else>
+				<p>まだレビューがありません。</p>
+			</s:else>
 
-			<s:iterator value="getComment">
-				<div id="container">
-					<a><font size="3">レビュー:<s:property value="itemComment" /></font></a><br>
-					<a>ユーザー名:<s:property value="userName" /></a><br>
-					<a>日付：<s:property value="commentDate" /></a>
-					<s:property value="CommentDate2" />
-				</div>
-			</s:iterator>
-
-			<div class="caption">
+			<div class="reviewForm">
 				<p>Add review</p>
 			</div>
 			<s:if test="#session.login_user_id != null">
@@ -118,7 +123,6 @@
 			<s:else>
 				<p class="textAlign">レビューを追加するにはログインをしてください。</p>
 			</s:else>
-		</div>
 
 		</div>
 	</div>

@@ -33,7 +33,7 @@
 				<p>BuyItemConfirm3</p>
 			</div>
 			<div id="containerLeft">
-				<div class="contain">カート内容</div>
+				<div class="block">カート内容</div>
 				<s:if test="%{getCartItemInfo.size() > 0 && #session.login_user_id != null}">
 					<s:form action="#">
 						<table>
@@ -47,7 +47,7 @@
 							<tbody>
 								<s:iterator value="getCartItemInfo">
 									<tr>
-										<td align="left"><a id="textDeco"><s:property value="itemName" /></a></td>
+										<td align="left"><a><s:property value="itemName" /></a></td>
 										<td><s:property value="itemPrice" /><a>円</a></td>
 										<td><s:property value="itemCount" /><a>個</a></td>
 									</tr>
@@ -63,12 +63,10 @@
 						</table>
 					</s:form>
 				</s:if>
-				<s:else>
-				カートには何も入っていません。
-			</s:else>
+
 			</div>
 			<div id="containerRight">
-				<div class="contain">住所・支払い方法選択</div>
+				<div class="block">住所・支払い方法選択</div>
 					<div id="CustomerInfo">
 						<table>
 							<thead>
@@ -105,6 +103,8 @@
 		</div>
 		<div style="clear:left;">
 			<a><font size="6">合計:<s:property value="totalPrice" />円</font></a>
+				<input type="hidden" name="subtotal" value=<s:property value="subtotal" /> />
+				<input type="hidden" name="pay" value=<s:property value="pay" /> />
 			<s:submit value="この内容で購入する" />
 		</div>
 	</div>
