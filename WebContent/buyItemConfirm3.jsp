@@ -16,12 +16,12 @@
 <meta charset="utf-8">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<title>BuyItemConfirm</title>
+<title>BuyItemConfirm3</title>
 <style type="text/css">
 /* ========TAG LAYOUT======== */
 </style>
 <link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
-<link rel="stylesheet" type="text/css" href="./css/buyItemConfirm.css">
+<link rel="stylesheet" type="text/css" href="./css/buyItemConfirm3.css">
 </head>
 <body>
 
@@ -30,7 +30,7 @@
 	<div id="main">
 		<div id="container">
 			<div id="top">
-				<p>BuyItemConfirm1</p>
+				<p>BuyItemConfirm3</p>
 			</div>
 			<div id="containerLeft">
 				<div class="contain">カート内容</div>
@@ -52,13 +52,14 @@
 										<td><s:property value="itemCount" /><a>個</a></td>
 									</tr>
 								</s:iterator>
-								<tr>
-									<td></td>
-									<td><a>合計:</a>
-									<s:property value="totalPrice" /><a>円</a></td>
-									<td></td>
-								</tr>
+
 							</tbody>
+						</table>
+						<table>
+							<tr>
+								<td>小計:<s:property value="subtotal" /></td>
+								<td>手数料:350円</td>
+							</tr>
 						</table>
 					</s:form>
 				</s:if>
@@ -68,7 +69,6 @@
 			</div>
 			<div id="containerRight">
 				<div class="contain">住所・支払い方法選択</div>
-				<s:form action="GoBuyItemConfirmNextAction">
 					<div id="CustomerInfo">
 						<table>
 							<thead>
@@ -77,50 +77,35 @@
 									<th></th>
 								</tr>
 							</thead>
+							<s:iterator value="getUserInfo">
 							<tr>
 								<td><a>郵便番号</a></td>
-								<td>(必須)<input type="text" name="postCodeA"
-									style="width: 23px;" placeholder="000" />-<input type="text"
-									name="PostCodeB" style="width: 32px;" placeholder="0000" /><a>例:113-0034</a></td>
+								<td><s:property value="postCodeA" />-<s:property value="postCodeB" /></td>
 							</tr>
 							<tr>
 								<td><a>住所</a></td>
-								<td>(必須)<input type="text" name="prefectures"
-									placeholder="都道府県" /><a>例:東京都</a></td>
+								<td><s:property value="prefectures" /></td>
 							</tr>
 							<tr>
 								<td></td>
-								<td>(必須)<input type="text" name="streetAddressA"
-									placeholder="市区町村" /><a>例:文京区</a></td>
+								<td><s:property value="streetAddressA" /></td>
 							</tr>
 							<tr>
 								<td></td>
-								<td>(必須)<input type="text" name="streetAddressB"
-									placeholder="住居番号" /><a>例:湯島３丁目２−１２</a></td>
+								<td><s:property value="streetAddressB" /></td>
 							</tr>
 							<tr>
 								<td></td>
-								<td>(任意)<input type="text" name="streetAddressC"
-									placeholder="マンション等名" /><a>例:御茶ノ水天神ビル2F</a></td>
+								<td><s:property value="streetAddressC" /></td>
 							</tr>
-							<tr>
-								<td>支払い方法</td>
-								<td><input type="radio" name="pay" value="1"
-									checked="checked">現金払い(手数料がかかります +350円)</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><input type="radio" name="pay" value="2">クレジットカード</td>
-							</tr>
+							</s:iterator>
 						</table>
-						<input type="hidden" name="totalPrice" value=<s:property value="totalPrice" /> />
-						<s:submit value="すすむ" />
 					</div>
-				</s:form>
 			</div>
 		</div>
-		<div>
-		<p>戻る</p>
+		<div style="clear:left;">
+			<a><font size="6">合計:<s:property value="totalPrice" />円</font></a>
+			<s:submit value="この内容で購入する" />
 		</div>
 	</div>
 

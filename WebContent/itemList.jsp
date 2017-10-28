@@ -28,10 +28,15 @@
 
 	<!--
 		購入画面(購入確認、必要事項入力、購入完了)	5
-		連続で送信できないように
+		購入完了でテーブルに格納するもの→購入日、値段、支払方法、ユーザーID、カートID
+		都道府県は選択式で ゆうびんばんごうは１つにまとめたい
+		sql上書き
+		テーブルに購入確定を追加
+		値段合計もDBに格納
+		連続で送信できないように→buyitemcomplate にヒントが
 		カートの同一商品がまとめられてない 1
 		値段の表示(カンマをつけたい
-													ログイン画面から商品詳細へ
+															ログイン画面から商品詳細へ(ifでできる？）
 	 	小計
 	 	多重ログイン禁止
 	 	アカウント作成アクションを確認
@@ -63,7 +68,7 @@
 		</s:iterator>
 	</div>
 
-		<p id="clearFloat" style="clear:left;"><a href='<s:url action="GoItemViewAction" />'>カテゴリ一覧に戻る</a></p>
+		<p id="clearFloat"><a href='<s:url action="GoItemViewAction" />'>カテゴリ一覧に戻る</a></p>
 	</div>
 
 	<s:include value="footer.jsp" />

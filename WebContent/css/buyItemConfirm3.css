@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+body {
+	margin:0;
+	padding:0;
+	line-height:1.6;
+	letter-spacing:1px;
+	font-family:Verdana, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333;
+	background:#fff;
+}
+#top {
+	font-weight:bold;
+	font-size:25px;
+	width:900px;
+	margin:10px auto;
+	border:1px solid #333;
+}
+#main {
+	height:500px;
+	padding-top:100px;
+	text-align: center;
+	background-image:url("../images/backgroundTexture.jpg");
+	background-size:cover;
+}
+#container{
+	margin:auto;
+	width:900px;
+}
+#containerLeft{
+ float:left;
+}
+#containerRight{
+	float:right;
+}
+.contain{
+	font-weight:bold;
+	font-size:15px;
+	width:445px;
+	margin:10px auto;
+	border:1px solid #333;
+}
+#CustomerInfo{
+	text-align:left;
+}

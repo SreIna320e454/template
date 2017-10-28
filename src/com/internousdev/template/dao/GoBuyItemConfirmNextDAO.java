@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import com.internousdev.template.dto.UserInfoDTO;
 import com.internousdev.template.util.DBConnector;
 
-public class GoBuyItemConfirm2DAO {
+public class GoBuyItemConfirmNextDAO {
 
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();
@@ -22,7 +22,7 @@ public class GoBuyItemConfirm2DAO {
 	 * @param streetAddressB
 	 * @param streetAddressC
 	 */
-	public int setUserInfo(int userId, int postCodeA, int postCodeB, String prefectures, String streetAddressA, String streetAddressB, String streetAddressC){
+	public int setUserInfo(int userId, int postCodeA, int postCodeB, String prefectures, String streetAddressA, String streetAddressB, String streetAddressC)throws SQLException{
 
 		int countTest = 0;
 
@@ -40,7 +40,9 @@ public class GoBuyItemConfirm2DAO {
 			countTest = ps.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();
-		}
+		}finally{
+			con.close();
+	}
 		return countTest;
 	}
 
@@ -49,7 +51,7 @@ public class GoBuyItemConfirm2DAO {
 	 * @param userId
 	 * @return
 	 */
-	public UserInfoDTO getUserInfo(int userId){
+	public UserInfoDTO getUserInfo(int userId)throws SQLException{
 
 		UserInfoDTO userInfoDTO = new UserInfoDTO();
 
@@ -69,7 +71,9 @@ public class GoBuyItemConfirm2DAO {
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
-		}
+		}finally{
+			con.close();
+	}
 		return userInfoDTO;
 	}
 }

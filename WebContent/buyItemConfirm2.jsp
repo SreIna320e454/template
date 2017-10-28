@@ -24,12 +24,12 @@
 	<s:include value="header.jsp" />
 
 	<div id="main">
-	<div id="container">
-		<div id="top">
-			<p>BuyItemConfirm2</p>
-		</div>
+		<div id="container">
+			<div id="top">
+				<p>BuyItemConfirm2</p>
+			</div>
 
-	</div>
+		</div>
 	</div>
 	<s:include value="footer.jsp" />
 </body>

@@ -108,9 +108,10 @@
 			<result name="login">login.jsp</result>
 		</action>
 
-		<!-- GoBuyItemConfLastAction -->
-		<action name="GoBuyItemConfirm2Action" class="com.internousdev.template.action.GoBuyItemConfirm2Action" method="execute">
-			<result>buyItemConfirm2.jsp</result>
+		<!-- GoBuyItemConfirmNextAction -->
+		<action name="GoBuyItemConfirmNextAction" class="com.internousdev.template.action.GoBuyItemConfirmNextAction" method="execute">
+			<result name="buyItemConfirm3">buyItemConfirm3.jsp</result>
+			<result name="buyItemConfirm2">buyItemConfirm2.jsp</result>
 			<result name="error">error.jsp</result>
 			<result name="login">login.jsp</result>
 		</action>

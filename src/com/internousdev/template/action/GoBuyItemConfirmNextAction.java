@@ -1,15 +1,18 @@
 package com.internousdev.template.action;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.template.dao.GoBuyItemConfirm2DAO;
+import com.internousdev.template.dao.AddToCartDAO;
+import com.internousdev.template.dao.GoBuyItemConfirmNextDAO;
+import com.internousdev.template.dto.CartDTO;
 import com.internousdev.template.dto.UserInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GoBuyItemConfirm2Action extends ActionSupport implements SessionAware{
+public class GoBuyItemConfirmNextAction extends ActionSupport implements SessionAware{
 
 	private int userId;
 
@@ -29,7 +32,11 @@ public class GoBuyItemConfirm2Action extends ActionSupport implements SessionAwa
 
 	private int totalPrice;
 
+	private int subtotal;
+
 	private UserInfoDTO getUserInfo = new UserInfoDTO();
+
+	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 
 	private Map<String, Object>session;
 
@@ -37,7 +44,7 @@ public class GoBuyItemConfirm2Action extends ActionSupport implements SessionAwa
 
 		String result = ERROR;
 
-		GoBuyItemConfirm2DAO goBuyItemConfLastDAO = new GoBuyItemConfirm2DAO();
+		GoBuyItemConfirmNextDAO goBuyItemConfLastDAO = new GoBuyItemConfirmNextDAO();
 
 		if(session.containsKey("login_user_id")==false){
 			result = LOGIN;
@@ -48,8 +55,14 @@ public class GoBuyItemConfirm2Action extends ActionSupport implements SessionAwa
 			if(countTest>0){
 				getUserInfo = goBuyItemConfLastDAO.getUserInfo(userId);
 					if(pay==1){
+						AddToCartDAO addToCartDAO = new AddToCartDAO();
+						getCartItemInfo = addToCartDAO.getCartItemInfo(userId);
+						subtotal = totalPrice;
 						totalPrice += 350;
-						result = SUCCESS;
+						result = "buyItemConfirm3";
+						return result;
+					}if(pay==2){
+						result = "buyItemConfirm2";
 						return result;
 					}
 			}
@@ -111,11 +124,23 @@ public class GoBuyItemConfirm2Action extends ActionSupport implements SessionAwa
 	public void setTotalPrice(int totalPrice){
 		this.totalPrice = totalPrice;
 	}
+	public int getSubtotal(){
+		return subtotal;
+	}
+	public void setSubtotal(int subtotal){
+		this.subtotal = subtotal;
+	}
 	public UserInfoDTO getGetUserInfo(){
 		return getUserInfo;
 	}
 	public void setGetUserInfo(UserInfoDTO getUserInfo){
 		this.getUserInfo = getUserInfo;
+	}
+	public ArrayList<CartDTO> getGetCartItemInfo(){
+		return getCartItemInfo;
+	}
+	public void setGetCartItemInfo(ArrayList<CartDTO> getCartItemInfo){
+		this.getCartItemInfo = getCartItemInfo;
 	}
 	public Map<String, Object> session(){
 		return session;
