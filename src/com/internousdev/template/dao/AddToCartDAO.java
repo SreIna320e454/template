@@ -20,7 +20,7 @@ public class AddToCartDAO {
 	 * @param itemId
 	 * @return
 	 */
-	public ArrayList<ItemDTO> getItemInfo(int itemId){
+	public ArrayList<ItemDTO> getItemInfo(int itemId)throws SQLException{
 
 		ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
 
@@ -49,7 +49,7 @@ public class AddToCartDAO {
 	 * @param userId
 	 * @param itemCount
 	 */
-	public void addToCart(int itemId, int userId, int itemCount){
+	public void addToCart(int itemId, int userId, int itemCount)throws SQLException{
 
 		String sql = "INSERT INTO cart_list_transaction(user_id, item_id, item_count) VALUES(?,?,?)";
 
@@ -70,7 +70,7 @@ public class AddToCartDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList<CartDTO> getCartItemInfo(int userId){
+	public ArrayList<CartDTO> getCartItemInfo(int userId)throws SQLException{
 
 		ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 
@@ -98,6 +98,8 @@ public class AddToCartDAO {
 			}
 		}catch(Exception e){
 			e.printStackTrace();
+		}finally{
+			con.close();
 		}
 		return getCartItemInfo;
 	}

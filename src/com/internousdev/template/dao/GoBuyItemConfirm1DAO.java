@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import com.internousdev.template.dto.CartDTO;
 import com.internousdev.template.util.DBConnector;
 
-public class GoBuyItemConfirmDAO {
+public class GoBuyItemConfirm1DAO {
 
 	DBConnector db = new DBConnector();
 	Connection con = db.getConnection();

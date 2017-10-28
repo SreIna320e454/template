@@ -15,10 +15,7 @@
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<title>BuyItemConfirm</title>
-	<style type="text/css">
-	/* ========TAG LAYOUT======== */
-	</style>
+	<title>BuyItemConfirm2</title>
 	<link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 	<link rel="stylesheet" type="text/css" href="./css/buyItemConfirm.css">
 </head>
@@ -29,7 +26,7 @@
 	<div id="main">
 	<div id="container">
 		<div id="top">
-			<p>BuyItemConfirm</p>
+			<p>BuyItemConfirm2</p>
 		</div>
 
 	</div>

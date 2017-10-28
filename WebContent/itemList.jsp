@@ -28,15 +28,13 @@
 
 	<!--
 		購入画面(購入確認、必要事項入力、購入完了)	5
-		連続で送信できないように○
+		連続で送信できないように
 		カートの同一商品がまとめられてない 1
-													画像の余白
 		値段の表示(カンマをつけたい
 													ログイン画面から商品詳細へ
 	 	小計
 	 	多重ログイン禁止
 	 	アカウント作成アクションを確認
-
 	-->
 
 	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>

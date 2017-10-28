@@ -6,11 +6,11 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.template.dao.GoBuyItemConfirmDAO;
+import com.internousdev.template.dao.AddToCartDAO;
 import com.internousdev.template.dto.CartDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GoBuyItemConfirmAction extends ActionSupport implements SessionAware{
+public class GoBuyItemConfirm1Action extends ActionSupport implements SessionAware{
 
 	private int userId;
 
@@ -33,7 +33,7 @@ public class GoBuyItemConfirmAction extends ActionSupport implements SessionAwar
 
 		String result = ERROR;
 
-		GoBuyItemConfirmDAO dao =new GoBuyItemConfirmDAO();
+		AddToCartDAO addToCartDAO =new AddToCartDAO();
 
 		/*
 		 * ログイン情報を確認
@@ -46,7 +46,7 @@ public class GoBuyItemConfirmAction extends ActionSupport implements SessionAwar
 			/*
 			 * カート情報を取得
 			 */
-			getCartItemInfo = dao.getCartItemInfo(userId);
+			getCartItemInfo = addToCartDAO.getCartItemInfo(userId);
 
 			if(getCartItemInfo.size()>0){
 				result = SUCCESS;

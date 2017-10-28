@@ -74,7 +74,7 @@
 			<input type="hidden" name="deleteAll" value="deleteAll" />
  			<s:submit value="全て削除" />
 		</s:form>
-		<s:form action="GoBuyItemConfirmAction">
+		<s:form action="GoBuyItemConfirm1Action">
 			<input type="hidden" name="totalPrice" value=${totalPrice} />
 			<s:submit value="購入画面へ進む" />
 		</s:form>
