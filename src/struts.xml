@@ -101,6 +101,13 @@
 			<result name="error">error.jsp</result>
 		</action>
 
+		<!-- CartItemUpdateAction -->
+		<action name="CartItemUpdateAction" class="com.internousdev.template.action.CartItemUpdateAction" method="execute">
+			<result name="login">login.jsp</result>
+			<result>cart.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+
 		<!-- GoBuyItemConfirmAction -->
 		<action name="GoBuyItemConfirm1Action" class="com.internousdev.template.action.GoBuyItemConfirm1Action" method="execute">
 			<result>buyItemConfirm1.jsp</result>

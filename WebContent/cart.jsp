@@ -27,7 +27,6 @@
 		</div>
 
 	<s:if test="%{getCartItemInfo.size() > 0 && #session.login_user_id != null}">
-		<s:form action="GoItemDetailAction">
 			<table>
 				<thead>
 					<tr>
@@ -36,7 +35,7 @@
 						<th width="100" height="30">値段</th>
 						<th width="100" height="30">個数</th>
 						<th width="100" height="30">小計</th>
-						<th width="70" height="30">変更</th>
+						<th width="70" height="30">数量変更</th>
 						<th width="70" height="30">削除</th>
 					</tr>
 				</thead>
@@ -62,7 +61,11 @@
 								<s:property value="subtotal" /><a>円</a>
 							</td>
 							<td>
-								<a>未実装</a>
+								<s:form action="CartItemUpdateAction">
+								<input type="text" name="itemCount" size="2" />
+								<input type="hidden" name="itemId" value=${itemId} />
+								<s:submit value="更新" />
+								</s:form>
 							</td>
 							<td><a href="<s:url action='CartItemDeleteAction'><s:param name="itemId" value="%{itemId}" /></s:url> ">削除</a>
 							</td>
@@ -70,14 +73,16 @@
 					</s:iterator>
 				</tbody>
 			</table>
+
 			<div class="messageInfo">
 				<a>合計:</a><s:property value="totalPrice" /><a>円</a>
 			</div>
-		</s:form>
+
 		<s:form action="CartItemDeleteAction">
 			<input type="hidden" name="deleteAll" value="deleteAll" />
  			<s:submit value="全て削除" />
 		</s:form>
+
 		<s:form action="GoBuyItemConfirm1Action">
 			<input type="hidden" name="totalPrice" value=${totalPrice} />
 			<s:submit value="購入画面へ進む" />

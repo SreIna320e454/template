@@ -51,12 +51,11 @@ public class AddToCartDAO {
 	 */
 	public void addToCart(int itemId, int userId, int itemCount)throws SQLException{
 
-		String sqlA = "INSERT INTO cart_list_transaction(user_id, item_id, item_count) VALUES(?,?,?)";
-		String sqlB = "UPDATE cart_list_transaction SET item_count=item_count + ? WHERE user_id=? and item_id=?";
+		String sql = "INSERT INTO cart_list_transaction(user_id, item_id, item_count) VALUES(?,?,?)";
 
 		try{
-			
-			PreparedStatement ps = con.prepareStatement(sqlA);
+
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, userId);
 			ps.setInt(2, itemId);
 			ps.setInt(3,itemCount);

@@ -14,10 +14,15 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CartItemDeleteAction extends ActionSupport implements SessionAware{
 
 	private int userId;
+
 	private int itemId;
+
 	private int totalPrice;
+
 	private String deleteAll;
+
 	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
+
 	private Map<String, Object> session;
 
 	/**
