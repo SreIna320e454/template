@@ -103,9 +103,6 @@
 				</s:iterator>
 
 			</s:if>
-
-				<s:property value="timeDifference" />
-
 			<s:else>
 				<p>まだレビューがありません。</p>
 			</s:else>

@@ -44,8 +44,6 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 
 	private ArrayList<CommentDTO> getComment = new ArrayList<CommentDTO>();
 
-	private CommentDTO getBeforeDate = new CommentDTO();
-
 	private Map<String, Object> session = new HashMap<>();
 
 	/**
@@ -59,6 +57,7 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 		GoItemDetailDAO goItemDetailDAO = new GoItemDetailDAO();
 		ItemCommentDAO addComment = new ItemCommentDAO();
 		ItemCommentDAO itemCommentDAO = new ItemCommentDAO();
+		CommentDTO getBeforeDate = new CommentDTO();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd HH:mm:ss");
 
 		/*
@@ -78,7 +77,7 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 			userName = (String)session.get("user_name");
 
 			/*
-			 * 何も入力されていない場合エラーメッセージを返す
+			 * レビューに何も入力されていない場合エラーメッセージを返す
 			 */
 			if(itemComment==null || itemComment.equals(" ")){
 				getComment = itemCommentDAO.getComment(itemId);
@@ -210,12 +209,6 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 	public void setGetComment(ArrayList<CommentDTO> getComment){
 		this.getComment = getComment;
 	}
-    public CommentDTO getGetBeforeDate(){
-    	return getBeforeDate;
-    }
-    public void setGetBeforeDate(CommentDTO getBeforeDate){
-    	this.getBeforeDate = getBeforeDate;
-    }
 	public Map<String, Object> getSession() {
 		return session;
 	}
