@@ -57,7 +57,7 @@
 						</table>
 						<table>
 							<tr>
-								<td>小計:<s:property value="subtotal" /></td>
+								<td>小計:<s:property value="totalPrice" /></td>
 								<td>手数料:350円</td>
 							</tr>
 						</table>
@@ -102,7 +102,7 @@
 			</div>
 		</div>
 		<div style="clear:left;">
-			<a><font size="6">合計:<s:property value="totalPrice" />円</font></a>
+			<a><font size="6">合計:<s:property value="totalPriceAddCommission" />円</font></a>
 				<input type="hidden" name="subtotal" value=<s:property value="subtotal" /> />
 				<input type="hidden" name="pay" value=<s:property value="pay" /> />
 			<s:submit value="この内容で購入する" />

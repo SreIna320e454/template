@@ -94,6 +94,7 @@ public class AddToCartDAO {
 					cartDTO.setItemPrice(rsB.getInt("item_price"));
 					cartDTO.setItemImage(rsB.getString("item_image"));
 					cartDTO.setItemCount(rsA.getInt("item_count"));
+					cartDTO.setSubtotal(cartDTO.getItemPrice() * cartDTO.getItemCount());
 				}
 			}
 		}catch(Exception e){
@@ -103,4 +104,6 @@ public class AddToCartDAO {
 		}
 		return getCartItemInfo;
 	}
+
+
 }

@@ -16,6 +16,10 @@ public class CartDTO {
 
 	private int itemStock;
 
+	private int subtotal;
+
+	private int totalPrice;
+
 	public String getUserId(){
 		return userId;
 	}
@@ -57,5 +61,17 @@ public class CartDTO {
 	}
 	public void setItemStock(int itemStock){
 		this.itemStock = itemStock;
+	}
+	public int getSubtotal() {
+		return subtotal;
+	}
+	public void setSubtotal(int subtotal) {
+		this.subtotal = subtotal;
+	}
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 }

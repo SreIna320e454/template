@@ -25,6 +25,8 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 
 	private int itemCount;
 
+	private int subtotal;
+
 	private int totalPrice;
 
 	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
@@ -54,15 +56,19 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 			getItemInfo = AddToCartDAO.getItemInfo(itemId);
 
 			if(getItemInfo.size()>0){
+
 				userId = (int)session.get("login_user_id");
+
 				/*
 				 * 商品情報をカートテーブルに格納
 				 */
 				AddToCartDAO.addToCart(itemId, userId, itemCount);
+
 				/*
 				 * カート情報を取得
 				 */
 				getCartItemInfo = AddToCartDAO.getCartItemInfo(userId);
+
 				/*
 				 * 商品の価格合計を計算
 				 */
@@ -113,6 +119,12 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	}
 	public void setItemCount(int itemCount){
 		this.itemCount = itemCount;
+	}
+	public int getSubtotal(){
+		return subtotal;
+	}
+	public void setSubtotal(int subtotal){
+		this.subtotal = subtotal;
 	}
 	public int getTotalPrice(){
 		return totalPrice;

@@ -32,7 +32,7 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 
 	private int totalPrice;
 
-	private int subtotal;
+	private int totalPriceAddCommission;
 
 	private UserInfoDTO getUserInfo = new UserInfoDTO();
 
@@ -66,8 +66,9 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 					if(pay==1){
 						AddToCartDAO addToCartDAO = new AddToCartDAO();
 						getCartItemInfo = addToCartDAO.getCartItemInfo(userId);
-						subtotal = totalPrice;
-						totalPrice += 350;
+
+						totalPriceAddCommission = totalPrice + 350;
+
 						result = "buyItemConfirm3";
 						return result;
 						/*
@@ -136,11 +137,11 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 	public void setTotalPrice(int totalPrice){
 		this.totalPrice = totalPrice;
 	}
-	public int getSubtotal(){
-		return subtotal;
+	public int getTotalPriceAddCommission(){
+		return totalPriceAddCommission;
 	}
-	public void setSubtotal(int subtotal){
-		this.subtotal = subtotal;
+	public void setTotalPriceAddCommission(int totalPriceAddCommission){
+		this.totalPriceAddCommission = totalPriceAddCommission;
 	}
 	public UserInfoDTO getGetUserInfo(){
 		return getUserInfo;

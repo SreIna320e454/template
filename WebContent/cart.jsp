@@ -35,6 +35,7 @@
 						<th width="250" height="30">商品</th>
 						<th width="100" height="30">値段</th>
 						<th width="100" height="30">個数</th>
+						<th width="100" height="30">小計</th>
 						<th width="70" height="30">変更</th>
 						<th width="70" height="30">削除</th>
 					</tr>
@@ -58,7 +59,10 @@
 								<s:property value="itemCount" /><a>個</a>
 							</td>
 							<td>
-								<a>更新(未実装)</a>
+								<s:property value="subtotal" /><a>円</a>
+							</td>
+							<td>
+								<a>未実装</a>
 							</td>
 							<td><a href="<s:url action='CartItemDeleteAction'><s:param name="itemId" value="%{itemId}" /></s:url> ">削除</a>
 							</td>
