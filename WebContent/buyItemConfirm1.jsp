@@ -15,10 +15,7 @@
 <meta charset="utf-8">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<title>BuyItemConfirm</title>
-<style type="text/css">
-/* ========TAG LAYOUT======== */
-</style>
+<title>BuyItemConfirm1</title>
 <link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 <link rel="stylesheet" type="text/css" href="./css/buyItemConfirm1.css">
 </head>

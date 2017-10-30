@@ -78,14 +78,20 @@ foreign key(user_id)references login_user_transaction(user_id)
 );
 
 create table user_buy_item_transaction(
-id int not null primary key auto_increment,
+user_buy_item_id int not null primary key auto_increment,
 user_id int,
-subtotal int,
-item_count int,
+total_price int,
 pay varchar(30),
+item_id int,
+item_count int,
+item_price int,
 insert_date datetime,
-delete_date datetime
+delete_date datetime,
+
+foreign key(user_id)references login_user_transaction(user_id),
+foreign key(item_id)references item_info_transaction(item_id)
 );
+
 
 /*商品分類*/
 INSERT INTO item_categories_transaction(category_name, category_image) values

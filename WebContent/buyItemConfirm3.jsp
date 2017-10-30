@@ -45,6 +45,7 @@
 								<s:iterator value="getCartItemInfo">
 									<tr>
 										<td align="left"><a><s:property value="itemName" /></a></td>
+
 										<td><s:property value="itemPrice" /><a>円</a></td>
 										<td><s:property value="itemCount" /><a>個</a></td>
 									</tr>
@@ -100,7 +101,7 @@
 		</div>
 		<div style="clear:left;">
 			<a><font size="6">合計:<s:property value="totalPriceAddCommission" />円</font></a>
-				<input type="hidden" name="subtotal" value=<s:property value="subtotal" /> />
+				<input type="hidden" name="totalPrice" value=<s:property value="totalPrice" /> />
 				<input type="hidden" name="pay" value=<s:property value="pay" /> />
 			<s:submit value="この内容で購入を確定する" />
 		</div>
