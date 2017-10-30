@@ -12,6 +12,8 @@ public class CommentDTO {
 
 	private String commentDate;
 
+	private String getBeforeDate;
+
 	public int getUserId(){
 		return userId;
 	}
@@ -29,6 +31,12 @@ public class CommentDTO {
 	}
 	public void setItemId(int itemId){
 		this.itemId = itemId;
+	}
+	public String getGetBeforeDate(){
+		return getBeforeDate;
+	}
+	public void setGetBeforeDate(String getBeforeDate){
+		this.getBeforeDate = getBeforeDate;
 	}
 	public String getItemComment(){
 		return itemComment;

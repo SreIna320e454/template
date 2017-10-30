@@ -39,8 +39,6 @@ public class ItemCommentDAO {
 			ps.execute();
 		}catch(Exception e){
 			e.printStackTrace();
-		}finally{
-			con.close();
 		}
 	}
 
@@ -73,5 +71,30 @@ public class ItemCommentDAO {
 			con.close();
 	}
 		return getComment;
+	}
+
+	/**
+	 * 前回投稿されたレビューの時間を取得する
+	 * @param userName
+	 * @return
+	 * @throws SQLException
+	 */
+	public CommentDTO getBeforeDate(String userName)throws SQLException{
+
+		CommentDTO getBeforeDate = new CommentDTO();
+
+		String sql = "SELECT * FROM item_comment_transaction WHERE user_name=?";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userName);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+				getBeforeDate.setGetBeforeDate(rs.getString("insert_date"));
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+	}
+		return getBeforeDate;
 	}
 }

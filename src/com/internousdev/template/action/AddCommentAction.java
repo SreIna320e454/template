@@ -1,7 +1,10 @@
 package com.internousdev.template.action;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,23 +44,30 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 
 	private ArrayList<CommentDTO> getComment = new ArrayList<CommentDTO>();
 
+	private CommentDTO getBeforeDate = new CommentDTO();
+
 	private Map<String, Object> session = new HashMap<>();
 
 	/**
 	 * レビューを登録するアクション
+	 * @throws ParseException
 	 */
-	public String execute()throws SQLException{
+	public String execute()throws SQLException, ParseException{
 
 		String result = ERROR;
 
-		ItemCommentDAO addComment = new ItemCommentDAO();
 		GoItemDetailDAO goItemDetailDAO = new GoItemDetailDAO();
+		ItemCommentDAO addComment = new ItemCommentDAO();
 		ItemCommentDAO itemCommentDAO = new ItemCommentDAO();
-		ItemCommentDAO getCommentDate = new ItemCommentDAO();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd HH:mm:ss");
 
+		/*
+		 * ログイン情報を確認する
+		 */
 		if(session.containsKey("login_user_id")==false){
 			result = LOGIN;
 			return result;
+
 		}else{
 
 			/*
@@ -65,33 +75,59 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 			 */
 			getItemInfo = goItemDetailDAO.getItemInfo(itemId);
 
-
 			userName = (String)session.get("user_name");
 
 			/*
 			 * 何も入力されていない場合エラーメッセージを返す
 			 */
-			if(itemComment==null || itemComment.equals("")){
-
+			if(itemComment==null || itemComment.equals(" ")){
 				getComment = itemCommentDAO.getComment(itemId);
-
-				errorMessage = "追加に失敗しました。レビューを入力してください";
+				errorMessage = "レビュー失敗 レビューを入力してください";
 				result = SUCCESS;
 				return result;
 
 			}else{
-				/*
-				 * レビューをDBに格納
-				 */
-				addComment.addComment(itemId, userName, itemComment);
 
-				/*
-				 * レビュー情報を取得
-				 */
+					/*
+					 * 前回のレビュー投稿時間を取得
+					 * String型 → Date型 → long型に変換
+					 */
+					getBeforeDate = itemCommentDAO.getBeforeDate(userName);
+					Date beforeDate = sdf.parse(getBeforeDate.getGetBeforeDate());
+					long beforeDate2 = beforeDate.getTime();
 
-				getComment = itemCommentDAO.getComment(itemId);
-				result = SUCCESS;
-				return result;
+					/*
+					 * 現在の時間を取得
+					 * Date型 → long型に変換
+					 */
+					Date nowDate = new Date();
+					long nowDate2 = nowDate.getTime();
+
+					/*
+					 * 前回の投稿時間と今回の投稿時間を比較し、３０秒未満であればエラーを返す
+					 */
+					long timeDifference = (nowDate2 - beforeDate2) / (1000);
+
+					if(timeDifference < 30){
+						getComment = itemCommentDAO.getComment(itemId);
+						errorMessage = "レビュー失敗 30秒未満の連続投稿はできません";
+						result = SUCCESS;
+						return result;
+
+					}else{
+
+						/*
+						 * レビューをDBに格納
+						 */
+						addComment.addComment(itemId, userName, itemComment);
+
+						/*
+						 * レビュー情報を取得
+						 */
+						getComment = itemCommentDAO.getComment(itemId);
+						result = SUCCESS;
+						return result;
+					}
 			}
 		}
 	}
@@ -174,7 +210,12 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 	public void setGetComment(ArrayList<CommentDTO> getComment){
 		this.getComment = getComment;
 	}
-
+    public CommentDTO getGetBeforeDate(){
+    	return getBeforeDate;
+    }
+    public void setGetBeforeDate(CommentDTO getBeforeDate){
+    	this.getBeforeDate = getBeforeDate;
+    }
 	public Map<String, Object> getSession() {
 		return session;
 	}
