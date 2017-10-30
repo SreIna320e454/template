@@ -17,9 +17,6 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <title>BuyItemConfirm3</title>
-<style type="text/css">
-/* ========TAG LAYOUT======== */
-</style>
 <link rel="stylesheet" type="text/css" href="./css/headerFooter.css">
 <link rel="stylesheet" type="text/css" href="./css/buyItemConfirm3.css">
 </head>
@@ -76,26 +73,26 @@
 								</tr>
 							</thead>
 							<s:iterator value="getUserInfo">
-							<tr>
-								<td><a>郵便番号</a></td>
-								<td><s:property value="postCodeA" />-<s:property value="postCodeB" /></td>
-							</tr>
-							<tr>
-								<td><a>住所</a></td>
-								<td><s:property value="prefectures" /></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><s:property value="streetAddressA" /></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><s:property value="streetAddressB" /></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><s:property value="streetAddressC" /></td>
-							</tr>
+								<tr>
+									<td><a>郵便番号</a></td>
+									<td><s:property value="postCodeA" />-<s:property value="postCodeB" /></td>
+								</tr>
+								<tr>
+									<td><a>住所</a></td>
+									<td><s:property value="prefectures" /></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><s:property value="streetAddressA" /></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><s:property value="streetAddressB" /></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><s:property value="streetAddressC" /></td>
+								</tr>
 							</s:iterator>
 						</table>
 					</div>
@@ -105,7 +102,7 @@
 			<a><font size="6">合計:<s:property value="totalPriceAddCommission" />円</font></a>
 				<input type="hidden" name="subtotal" value=<s:property value="subtotal" /> />
 				<input type="hidden" name="pay" value=<s:property value="pay" /> />
-			<s:submit value="この内容で購入する" />
+			<s:submit value="この内容で購入を確定する" />
 		</div>
 	</div>
 

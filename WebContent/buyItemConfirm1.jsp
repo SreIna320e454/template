@@ -77,9 +77,9 @@
 							</thead>
 							<tr>
 								<td><a>郵便番号</a></td>
-								<td>(必須)<input type="text" name="postcodeA"
-									style="width: 23px;" placeholder="000" />-<input type="text"
-									name="PostcodeB" style="width: 32px;" placeholder="0000" /><a>例:113-0034</a></td>
+								<td>(必須)<input type="text" name="postcodeA" style="width: 23px;" placeholder="000" />-
+										  <input type="text" name="PostcodeB" style="width: 32px;" placeholder="0000" />
+								<a>例:113-0034</a></td>
 							</tr>
 							<tr>
 								<td><a>住所</a></td>

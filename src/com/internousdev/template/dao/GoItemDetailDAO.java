@@ -9,9 +9,6 @@ import com.internousdev.template.dto.ItemDTO;
 import com.internousdev.template.util.DBConnector;
 public class GoItemDetailDAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = db.getConnection();
-
 	/**
 	 * 商品情報を取得する
 	 * @param itemId
@@ -19,6 +16,9 @@ public class GoItemDetailDAO {
 	 * @return
 	 */
 	public ItemDTO getItemInfo(int itemId)throws SQLException{
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		ItemDTO itemDTO = new ItemDTO();
 

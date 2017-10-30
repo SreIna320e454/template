@@ -7,9 +7,6 @@ import java.sql.SQLException;
 import com.internousdev.template.util.DBConnector;
 public class CartItemDeleteDAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = db.getConnection();
-
 	/**
 	 * 選択された商品を削除する
 	 * @param userId
@@ -17,6 +14,9 @@ public class CartItemDeleteDAO {
 	 * @throws SQLException
 	 */
 	public void delete(int userId, int itemId)throws SQLException{
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		String sql = "DELETE FROM cart_list_transaction WHERE user_id=? AND item_id=?";
 
@@ -37,6 +37,9 @@ public class CartItemDeleteDAO {
 	 * @throws SQLException
 	 */
 	public void deleteAll(int userId)throws SQLException{
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		String sql = "DELETE FROM cart_list_transaction WHERE user_id=?";
 

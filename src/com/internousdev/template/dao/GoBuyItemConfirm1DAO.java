@@ -11,9 +11,6 @@ import com.internousdev.template.util.DBConnector;
 
 public class GoBuyItemConfirm1DAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = db.getConnection();
-
 	/**
 	 * カート情報を取得する
 	 * @param userId
@@ -21,6 +18,9 @@ public class GoBuyItemConfirm1DAO {
 	 * @throws SQLException
 	 */
 	public ArrayList<CartDTO> getCartItemInfo(int userId)throws SQLException{
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 

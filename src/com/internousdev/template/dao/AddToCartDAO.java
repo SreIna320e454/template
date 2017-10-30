@@ -12,15 +12,15 @@ import com.internousdev.template.util.DBConnector;
 
 public class AddToCartDAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = db.getConnection();
-
 	/**
 	 * 商品情報を取得する
 	 * @param itemId
 	 * @return
 	 */
 	public ArrayList<ItemDTO> getItemInfo(int itemId)throws SQLException{
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
 
@@ -39,6 +39,8 @@ public class AddToCartDAO {
 			}
 		}catch(Exception e){
 			e.printStackTrace();
+		}finally{
+			con.close();
 		}
 		return getItemInfo;
 	}
@@ -51,6 +53,9 @@ public class AddToCartDAO {
 	 */
 	public void addToCart(int itemId, int userId, int itemCount)throws SQLException{
 
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
 		String sql = "INSERT INTO cart_list_transaction(user_id, item_id, item_count) VALUES(?,?,?)";
 
 		try{
@@ -60,8 +65,10 @@ public class AddToCartDAO {
 			ps.setInt(2, itemId);
 			ps.setInt(3,itemCount);
 			ps.executeUpdate();
-		}catch(SQLException e){
+		}catch(Exception e){
 			e.printStackTrace();
+		}finally{
+			con.close();
 		}
 	}
 
@@ -72,6 +79,9 @@ public class AddToCartDAO {
 	 * @throws SQLException
 	 */
 	public ArrayList<CartDTO> getCartItemInfo(int userId)throws SQLException{
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
 

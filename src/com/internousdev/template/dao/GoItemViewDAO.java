@@ -11,15 +11,15 @@ import com.internousdev.template.util.DBConnector;
 
 public class GoItemViewDAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = db.getConnection();
-
 	/**
 	 * カテゴリ情報を取得する
 	 * @return
 	 * @throws SQLException
 	 */
 	public ArrayList<ItemDTO> getCategoryInfo()throws SQLException{
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		ArrayList<ItemDTO> getCategoryInfo = new ArrayList<ItemDTO>();
 

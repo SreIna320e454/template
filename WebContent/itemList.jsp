@@ -31,7 +31,8 @@
 		カートの同一商品がまとめられてない2
 		値段の表示(カンマをつけたい1
 	 	多重ログイン禁止2
-	 	アカウント作成アクションを確認1
+	 				アカウント作成アクションを確認1
+	 	不要なクラスを削除
 	-->
 
 	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>

@@ -10,9 +10,6 @@ import com.internousdev.template.util.DBConnector;
 
 public class GoItemListDAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = db.getConnection();
-
 	/**
 	 * 商品情報を取得する
 	 * @param categoryName
@@ -21,29 +18,32 @@ public class GoItemListDAO {
 	 */
 	public ArrayList<ItemDTO> getItemInfo(String categoryName)throws SQLException{
 
-	ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
-	String sql = "SELECT * FROM item_info_transaction WHERE category_name=?";
+		ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
 
-	try{
-		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, categoryName);
-		ResultSet rs = ps.executeQuery();
+		String sql = "SELECT * FROM item_info_transaction WHERE category_name=?";
 
-		while(rs.next()){
-			ItemDTO itemDTO = new ItemDTO();
-			itemDTO.setItemId(rs.getInt("item_id"));
-			itemDTO.setItemName(rs.getString("item_name"));
-			itemDTO.setItemPrice(rs.getInt("item_price"));
-			itemDTO.setCategoryName(rs.getString("category_name"));
-			itemDTO.setItemImage(rs.getString("item_image"));
-			getItemInfo.add(itemDTO);
-		}
-	}catch(Exception e){
-		e.printStackTrace();
-	}finally{
-		con.close();
-}
-	return getItemInfo;
-}
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, categoryName);
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()){
+				ItemDTO itemDTO = new ItemDTO();
+				itemDTO.setItemId(rs.getInt("item_id"));
+				itemDTO.setItemName(rs.getString("item_name"));
+				itemDTO.setItemPrice(rs.getInt("item_price"));
+				itemDTO.setCategoryName(rs.getString("category_name"));
+				itemDTO.setItemImage(rs.getString("item_image"));
+				getItemInfo.add(itemDTO);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+	}
+		return getItemInfo;
+	}
 }

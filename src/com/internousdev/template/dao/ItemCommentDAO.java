@@ -12,11 +12,6 @@ import com.internousdev.template.util.DateUtil;
 
 public class ItemCommentDAO {
 
-	private DBConnector db = new DBConnector();
-
-	private Connection con = db.getConnection();
-
-	private DateUtil dateUtil = new DateUtil();
 	/**
 	 * レビューをDBに格納する
 	 * @param itemId
@@ -27,6 +22,10 @@ public class ItemCommentDAO {
 	 * @throws SQLException
 	 */
 	public void addComment(int itemId, String userName, String itemComment)throws SQLException{
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		DateUtil dateUtil = new DateUtil();
 
 		String sql = "INSERT INTO item_comment_transaction(item_id, user_name, item_comment, insert_date) VALUES(?,?,?,?)";
 
@@ -39,7 +38,9 @@ public class ItemCommentDAO {
 			ps.execute();
 		}catch(Exception e){
 			e.printStackTrace();
-		}
+		}finally{
+			con.close();
+	}
 	}
 
 	/**
@@ -49,6 +50,9 @@ public class ItemCommentDAO {
 	 * @throws SQLException
 	 */
 	public ArrayList<CommentDTO>getComment(int itemId)throws SQLException{
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		ArrayList<CommentDTO> getComment = new ArrayList<CommentDTO>();
 
@@ -81,6 +85,9 @@ public class ItemCommentDAO {
 	 */
 	public CommentDTO getBeforeDate(String userName)throws SQLException{
 
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
 		CommentDTO getBeforeDate = new CommentDTO();
 
 		String sql = "SELECT * FROM item_comment_transaction WHERE user_name=?";
@@ -94,7 +101,9 @@ public class ItemCommentDAO {
 			}
 		}catch(Exception e){
 			e.printStackTrace();
-	}
+	}finally{
+		con.close();
+}
 		return getBeforeDate;
 	}
 }

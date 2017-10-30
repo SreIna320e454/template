@@ -16,9 +16,9 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 
 	private int userId;
 
-	private int postCodeA;
+	private int postcodeA;
 
-	private int postCodeB;
+	private int postcodeB;
 
 	private String prefectures;
 
@@ -44,8 +44,6 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 
 		String result = ERROR;
 
-		GoBuyItemConfirmNextDAO goBuyItemConfLastDAO = new GoBuyItemConfirmNextDAO();
-
 		/*
 		 * ログイン情報を確認
 		 */
@@ -57,13 +55,16 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 			 * ユーザー情報をDBに格納、取得する
 			 */
 			userId = (int)session.get("login_user_id");
-			int countTest =goBuyItemConfLastDAO.setUserInfo(userId, postCodeA, postCodeB, prefectures, streetAddressA, streetAddressB, streetAddressC);
+
+			GoBuyItemConfirmNextDAO goBuyItemConfirmNextDAO = new GoBuyItemConfirmNextDAO();
+			int countTest =goBuyItemConfirmNextDAO.setUserInfo(userId, postcodeA, postcodeB, prefectures, streetAddressA, streetAddressB, streetAddressC);
 			if(countTest>0){
-				getUserInfo = goBuyItemConfLastDAO.getUserInfo(userId);
 					/*
 					 * 現金払いの場合
 					 */
 					if(pay==1){
+						getUserInfo = goBuyItemConfirmNextDAO.getUserInfo(userId);
+
 						AddToCartDAO addToCartDAO = new AddToCartDAO();
 						getCartItemInfo = addToCartDAO.getCartItemInfo(userId);
 
@@ -89,17 +90,17 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 	public void setUserId(int userId){
 		this.userId = userId;
 	}
-	public int getPostCodeA(){
-		return postCodeA;
+	public int getPostcodeA(){
+		return postcodeA;
 	}
-	public void setPostCodeA(int postCodeA){
-		this.postCodeA = postCodeA;
+	public void setPostcodeA(int postcodeA){
+		this.postcodeA = postcodeA;
 	}
-	public int getPostCodeB(){
-		return postCodeB;
+	public int getPostcodeB(){
+		return postcodeB;
 	}
-	public void setPostCodeB(int postCodeB){
-		this.postCodeB = postCodeB;
+	public void setPostcodeB(int postcodeB){
+		this.postcodeB = postcodeB;
 	}
 	public String getPrefectures(){
 		return prefectures;

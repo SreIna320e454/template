@@ -62,7 +62,7 @@
 							</td>
 							<td>
 								<s:form action="CartItemUpdateAction">
-								<input type="text" name="itemCount" size="2" />
+								<input type="text" name="itemCount" size="1" />
 								<input type="hidden" name="itemId" value=${itemId} />
 								<s:submit value="更新" />
 								</s:form>
