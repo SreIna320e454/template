@@ -11,10 +11,6 @@ import com.internousdev.template.util.DBConnector;
 
 public class MyPageDAO {
 
-	private DBConnector db = new DBConnector();
-
-	private Connection con = db.getConnection();
-
 	/**
 	 * 商品履歴取得
 	 *
@@ -23,36 +19,50 @@ public class MyPageDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList<MyPageDTO> getMyPageUserInfo(String item_transaction_id, String user_master_id) throws SQLException {
-		ArrayList<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
+	public ArrayList<MyPageDTO> getMyPageInfo(int userId)throws SQLException{
 
-		String sql = "SELECT ubit.user_id, iit.item_name, ubit.total_price, ubit.total_count, ubit.pay, ubit.insert_date FROM user_buy_item_transaction ubit LEFT JOIN item_info_transaction iit ON ubit.item_transaction_id = iit.id where ubit.item_transaction_id  = ? AND ubit.user_master_id  = ? ORDER BY insert_date DESC";
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
-		try {
-			PreparedStatement preparedStatement = con.prepareStatement(sql);
-			preparedStatement.setString(1, item_transaction_id);
-			preparedStatement.setString(2, user_master_id);
+		ArrayList<MyPageDTO> getMyPageInfo = new ArrayList<MyPageDTO>();
 
-			ResultSet resultSet = preparedStatement.executeQuery();
+		String sqlA = "SELECT * FROM user_buy_item_transaction WHERE user_id=?";
+		String sqlB = "SELECT * FROM user_buy_item_transaction2 WHERE user_buy_item_id=?";
+		String sqlC = "SELECT * FROM item_info_transaction WHERE item_id=?";
 
-			while(resultSet.next()) {
-				MyPageDTO dto = new MyPageDTO();
-				dto.setId(resultSet.getString("user_id"));
-				dto.setItemName(resultSet.getString("item_name"));
-				dto.setTotalPrice(resultSet.getString("total_price"));
-				dto.setTotalCount(resultSet.getString("total_count"));
-				dto.setPayment(resultSet.getString("pay"));
-				dto.setInsert_date(resultSet.getString("insert_date"));
-				myPageDTO.add(dto);
+		try{
+			PreparedStatement psA = con.prepareStatement(sqlA);
+			psA.setInt(1,userId);
+			ResultSet rsA = psA.executeQuery();
+			while(rsA.next()){
+				MyPageDTO myPageDTO = new MyPageDTO();
+				myPageDTO.setUserBuyItemId(rsA.getInt("user_buy_item_id"));
+				myPageDTO.setTotalPrice(rsA.getInt("total_price"));
+				myPageDTO.setPay(rsA.getInt("pay"));
+				myPageDTO.setInsertDate(rsA.getString("insert_date"));
+
+				PreparedStatement psB = con.prepareStatement(sqlB);
+				psB.setInt(1, myPageDTO.getUserBuyItemId());
+				ResultSet rsB = psB.executeQuery();
+				while(rsB.next()){
+					myPageDTO.setItemId(rsB.getInt("item_id"));
+					myPageDTO.setItemCount(rsB.getInt("item_count"));
+					myPageDTO.setItemPrice(rsB.getInt("item_price"));
+
+					PreparedStatement psC = con.prepareStatement(sqlC);
+					psC.setInt(1, myPageDTO.getItemId());
+					ResultSet rsC = psC.executeQuery();
+					while(rsC.next()){
+						myPageDTO.setItemName(rsC.getString("item_name"));
+					}
+				}
 			}
-
-		} catch(Exception e) {
+		}catch(Exception e){
 			e.printStackTrace();
-		} finally {
+		}finally{
 			con.close();
 		}
-
-		return myPageDTO;
+		return getMyPageInfo;
 	}
 
 	/**
@@ -63,25 +73,5 @@ public class MyPageDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public int buyItemHistoryDelete(String item_transaction_id, String user_master_id) throws SQLException {
 
-		String sql = "DELETE FROM user_buy_item_transaction where item_transaction_id  = ? AND user_master_id  = ?";
-
-		PreparedStatement preparedStatement;
-		int result =0;
-		try {
-			preparedStatement = con.prepareStatement(sql);
-			preparedStatement.setString(1, item_transaction_id);
-			preparedStatement.setString(2, user_master_id);
-
-			result = preparedStatement.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			con.close();
-		}
-
-		return result;
-	}
 }

@@ -27,12 +27,12 @@
 		</div>
 
 	<!--
-		購入履歴画面
-		カートの同一商品がまとめられてない2
-	 	多重ログイン禁止2
-	 	sorthighとlowを１つのクラスにまとめる
-	 	購入完了DAOをもう一度確認
-	 	ログインに失敗しました
+		カートの同一商品がまとめられてない 1
+	 	多重ログイン禁止3
+	 	購入完了DAOをもう一度確認 daoクラスも長いやつにはわかりやすい説明を
+	 	いらないprivateもう一度確認
+	 	購入履歴から詳細へ飛べる？ 2
+	 	ｺﾒﾝﾄｱｸｼｮﾝを確認
 	-->
 
 	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceAction"><s:param name="categoryName" value="%{categoryName}" /><s:param name="sort" value="%{'low'}" /></s:url>">価格の安い順/</a>

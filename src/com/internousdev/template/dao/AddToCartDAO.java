@@ -95,6 +95,7 @@ public class AddToCartDAO {
 			while(rsA.next()){
 				CartDTO cartDTO = new CartDTO();
 				cartDTO.setItemId(rsA.getInt("item_id"));
+				cartDTO.setItemCount(rsA.getInt("item_count"));
 				getCartItemInfo.add(cartDTO);
 
 				PreparedStatement psB = con.prepareStatement(sqlB);
@@ -104,7 +105,6 @@ public class AddToCartDAO {
 					cartDTO.setItemName(rsB.getString("item_name"));
 					cartDTO.setItemPrice(rsB.getInt("item_price"));
 					cartDTO.setItemImage(rsB.getString("item_image"));
-					cartDTO.setItemCount(rsA.getInt("item_count"));
 					cartDTO.setSubtotal(cartDTO.getItemPrice() * cartDTO.getItemCount());
 				}
 			}

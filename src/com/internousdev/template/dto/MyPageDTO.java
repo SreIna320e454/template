@@ -2,19 +2,61 @@ package com.internousdev.template.dto;
 
 public class MyPageDTO {
 
-	public String itemName;
+	private int userBuyItemId;
 
-	public String totalPrice;
+	private int itemId;
 
-	public String totalCount;
+	private int totalPrice;
 
-	public String payment;
+	private int pay;
 
-	public String userName;
-	
-	public String id;
-	
-	public String insert_date;
+	private String insertDate;
+
+	private String itemName;
+
+	private int itemCount;
+
+	private int itemPrice;
+
+	public int getUserBuyItemId() {
+		return userBuyItemId;
+	}
+
+	public void setUserBuyItemId(int userBuyItemId) {
+		this.userBuyItemId = userBuyItemId;
+	}
+
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public int getPay() {
+		return pay;
+	}
+
+	public void setPay(int pay) {
+		this.pay = pay;
+	}
+
+	public String getInsertDate() {
+		return insertDate;
+	}
+
+	public void setInsertDate(String insertDate) {
+		this.insertDate = insertDate;
+	}
 
 	public String getItemName() {
 		return itemName;
@@ -24,52 +66,21 @@ public class MyPageDTO {
 		this.itemName = itemName;
 	}
 
-	public String getTotalPrice() {
-		return totalPrice;
+	public int getItemCount() {
+		return itemCount;
 	}
 
-	public void setTotalPrice(String totalPrice) {
-		this.totalPrice = totalPrice;
+	public void setItemCount(int itemCount) {
+		this.itemCount = itemCount;
 	}
 
-	public String getTotalCount() {
-		return totalCount;
+	public int getItemPrice() {
+		return itemPrice;
 	}
 
-	public void setTotalCount(String totalCount) {
-		this.totalCount = totalCount;
+	public void setItemPrice(int itemPrice) {
+		this.itemPrice = itemPrice;
 	}
 
-	public String getPayment() {
-		return payment;
-	}
-
-	public void setPayment(String payment) {
-		this.payment = payment;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	public String getInsert_date() {
-		return insert_date;
-	}
-	
-	public void setInsert_date(String insert_date) {
-		this.insert_date = insert_date;
-	}
 
 }
