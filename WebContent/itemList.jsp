@@ -26,13 +26,6 @@
 			<p>Category：<s:property value="categoryName" /></p>
 		</div>
 
-	<!--
-		カートの同一商品がまとめられてない 1
-	 	購入完了DAOをもう一度確認 daoクラスも長いやつにはわかりやすい説明を
-	 	いらないprivateもう一度確認
-	 	購入履歴から詳細へ飛べる？ 2
-	-->
-
 	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceAction"><s:param name="categoryName" value="%{categoryName}" /><s:param name="sort" value="%{'low'}" /></s:url>">価格の安い順/</a>
 	<a class="btnClick" href='<s:url action="SortPriceAction"><s:param name="categoryName" value="%{categoryName}" /><s:param name="sort" value="%{'high'}" /></s:url>'>価格の高い順</a>
 

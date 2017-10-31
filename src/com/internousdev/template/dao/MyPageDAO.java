@@ -12,7 +12,7 @@ import com.internousdev.template.util.DBConnector;
 public class MyPageDAO {
 
 	/**
-	 * 商品履歴取得
+	 * 商品購入履歴取得
 	 *
 	 * @param item_transaction_id
 	 * @param user_master_id
@@ -27,7 +27,7 @@ public class MyPageDAO {
 		ArrayList<MyPageDTO> getMyPageInfo = new ArrayList<MyPageDTO>();
 
 		String sqlA = "SELECT * FROM user_buy_item_transaction2 WHERE user_id=?";
-		String sqlB = "SELECT * FROM user_buy_item_transaction WHERE user_id=?";
+		String sqlB = "SELECT * FROM user_buy_item_transaction WHERE user_buy_item_id=?";
 
 		try{
 			PreparedStatement psA = con.prepareStatement(sqlA);
@@ -36,10 +36,10 @@ public class MyPageDAO {
 			while(rsA.next()){
 				MyPageDTO myPageDTO = new MyPageDTO();
 				myPageDTO.setUserBuyItemId(rsA.getInt("user_buy_item_id"));
-				myPageDTO.setItemId(rsA.getInt("item_id"));
 				myPageDTO.setItemName(rsA.getString("item_name"));
 				myPageDTO.setItemCount(rsA.getInt("item_count"));
 				myPageDTO.setItemPrice(rsA.getInt("item_price"));
+				getMyPageInfo.add(myPageDTO);
 
 				PreparedStatement psB = con.prepareStatement(sqlB);
 				psB.setInt(1, myPageDTO.getUserBuyItemId());
@@ -49,7 +49,6 @@ public class MyPageDAO {
 					myPageDTO.setPay(rsB.getInt("pay"));
 					myPageDTO.setInsertDate(rsB.getString("insert_date"));
 				}
-				getMyPageInfo.add(myPageDTO);
 			}
 		}catch(Exception e){
 			e.printStackTrace();

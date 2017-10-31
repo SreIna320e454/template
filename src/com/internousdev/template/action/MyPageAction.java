@@ -36,16 +36,14 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		}else{
 
 			/*
-			 * ユーザーIDから商品購入情報を取得
+			 * ユーザーIDで商品購入情報を取得
 			 */
 			userId = (int)session.get("login_user_id");
 			getMyPageInfo = myPageDAO.getMyPageInfo(userId);
-			if(getMyPageInfo.size() > 0){
-				result = SUCCESS;
-				return result;
-			}
+
+			result = SUCCESS;
+			return result;
 		}
-		return result;
 	}
 
 	public int getUserId() {

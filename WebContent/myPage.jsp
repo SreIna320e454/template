@@ -26,7 +26,7 @@
 			<p>MyPage</p>
 		</div>
 
-		<s:if test="getMyPageInfo == null">
+		<s:if test="getMyPageInfo.size==0">
 			<h3>ご購入情報はありません。</h3>
 		</s:if>
 
