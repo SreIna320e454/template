@@ -116,7 +116,6 @@
 			</div>
 
 		</div>
-
 	</div>
 
 	<s:include value="footer.jsp" />

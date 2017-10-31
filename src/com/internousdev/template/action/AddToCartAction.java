@@ -17,15 +17,7 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 
 	private int userId;
 
-	private String itemName;
-
-	private String itemImage;
-
-	private int itemPrice;
-
 	private int itemCount;
-
-	private int subtotal;
 
 	private int totalPrice;
 
@@ -96,35 +88,11 @@ public class AddToCartAction extends ActionSupport implements SessionAware{
 	public void setItemId(int itemId){
 		this.itemId = itemId;
 	}
-	public String getItemName(){
-		return itemName;
-	}
-	public void setItemName(String itemName){
-		this.itemName = itemName;
-	}
-	public String getItemImage(){
-		return itemImage;
-	}
-	public void setItemImage(String itemImage){
-		this.itemImage = itemImage;
-	}
-	public int getItemPrice(){
-		return itemPrice;
-	}
-	public void setItemPrice(int itemPrice){
-		this.itemPrice = itemPrice;
-	}
 	public int getItemCount(){
 		return itemCount;
 	}
 	public void setItemCount(int itemCount){
 		this.itemCount = itemCount;
-	}
-	public int getSubtotal(){
-		return subtotal;
-	}
-	public void setSubtotal(int subtotal){
-		this.subtotal = subtotal;
 	}
 	public int getTotalPrice(){
 		return totalPrice;

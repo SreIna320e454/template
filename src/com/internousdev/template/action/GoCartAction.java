@@ -16,16 +16,6 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 
 	private int userId;
 
-	private String itemName;
-
-	private String itemImage;
-
-	private int itemPrice;
-
-	private int itemCount;
-
-	private String categoryName;
-
 	private int totalPrice;
 
 	private ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
@@ -78,36 +68,6 @@ public class GoCartAction extends ActionSupport implements SessionAware{
 	}
 	public void setUserId(int userId){
 		this.userId = userId;
-	}
-	public String getItemName(){
-		return itemName;
-	}
-	public void setItemName(String itemName){
-		this.itemName = itemName;
-	}
-	public String getItemImage(){
-		return itemImage;
-	}
-	public void setItemImage(String itemImage){
-		this.itemImage = itemImage;
-	}
-	public int getItemPrice(){
-		return itemPrice;
-	}
-	public void setItemPrice(int itemPrice){
-		this.itemPrice = itemPrice;
-	}
-	public int getItemCount(){
-		return itemCount;
-	}
-	public void setItemCount(int itemCount){
-		this.itemCount = itemCount;
-	}
-	public String getCategoryName(){
-		return categoryName;
-	}
-	public void setCategoryName(String categoryName){
-		this.categoryName = categoryName;
 	}
 	public int getTotalPrice(){
 		return totalPrice;

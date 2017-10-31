@@ -117,6 +117,7 @@
 	    				placeholder="ここに入力してください(800字まで)"></textarea>
 					</div>
 					<input type="hidden" name="itemId" value=${itemId} />
+					<input type="hidden" name="categoryName" value=${categoryName} />
 					<font size="3" color="red"><s:property value="errorMessage" /></font>
 					<s:submit id="submitButton" value="この内容で送信する" />
 				</s:form>

@@ -16,15 +16,7 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
 
-	private String itemName;
-
-	private int itemPrice;
-
-	private String itemImage;
-
 	private String categoryName;
-
-	private int itemStock;
 
 	private ItemDTO getItemInfo = new ItemDTO();
 
@@ -61,35 +53,11 @@ public class GoItemDetailAction extends ActionSupport implements SessionAware{
     public void setItemId(int itemId) {
         this.itemId = itemId;
     }
-    public String getItemName() {
-        return itemName;
-    }
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-    public int getItemPrice() {
-        return itemPrice;
-    }
-    public void setItemPrice(int itemPrice) {
-        this.itemPrice = itemPrice;
-    }
-    public String getItemImage() {
-        return itemImage;
-    }
-    public void setItemImage(String itemImage) {
-        this.itemImage = itemImage;
-    }
     public String getCategoryName() {
         return categoryName;
     }
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
-    }
-    public int getItemStock() {
-        return itemStock;
-    }
-    public void setItemStocks(int itemStock) {
-        this.itemStock = itemStock;
     }
 	public ArrayList<CommentDTO> getGetComment(){
 		return getComment;

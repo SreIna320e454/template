@@ -12,10 +12,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoItemViewAction extends ActionSupport implements SessionAware{
 
-	private String categoryName;
-
-	private String categoryImage;
-
 	private Map<String, Object> session = new HashMap<>();
 
 	ArrayList<ItemDTO> getCategoryInfo = new ArrayList<ItemDTO>();
@@ -38,19 +34,6 @@ public class GoItemViewAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
-
-	public String getCategoryImage(){
-		return categoryImage;
-	}
-	public void setCategoryImage(String categoryImage){
-		this.categoryImage = categoryImage;
-	}
-	public String getCategoryName(){
-		return categoryName;
-	}
-	public void setCategoryName(String categoryName){
-		this.categoryName = categoryName;
-	}
 	public ArrayList<ItemDTO> getGetCategoryInfo(){
 		return getCategoryInfo;
 	}

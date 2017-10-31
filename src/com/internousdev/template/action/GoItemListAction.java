@@ -14,13 +14,7 @@ public class GoItemListAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
 
-	private String itemName;
-
-	private int itemPrice;
-
 	private String categoryName;
-
-	private String itemImage;
 
     public ArrayList<ItemDTO> getItemInfo = new ArrayList<ItemDTO>();
 
@@ -51,29 +45,11 @@ public class GoItemListAction extends ActionSupport implements SessionAware{
 	public void setItemId(int itemId){
 		this.itemId = itemId;
 	}
-	public String getItemName(){
-		return itemName;
-	}
-	public void setItemName(String itemName){
-		this.itemName = itemName;
-	}
-	public int getItemPrice(){
-		return itemPrice;
-	}
-	public void setItemPrice(int itemPrice){
-		this.itemPrice = itemPrice;
-	}
 	public String getCategoryName(){
 		return categoryName;
 	}
 	public void setCategoryName(String categoryName){
 		this.categoryName = categoryName;
-	}
-	public String getItemImage(){
-		return itemImage;
-	}
-	public void setItemImage(String itemImage){
-		this.itemImage = itemImage;
 	}
     public ArrayList<ItemDTO> getGetItemInfo() {
         return getItemInfo;

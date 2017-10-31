@@ -24,19 +24,9 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 
 	private int itemId;
 
-	private String itemName;
-
-	private int itemPrice;
-
-	private String itemImage;
-
 	private String categoryName;
 
-	private int itemStock;
-
 	private String itemComment;
-
-	private String commentDate;
 
 	private String errorMessage;
 
@@ -164,47 +154,17 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
     public void setItemId(int itemId) {
         this.itemId = itemId;
     }
-    public String getItemName() {
-        return itemName;
-    }
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-    public int getItemPrice() {
-        return itemPrice;
-    }
-    public void setItemPrice(int itemPrice) {
-        this.itemPrice = itemPrice;
-    }
-    public String getItemImage() {
-        return itemImage;
-    }
-    public void setItemImage(String itemImage) {
-        this.itemImage = itemImage;
-    }
     public String getCategoryName() {
         return categoryName;
     }
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
-    public int getItemStock() {
-        return itemStock;
-    }
-    public void setItemStocks(int itemStock) {
-        this.itemStock = itemStock;
-    }
     public String getItemComment() {
         return itemComment;
     }
     public void setItemComment(String itemComment) {
         this.itemComment = itemComment;
-    }
-    public String getCommentDate() {
-        return commentDate;
-    }
-    public void setCommentDate(String commentDate) {
-        this.commentDate = commentDate;
     }
     public String getErrorMessage() {
         return errorMessage;

@@ -14,8 +14,11 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoBuyItemComplateAction extends ActionSupport implements SessionAware{
 
 	int userId;
+
 	int totalPrice;
+
 	int pay;
+
 	private Map<String, Object> session;
 
 	/**
