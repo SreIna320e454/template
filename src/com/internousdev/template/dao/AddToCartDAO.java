@@ -64,7 +64,7 @@ public class AddToCartDAO {
 			ps.setInt(1, userId);
 			ps.setInt(2, itemId);
 			ps.setInt(3,itemCount);
-			ps.executeUpdate();
+			ps.execute();
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{

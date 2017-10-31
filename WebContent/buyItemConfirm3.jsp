@@ -101,9 +101,11 @@
 		</div>
 		<div style="clear:left;">
 			<a><font size="6">合計:<s:property value="totalPriceAddCommission" />円</font></a>
+			<s:form action="GoBuyItemComplateAction">
 				<input type="hidden" name="totalPrice" value=<s:property value="totalPrice" /> />
 				<input type="hidden" name="pay" value=<s:property value="pay" /> />
 			<s:submit value="この内容で購入を確定する" />
+			</s:form>
 		</div>
 	</div>
 

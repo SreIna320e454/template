@@ -81,7 +81,7 @@ create table user_buy_item_transaction(
 user_buy_item_id int not null primary key auto_increment,
 user_id int,
 total_price int,
-pay varchar(30),
+pay int,
 item_id int,
 item_count int,
 item_price int,

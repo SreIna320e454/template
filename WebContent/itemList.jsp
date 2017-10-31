@@ -27,10 +27,11 @@
 		</div>
 
 	<!--
-		購入画面購入完了、ユーザーインフォ) 購入完了でテーブルに格納するもの→支払い方法、アイテムId 個数
+		購入画面購入完了、ユーザーインフォ)
 		カートの同一商品がまとめられてない2
 	 	多重ログイン禁止2
 	 	不要なクラスを削除
+	 	sorthighとlowを１つのクラスにまとめる
 	-->
 
 	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
