@@ -27,7 +27,7 @@ public class GoBuyItemComplateDAO {
 		DateUtil dateUtil = new DateUtil();
 
 		String sqlA = "INSERT INTO user_buy_item_transaction(user_id, total_price, pay, insert_date) VALUES(?,?,?,?)";
-		String sqlB = "INSERT INTO user_buy_item_transaction2(user_buy_item_id,item_id, item_count, item_price) VALUES(?,?,?,?)";
+		String sqlB = "INSERT INTO user_buy_item_transaction2(user_buy_item_id, user_id, item_id, item_name, item_count, item_price) VALUES(?,?,?,?,?,?)";
 
 		try{
 			PreparedStatement psA = con.prepareStatement(sqlA, java.sql.Statement.RETURN_GENERATED_KEYS);
@@ -48,9 +48,11 @@ public class GoBuyItemComplateDAO {
 			for(int i=0; i < getCartItemInfo.size(); i++){
 				PreparedStatement psB  = con.prepareStatement(sqlB);
 				psB.setInt(1, BuyItemId);
-				psB.setInt(2, getCartItemInfo.get(i).getItemId());
-				psB.setInt(3, getCartItemInfo.get(i).getItemCount());
-				psB.setInt(4, getCartItemInfo.get(i).getItemPrice());
+				psB.setInt(2, userId);
+				psB.setInt(3, getCartItemInfo.get(i).getItemId());
+				psB.setString(4, getCartItemInfo.get(i).getItemName());
+				psB.setInt(5, getCartItemInfo.get(i).getItemCount());
+				psB.setInt(6, getCartItemInfo.get(i).getItemPrice());
 				countCheck = psB.executeUpdate();
 			}
 		}catch(Exception e){

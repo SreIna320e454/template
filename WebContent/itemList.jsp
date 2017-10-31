@@ -32,7 +32,8 @@
 	 	購入完了DAOをもう一度確認 daoクラスも長いやつにはわかりやすい説明を
 	 	いらないprivateもう一度確認
 	 	購入履歴から詳細へ飛べる？ 2
-	 	ｺﾒﾝﾄｱｸｼｮﾝを確認
+	 	ｺﾒﾝﾄｱｸｼｮﾝに不具合
+	 	確認画面のレイアウト
 	-->
 
 	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceAction"><s:param name="categoryName" value="%{categoryName}" /><s:param name="sort" value="%{'low'}" /></s:url>">価格の安い順/</a>

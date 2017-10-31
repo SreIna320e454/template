@@ -26,9 +26,8 @@ public class MyPageDAO {
 
 		ArrayList<MyPageDTO> getMyPageInfo = new ArrayList<MyPageDTO>();
 
-		String sqlA = "SELECT * FROM user_buy_item_transaction WHERE user_id=?";
-		String sqlB = "SELECT * FROM user_buy_item_transaction2 WHERE user_buy_item_id=?";
-		String sqlC = "SELECT * FROM item_info_transaction WHERE item_id=?";
+		String sqlA = "SELECT * FROM user_buy_item_transaction2 WHERE user_id=?";
+		String sqlB = "SELECT * FROM user_buy_item_transaction WHERE user_id=?";
 
 		try{
 			PreparedStatement psA = con.prepareStatement(sqlA);
@@ -40,21 +39,16 @@ public class MyPageDAO {
 				myPageDTO.setTotalPrice(rsA.getInt("total_price"));
 				myPageDTO.setPay(rsA.getInt("pay"));
 				myPageDTO.setInsertDate(rsA.getString("insert_date"));
+				getMyPageInfo.add(myPageDTO);
 
 				PreparedStatement psB = con.prepareStatement(sqlB);
 				psB.setInt(1, myPageDTO.getUserBuyItemId());
 				ResultSet rsB = psB.executeQuery();
 				while(rsB.next()){
 					myPageDTO.setItemId(rsB.getInt("item_id"));
+					myPageDTO.setItemName(rsB.getString("item_name"));
 					myPageDTO.setItemCount(rsB.getInt("item_count"));
 					myPageDTO.setItemPrice(rsB.getInt("item_price"));
-
-					PreparedStatement psC = con.prepareStatement(sqlC);
-					psC.setInt(1, myPageDTO.getItemId());
-					ResultSet rsC = psC.executeQuery();
-					while(rsC.next()){
-						myPageDTO.setItemName(rsC.getString("item_name"));
-					}
 				}
 			}
 		}catch(Exception e){
