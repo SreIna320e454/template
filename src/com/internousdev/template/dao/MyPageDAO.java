@@ -44,9 +44,9 @@ public class MyPageDAO {
 				PreparedStatement psB = con.prepareStatement(sqlB);
 				psB.setInt(1, myPageDTO.getUserBuyItemId());
 				ResultSet rsB = psB.executeQuery();
-				while(rsB.next()){
+				if(rsB.next()){
 					myPageDTO.setTotalPrice(rsB.getInt("total_price"));
-					myPageDTO.setPay(rsB.getInt("pay"));
+					myPageDTO.setPay(rsB.getString("pay"));
 					myPageDTO.setInsertDate(rsB.getString("insert_date"));
 				}
 			}

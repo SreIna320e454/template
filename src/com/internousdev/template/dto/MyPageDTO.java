@@ -8,7 +8,7 @@ public class MyPageDTO {
 
 	private int totalPrice;
 
-	private int pay;
+	private String pay;
 
 	private String insertDate;
 
@@ -42,11 +42,17 @@ public class MyPageDTO {
 		this.totalPrice = totalPrice;
 	}
 
-	public int getPay() {
-		return pay;
+	public String getPay() {
+		if(pay.equals("1")){
+			pay = "現金払い";
+			return pay;
+		}else{
+			pay = "クレジットカード払い";
+			return pay;
+		}
 	}
 
-	public void setPay(int pay) {
+	public void setPay(String pay) {
 		this.pay = pay;
 	}
 

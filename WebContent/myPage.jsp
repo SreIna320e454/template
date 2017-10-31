@@ -32,8 +32,8 @@
 
 		<s:else>
 			<h3>ご購入情報は以下になります。</h3>
-			<table border="1">
-				<tr>
+			<table>
+				<tr bgcolor="#f5f5f5">
 					<th>商品名</th>
 					<th>値段</th>
 					<th>購入個数</th>
@@ -51,18 +51,8 @@
 						<td><s:property value="totalPrice" />円</td>
 					</tr>
 				</s:iterator>
-				</table>
-
-			<s:form action="MyPageAction">
-				<input type="hidden" name="deleteFlg" value="1">
-				<s:submit value="削除" method="delete" />
-			</s:form>
-
+			</table>
 		</s:else>
-
-		<s:if test="message != null">
-			<h3><s:property value="message"/></h3>
-		</s:if>
 
 		<div id="text-right">
 			<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></p>

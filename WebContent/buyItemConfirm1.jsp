@@ -37,7 +37,7 @@
 						<table>
 							<thead>
 								<tr>
-									<th width="50" height="30">商品</th>
+									<th width="250" height="30">商品</th>
 									<th width="30" height="30">値段</th>
 									<th width="30" height="30">個数</th>
 								</tr>

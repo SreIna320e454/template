@@ -87,48 +87,60 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 
 			}else{
 				/*
-				 * レビューの投稿間隔を比較し、短い場合はエラーメッセージを返す
+				 * 以下で、レビューの投稿間隔を比較する処理を行う
 				 */
-
-					/*
-					 * 前回のレビュー投稿時間を取得
-					 * String型 → Date型 → long型に変換
-					 */
 					getBeforeDate = itemCommentDAO.getBeforeDate(userName);
-					Date beforeDate = sdf.parse(getBeforeDate.getGetBeforeDate());
-					long beforeDate2 = beforeDate.getTime();
 
 					/*
-					 * 現在の時間を取得
-					 * Date型 → long型に変換
+					 * 初めてレビューをする場合の処理
 					 */
-					Date nowDate = new Date();
-					long nowDate2 = nowDate.getTime();
+					if(getBeforeDate.getGetBeforeDate()==null){
 
-					/*
-					 * 前回の投稿時間と今回の投稿時間を比較し、３０秒未満であればエラーを返す
-					 */
-					long timeDifference = (nowDate2 - beforeDate2) / (1000);
+						/* レビューをDBに格納 */
+						addComment.addComment(itemId, userName, itemComment);
 
-					if(timeDifference < 30){
+						/* レビュー情報を取得 */
 						getComment = itemCommentDAO.getComment(itemId);
-						errorMessage = "レビュー失敗 30秒未満の連続投稿はできません";
 						result = SUCCESS;
 						return result;
 
 					}else{
 
 						/*
-						 * レビューをDBに格納
+						 * 前回のレビュー投稿時間を取得
+						 * String型 → Date型 → long型に変換
 						 */
-						addComment.addComment(itemId, userName, itemComment);
+						Date beforeDate = sdf.parse(getBeforeDate.getGetBeforeDate());
+						long beforeDate2 = beforeDate.getTime();
 
 						/*
-						 * レビュー情報を取得
+						 * 現在の時間を取得
+						 * Date型 → long型に変換
 						 */
-						getComment = itemCommentDAO.getComment(itemId);
-						result = SUCCESS;
-						return result;
+						Date nowDate = new Date();
+						long nowDate2 = nowDate.getTime();
+
+						/*
+						 * 前回の投稿時間と今回の投稿時間を比較し、３０秒未満であればエラーを返す
+						 */
+						long timeDifference = (nowDate2 - beforeDate2) / (1000);
+
+						if(timeDifference < 30){
+							getComment = itemCommentDAO.getComment(itemId);
+							errorMessage = "レビュー失敗 30秒未満の連続投稿はできません";
+							result = SUCCESS;
+							return result;
+
+						}else{
+
+							/* レビューをDBに格納 */
+							addComment.addComment(itemId, userName, itemComment);
+
+							/* レビュー情報を取得 */
+							getComment = itemCommentDAO.getComment(itemId);
+							result = SUCCESS;
+							return result;
+						}
 					}
 			}
 		}
