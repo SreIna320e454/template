@@ -5,6 +5,7 @@ drop database if exists ecsite;
 create database if not exists ecsite;
 use ecsite;
 
+/* 商品カテゴリ */
 create table item_categories_transaction(
 category_id int not null primary key auto_increment,
 category_name varchar(10) not null,
@@ -13,6 +14,7 @@ insert_date datetime,
 update_date datetime
 );
 
+/* 商品情報 */
 create table item_info_transaction(
 item_id int not null primary key auto_increment,
 item_name varchar(50),
@@ -27,6 +29,7 @@ update_date datetime,
 foreign key(category_id)references item_categories_transaction(category_id)
 );
 
+/* ユーザー商品レビュー情報 */
 create table item_comment_transaction(
 comment_id int not null primary key auto_increment,
 user_id int,
@@ -41,6 +44,7 @@ foreign key(user_id)references login_user_transaction(user_id),
 foreign key(item_id)references item_info_transaction(item_id)
 );
 
+/* ユーザーカート情報 */
 create table cart_list_transaction(
 cart_id int not null primary key auto_increment,
 item_id int,
@@ -53,6 +57,7 @@ foreign key(item_id)references item_info_transaction(item_id),
 foreign key(user_id)references login_user_transaction(user_id)
 );
 
+/* ユーザーアカウント */
 create table login_user_transaction(
 user_id int not null primary key auto_increment,
 login_id varchar(16) unique,
@@ -62,6 +67,7 @@ insert_date datetime,
 updated_date datetime
 );
 
+/* ユーザー個人情報 */
 create table user_information(
 user_information_id int not null primary key auto_increment,
 user_id int,
@@ -77,21 +83,31 @@ updated_date datetime,
 foreign key(user_id)references login_user_transaction(user_id)
 );
 
+/* ユーザー購入情報 */
 create table user_buy_item_transaction(
 user_buy_item_id int not null primary key auto_increment,
 user_id int,
 total_price int,
 pay int,
+insert_date datetime,
+delete_date datetime,
+
+foreign key(user_id)references login_user_transaction(user_id)
+);
+
+/* ユーザー購入情報2(購入商品の詳細) */
+create table user_buy_item_transaction2(
+user_buy_item2_id int not null primary key auto_increment,
+user_buy_item_id int,
 item_id int,
 item_count int,
 item_price int,
 insert_date datetime,
 delete_date datetime,
 
-foreign key(user_id)references login_user_transaction(user_id),
+foreign key(user_buy_item_id)references user_buy_item_transaction(user_buy_item_id),
 foreign key(item_id)references item_info_transaction(item_id)
 );
-
 
 /*商品分類*/
 INSERT INTO item_categories_transaction(category_name, category_image) values

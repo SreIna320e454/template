@@ -50,13 +50,12 @@
 										<td><s:property value="itemCount" /><a>個</a></td>
 									</tr>
 								</s:iterator>
-
 							</tbody>
 						</table>
 						<table>
 							<tr>
-								<td>小計:<s:property value="totalPrice" /></td>
-								<td>手数料:350円</td>
+								<td width="250"></td>
+								<td>小計:<s:property value="totalPrice" /><a> / 手数料:350円</a></td>
 							</tr>
 						</table>
 					</s:form>
@@ -64,7 +63,7 @@
 
 			</div>
 			<div id="containerRight">
-				<div class="block">住所・支払い方法選択</div>
+				<div class="block">住所</div>
 					<div id="CustomerInfo">
 						<table>
 							<thead>

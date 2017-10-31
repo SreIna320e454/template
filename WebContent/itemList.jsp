@@ -27,11 +27,12 @@
 		</div>
 
 	<!--
-		購入画面購入完了、ユーザーインフォ)
+		購入履歴画面
 		カートの同一商品がまとめられてない2
 	 	多重ログイン禁止2
-	 	不要なクラスを削除
 	 	sorthighとlowを１つのクラスにまとめる
+	 	郵便番号を１つにまとめる
+	 	購入完了DAOをもう一度確認
 	-->
 
 	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>

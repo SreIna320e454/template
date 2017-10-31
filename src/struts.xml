@@ -55,13 +55,13 @@
 			<result name="error">itemView.jsp</result>
 		</action>
 
-		<!-- SortItemPriceAction -->
+		<!-- SortItemPriceLowAction -->
 		<action name="SortPriceLowAction" class="com.internousdev.template.action.SortPriceLowAction" method="execute">
 			<result>itemList.jsp</result>
 			<result name="error">itemView.jsp</result>
 		</action>
 
-		<!-- SortItemPriceAction -->
+		<!-- SortItemPriceHighAction -->
 		<action name="SortPriceHighAction" class="com.internousdev.template.action.SortPriceHighAction" method="execute">
 			<result>itemList.jsp</result>
 			<result name="error">itemView.jsp</result>
@@ -128,17 +128,6 @@
 			<result>buyItemComplate.jsp</result>
 			<result name="error">error.jsp</result>
 			<result name="login">login.jsp</result>
-		</action>
-
-		<!-- BuyItemConfirmAction -->
-		<action name="BuyItemConfirmAction" class="com.internousdev.template.action.BuyItemConfirmAction" method="execute">
-			<result>buyItemComplate.jsp</result>
-			<result name="back">itemView.jsp</result>
-		</action>
-
-		<!-- BuyItemComplateAction -->
-		<action name="BuyItemComplateAction" class="com.internousdev.template.action.BuyItemComplateAction" method="execute">
-			<result>home.jsp</result>
 		</action>
 
 		<!-- MyPageAction -->

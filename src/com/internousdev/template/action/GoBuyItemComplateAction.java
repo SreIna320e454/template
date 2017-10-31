@@ -18,12 +18,14 @@ public class GoBuyItemComplateAction extends ActionSupport implements SessionAwa
 	int pay;
 	private Map<String, Object> session;
 
+	/**
+	 * 購入完了画面へ遷移するアクション
+	 */
 	public String execute()throws SQLException{
 
 		String result = SUCCESS;
 
 		ArrayList<CartDTO> getCartItemInfo = new ArrayList<CartDTO>();
-
 		AddToCartDAO addToCartDAO = new AddToCartDAO();
 		GoBuyItemComplateDAO goBuyItemComplateDAO = new GoBuyItemComplateDAO();
 

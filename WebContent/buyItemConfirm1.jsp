@@ -37,8 +37,8 @@
 						<table>
 							<thead>
 								<tr>
-									<th width="100" height="30">商品</th>
-									<th width="50" height="30">値段</th>
+									<th width="90" height="30">商品</th>
+									<th width="30" height="30">値段</th>
 									<th width="30" height="30">個数</th>
 								</tr>
 							</thead>
@@ -50,12 +50,13 @@
 										<td><s:property value="itemCount" /><a>個</a></td>
 									</tr>
 								</s:iterator>
-								<tr>
-									<td></td>
-									<td><a>合計:</a><s:property value="totalPrice" /><a>円</a></td>
-									<td></td>
-								</tr>
 							</tbody>
+						</table>
+						<table>
+							<tr>
+								<th width="350"></th>
+								<th><a>合計:</a><s:property value="totalPrice" /><a>円</a></th>
+							</tr>
 						</table>
 					</s:form>
 				</s:if>
