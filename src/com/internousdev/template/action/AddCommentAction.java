@@ -79,13 +79,16 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 			/*
 			 * レビューに何も入力されていない場合エラーメッセージを返す
 			 */
-			if(itemComment==null || itemComment.equals(" ")){
+			if(itemComment==null || itemComment.equals("")){
 				getComment = itemCommentDAO.getComment(itemId);
 				errorMessage = "レビュー失敗 レビューを入力してください";
 				result = SUCCESS;
 				return result;
 
 			}else{
+				/*
+				 * レビューの投稿間隔を比較し、短い場合はエラーメッセージを返す
+				 */
 
 					/*
 					 * 前回のレビュー投稿時間を取得

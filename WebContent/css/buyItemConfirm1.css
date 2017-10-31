@@ -25,10 +25,10 @@ body {
 }
 #container{
 	margin:auto;
-	width:900px;
+	width:910px;
 }
 #containerLeft{
- float:left;
+	 float:left;
 }
 #containerRight{
 	float:right;

@@ -39,14 +39,16 @@
 					<th>購入個数</th>
 					<th>支払い方法</th>
 					<th>購入日</th>
+					<th>合計</th>
 				</tr>
 				<s:iterator value="getMyPageInfo">
 					<tr>
 						<td><s:property value="itemName" /></td>
-						<td><s:property value="totalPrice" /><span>円</span></td>
+						<td><s:property value="itemPrice" /><span>円</span></td>
 						<td><s:property value="itemCount" /><span>個</span></td>
 						<td><s:property value="pay" /></td>
 						<td><s:property value="insertDate" /></td>
+						<td><s:property value="totalPrice" />円</td>
 					</tr>
 				</s:iterator>
 				</table>

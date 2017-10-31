@@ -36,20 +36,20 @@ public class MyPageDAO {
 			while(rsA.next()){
 				MyPageDTO myPageDTO = new MyPageDTO();
 				myPageDTO.setUserBuyItemId(rsA.getInt("user_buy_item_id"));
-				myPageDTO.setTotalPrice(rsA.getInt("total_price"));
-				myPageDTO.setPay(rsA.getInt("pay"));
-				myPageDTO.setInsertDate(rsA.getString("insert_date"));
-				getMyPageInfo.add(myPageDTO);
+				myPageDTO.setItemId(rsA.getInt("item_id"));
+				myPageDTO.setItemName(rsA.getString("item_name"));
+				myPageDTO.setItemCount(rsA.getInt("item_count"));
+				myPageDTO.setItemPrice(rsA.getInt("item_price"));
 
 				PreparedStatement psB = con.prepareStatement(sqlB);
 				psB.setInt(1, myPageDTO.getUserBuyItemId());
 				ResultSet rsB = psB.executeQuery();
 				while(rsB.next()){
-					myPageDTO.setItemId(rsB.getInt("item_id"));
-					myPageDTO.setItemName(rsB.getString("item_name"));
-					myPageDTO.setItemCount(rsB.getInt("item_count"));
-					myPageDTO.setItemPrice(rsB.getInt("item_price"));
+					myPageDTO.setTotalPrice(rsB.getInt("total_price"));
+					myPageDTO.setPay(rsB.getInt("pay"));
+					myPageDTO.setInsertDate(rsB.getString("insert_date"));
 				}
+				getMyPageInfo.add(myPageDTO);
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -58,14 +58,4 @@ public class MyPageDAO {
 		}
 		return getMyPageInfo;
 	}
-
-	/**
-	 * 商品履歴削除
-	 *
-	 * @param item_transaction_id
-	 * @param user_master_id
-	 * @return
-	 * @throws SQLException
-	 */
-
 }
