@@ -19,31 +19,30 @@ public class GoBuyItemConfirmNextDAO {
 	 * @param streetAddressB
 	 * @param streetAddressC
 	 */
-	public int setUserInfo(int userId, int postcodeA, int postcodeB, String prefectures, String streetAddressA, String streetAddressB, String streetAddressC)throws SQLException{
+	public int setUserInfo(int userId, String postcode, String prefectures, String streetAddressA, String streetAddressB, String streetAddressC)throws SQLException{
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
-		String sql = "INSERT INTO user_information(user_id, postcode_a, postcode_b, prefectures, street_address_a, street_address_b, street_address_c) VALUES(?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO user_information(user_id, postcode, prefectures, street_address_a, street_address_b, street_address_c) VALUES(?,?,?,?,?,?)";
 
-		int countTest = 0;
+		int countCheck = 0;
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, userId);
-			ps.setInt(2, postcodeA);
-			ps.setInt(3, postcodeB);
-			ps.setString(4, prefectures);
-			ps.setString(5, streetAddressA);
-			ps.setString(6, streetAddressB);
-			ps.setString(7, streetAddressC);
-			countTest = ps.executeUpdate();
+			ps.setString(2, postcode);
+			ps.setString(3, prefectures);
+			ps.setString(4, streetAddressA);
+			ps.setString(5, streetAddressB);
+			ps.setString(6, streetAddressC);
+			countCheck = ps.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
 			con.close();
 		}
-		return countTest;
+		return countCheck;
 	}
 
 	/**
@@ -65,8 +64,7 @@ public class GoBuyItemConfirmNextDAO {
 			ps.setInt(1, userId);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
-				userInfoDTO.setPostCodeA(rs.getInt("postcode_a"));
-				userInfoDTO.setPostCodeB(rs.getInt("postcode_b"));
+				userInfoDTO.setPostcode(rs.getString("postcode"));
 				userInfoDTO.setPrefectures(rs.getString("prefectures"));
 				userInfoDTO.setStreetAddressA(rs.getString("street_address_a"));
 				userInfoDTO.setStreetAddressB(rs.getString("street_address_b"));

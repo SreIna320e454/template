@@ -31,12 +31,12 @@
 		カートの同一商品がまとめられてない2
 	 	多重ログイン禁止2
 	 	sorthighとlowを１つのクラスにまとめる
-	 	郵便番号を１つにまとめる
 	 	購入完了DAOをもう一度確認
+	 	ログインに失敗しました
 	-->
 
-	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceLowAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>">価格の安い順/</a>
-	<a class="btnClick" href='<s:url action="SortPriceHighAction"><s:param name="categoryName" value="%{categoryName}" /></s:url>'>価格の高い順</a>
+	<a>ソート:</a><a class="btnClick" href="<s:url action="SortPriceAction"><s:param name="categoryName" value="%{categoryName}" /><s:param name="sort" value="%{'low'}" /></s:url>">価格の安い順/</a>
+	<a class="btnClick" href='<s:url action="SortPriceAction"><s:param name="categoryName" value="%{categoryName}" /><s:param name="sort" value="%{'high'}" /></s:url>'>価格の高い順</a>
 
 
 	<div id="hoge">

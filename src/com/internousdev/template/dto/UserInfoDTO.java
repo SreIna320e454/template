@@ -3,25 +3,25 @@ package com.internousdev.template.dto;
 public class UserInfoDTO {
 
 	/**
-	 * 郵便番号(3ケタ)
+	 * 郵便番号
 	 */
-	private int postCodeA;
-	/**
-	 * 郵便番号(4ケタ)
-	 */
-	private int postCodeB;
+	private String postcode;
+
 	/**
 	 * 都道府県
 	 */
 	private String prefectures;
+
 	/**
 	 * 市区町村
 	 */
 	private String streetAddressA;
+
 	/**
 	 * 住居番号
 	 */
 	private String streetAddressB;
+
 	/**
 	 * マンション等名
 	 */
@@ -29,17 +29,11 @@ public class UserInfoDTO {
 
 	private int pay;
 
-	public int getPostCodeA(){
-		return postCodeA;
+	public String getPostcode(){
+		return postcode;
 	}
-	public void setPostCodeA(int postCodeA){
-		this.postCodeA = postCodeA;
-	}
-	public int getPostCodeB(){
-		return postCodeB;
-	}
-	public void setPostCodeB(int postCodeB){
-		this.postCodeB = postCodeB;
+	public void setPostcode(String postcode){
+		this.postcode = postcode;
 	}
 	public String getPrefectures(){
 		return prefectures;

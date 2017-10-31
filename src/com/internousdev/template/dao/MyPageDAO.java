@@ -10,9 +10,10 @@ import com.internousdev.template.dto.MyPageDTO;
 import com.internousdev.template.util.DBConnector;
 
 public class MyPageDAO {
-	private DBConnector dbConnector = new DBConnector();
 
-	private Connection connection = dbConnector.getConnection();
+	private DBConnector db = new DBConnector();
+
+	private Connection con = db.getConnection();
 
 	/**
 	 * 商品履歴取得
@@ -28,7 +29,7 @@ public class MyPageDAO {
 		String sql = "SELECT ubit.user_id, iit.item_name, ubit.total_price, ubit.total_count, ubit.pay, ubit.insert_date FROM user_buy_item_transaction ubit LEFT JOIN item_info_transaction iit ON ubit.item_transaction_id = iit.id where ubit.item_transaction_id  = ? AND ubit.user_master_id  = ? ORDER BY insert_date DESC";
 
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			PreparedStatement preparedStatement = con.prepareStatement(sql);
 			preparedStatement.setString(1, item_transaction_id);
 			preparedStatement.setString(2, user_master_id);
 
@@ -48,7 +49,7 @@ public class MyPageDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			connection.close();
+			con.close();
 		}
 
 		return myPageDTO;
@@ -69,7 +70,7 @@ public class MyPageDAO {
 		PreparedStatement preparedStatement;
 		int result =0;
 		try {
-			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement = con.prepareStatement(sql);
 			preparedStatement.setString(1, item_transaction_id);
 			preparedStatement.setString(2, user_master_id);
 
@@ -78,7 +79,7 @@ public class MyPageDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			connection.close();
+			con.close();
 		}
 
 		return result;

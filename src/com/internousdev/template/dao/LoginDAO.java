@@ -9,9 +9,9 @@ import com.internousdev.template.util.DBConnector;
 
 public class LoginDAO {
 
-	private DBConnector dbConnector = new DBConnector();
+	private DBConnector db = new DBConnector();
 
-	private Connection connection = dbConnector.getConnection();
+	private Connection con = db.getConnection();
 
 	private LoginDTO loginDTO = new LoginDTO();
 
@@ -27,7 +27,7 @@ public class LoginDAO {
 		String sql = "SELECT * FROM login_user_transaction where login_id = ? AND login_pass = ?";
 
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			PreparedStatement preparedStatement = con.prepareStatement(sql);
 			preparedStatement.setString(1, loginUserId);
 			preparedStatement.setString(2, loginPassword);
 

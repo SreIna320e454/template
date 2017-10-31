@@ -71,8 +71,7 @@ updated_date datetime
 create table user_information(
 user_information_id int not null primary key auto_increment,
 user_id int,
-postcode_a int,
-postcode_b int,
+postcode varchar(15),
 prefectures varchar(30),
 street_address_a varchar(30),
 street_address_b varchar(30),

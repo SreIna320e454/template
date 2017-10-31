@@ -66,12 +66,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		// ログイン情報を比較
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
-			result = SUCCESS;
 
-		// ユーザー情報をセッションに記入
+		// ユーザー情報をセッションに入力
 			session.put("login_user_id",	loginDTO.getUserId());
 			session.put("user_name", loginDTO.getUserName());
 
+			result = SUCCESS;
 			return result;
 		}
 		return result;

@@ -52,25 +52,19 @@
 		<!-- GoItemListAction -->
 		<action name="GoItemListAction" class="com.internousdev.template.action.GoItemListAction" method="execute">
 			<result>itemList.jsp</result>
-			<result name="error">itemView.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 
-		<!-- SortItemPriceLowAction -->
-		<action name="SortPriceLowAction" class="com.internousdev.template.action.SortPriceLowAction" method="execute">
+		<!-- SortItemPriceAction -->
+		<action name="SortPriceAction" class="com.internousdev.template.action.SortPriceAction" method="execute">
 			<result>itemList.jsp</result>
-			<result name="error">itemView.jsp</result>
-		</action>
-
-		<!-- SortItemPriceHighAction -->
-		<action name="SortPriceHighAction" class="com.internousdev.template.action.SortPriceHighAction" method="execute">
-			<result>itemList.jsp</result>
-			<result name="error">itemView.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 
 		<!-- GoItemDetailAction -->
 		<action name="GoItemDetailAction" class="com.internousdev.template.action.GoItemDetailAction" method="execute">
 			<result>itemDetail.jsp</result>
-			<result name="error">itemList.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 
 		<!-- AddCommentAction -->
@@ -84,7 +78,7 @@
 		<action name="AddToCartAction" class="com.internousdev.template.action.AddToCartAction" method="execute">
 			<result name="login">login.jsp</result>
 			<result>cart.jsp</result>
-			<result name="error">itemDetail.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 
 		<!-- GoCartAction -->

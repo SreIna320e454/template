@@ -16,9 +16,11 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 
 	private int userId;
 
-	private int postcodeA;
+	private String postcodeA;
 
-	private int postcodeB;
+	private String postcodeB;
+
+	private String postcode;
 
 	private String prefectures;
 
@@ -51,14 +53,19 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 			result = LOGIN;
 			return result;
 		}else{
+
 			/*
 			 * ユーザー情報をDBに格納、取得する
 			 */
 			userId = (int)session.get("login_user_id");
 
 			GoBuyItemConfirmNextDAO goBuyItemConfirmNextDAO = new GoBuyItemConfirmNextDAO();
-			int countTest =goBuyItemConfirmNextDAO.setUserInfo(userId, postcodeA, postcodeB, prefectures, streetAddressA, streetAddressB, streetAddressC);
-			if(countTest>0){
+
+			postcode = (postcodeA + "-" + postcodeB);
+
+			int countCheck =goBuyItemConfirmNextDAO.setUserInfo(userId, postcode, prefectures, streetAddressA, streetAddressB, streetAddressC);
+			if(countCheck>0){
+
 					/*
 					 * 現金払いの場合
 					 */
@@ -72,6 +79,7 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 
 						result = "buyItemConfirm3";
 						return result;
+
 						/*
 						 * クレジットカード払いの場合
 						 */
@@ -90,17 +98,23 @@ public class GoBuyItemConfirmNextAction extends ActionSupport implements Session
 	public void setUserId(int userId){
 		this.userId = userId;
 	}
-	public int getPostcodeA(){
+	public String getPostcodeA(){
 		return postcodeA;
 	}
-	public void setPostcodeA(int postcodeA){
+	public void setPostcodeA(String postcodeA){
 		this.postcodeA = postcodeA;
 	}
-	public int getPostcodeB(){
+	public String getPostcodeB(){
 		return postcodeB;
 	}
-	public void setPostcodeB(int postcodeB){
+	public void setPostcodeB(String postcodeB){
 		this.postcodeB = postcodeB;
+	}
+	public String getPostcode() {
+		return postcode;
+	}
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
 	}
 	public String getPrefectures(){
 		return prefectures;

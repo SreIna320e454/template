@@ -28,10 +28,12 @@
 			<div id="top">
 				<p>BuyItemConfirm2</p>
 			</div>
+			<p>クレジットカード情報入力用ページ(未実装)</p>
 
 		</div>
 	</div>
 	<s:include value="footer.jsp" />
+
 </body>
 
 </html>

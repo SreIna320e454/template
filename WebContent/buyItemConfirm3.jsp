@@ -75,7 +75,7 @@
 							<s:iterator value="getUserInfo">
 								<tr>
 									<td><a>郵便番号</a></td>
-									<td><s:property value="postCodeA" />-<s:property value="postCodeB" /></td>
+									<td><s:property value="postcode" /></td>
 								</tr>
 								<tr>
 									<td><a>住所</a></td>
