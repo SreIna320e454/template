@@ -117,7 +117,7 @@ public class AddCommentAction extends ActionSupport implements SessionAware{
 
 						if(timeDifference < 30){
 							getComment = itemCommentDAO.getComment(itemId);
-							errorMessage = "レビュー失敗 30秒未満の連続投稿はできません";
+							errorMessage = "！レビュー失敗 30秒未満の連続投稿はできません！";
 							result = SUCCESS;
 							return result;
 
